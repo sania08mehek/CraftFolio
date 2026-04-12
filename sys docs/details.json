@@ -1,0 +1,342 @@
+{
+  "agent_spec_version": "1.0",
+  "project": {
+    "name": "CraftFolio",
+    "description": "A web app that lets users pick color themes, reorder sections, fill in their data, and receive a single downloadable portfolio HTML file — no auth, no persistence, no deployment needed.",
+    "output_type": "single_file_html",
+    "tech_stack": {
+      "frontend": ["React 18", "Vite", "React Router v6", "dnd-kit", "Axios", "Context API"],
+      "backend": ["Python 3.11", "FastAPI", "Pydantic v2", "uvicorn"],
+      "library": ["HTML5", "CSS3 (custom properties only)", "Vanilla JS"]
+    }
+  },
+
+  "monorepo_structure": {
+    "root": "craftfolio/",
+    "layers": {
+      "layer_1_frontend": "craftfolio/frontend/",
+      "layer_2_backend": "craftfolio/backend/",
+      "layer_3_library": "craftfolio/library/"
+    },
+    "full_tree": {
+      "frontend/": {
+        "src/pages/": {
+          "Landing.jsx":    "Level 0 — hero page with Craft Now CTA button, redirects to /customize",
+          "Customizer.jsx": "Level 1 — theme picker + drag-drop section reorder + layout selector per section",
+          "UserForm.jsx":   "Level 2 — multi-step form collecting all user data fields",
+          "Loading.jsx":    "Level 3 — build animation, fires POST /generate, enforces 5000ms minimum display",
+          "Output.jsx":     "Level 4 — iframe (srcDoc) preview + download HTML button + copy code button"
+        },
+        "src/components/": {
+          "ThemePicker.jsx":     "Renders 10 swatches split into Light (5) and Dark (5) tabs",
+          "SectionReorder.jsx":  "dnd-kit DragDropContext list; each item has visibility toggle (exclude) + layout selector (1/2/3)",
+          "LayoutSelector.jsx":  "Renders 3 mini thumbnail previews per section, highlights active selection",
+          "IframePreview.jsx":   "Wraps iframe with srcDoc prop and sandbox='allow-scripts allow-same-origin'"
+        },
+        "src/context/": {
+          "CraftContext.jsx": "Global state provider — exposes: customization, setCustomization, userData, setUserData, generatedHtml, setGeneratedHtml"
+        },
+        "src/api/": {
+          "craftApi.js": "Single function: generatePortfolio(customization, userData) → axios POST /generate → returns data.html string"
+        },
+        "src/App.jsx":    "React Router routes: / | /customize | /form | /loading | /output",
+        "src/main.jsx":   "Vite entry, wraps App in CraftProvider",
+        "vite.config.js": "Dev proxy: /generate → http://localhost:8000"
+      },
+      "backend/": {
+        "main.py":              "FastAPI app init, CORS middleware (allow_origins localhost:5173), includes router",
+        "models.py":            "Pydantic v2 models: GenerateRequest, GenerateResponse, Customization, UserData, Project, Certification",
+        "generator/__init__.py": "Empty init",
+        "generator/template_engine.py": "Functions: load_theme(), load_section_template(), inject_user_data(), _render_projects(), _render_skills(), _render_certs()",
+        "generator/assembler.py":       "Main orchestrator function: build_portfolio(customization, user_data) → full HTML string",
+        "requirements.txt":    "fastapi\nuvicorn[standard]\npydantic>=2.0"
+      },
+      "library/": {
+        "sections/navbar/":         "layout_1.html (sticky top), layout_2.html (sidebar), layout_3.html (floating minimal)",
+        "sections/hero/":           "layout_1.html (split text+image), layout_2.html (centered large type), layout_3.html (asymmetric blob)",
+        "sections/about/":          "layout_1.html (text+image row), layout_2.html (card with timeline), layout_3.html (minimal centered)",
+        "sections/skills/":         "layout_1.html (chip grid), layout_2.html (progress bars), layout_3.html (icon grid)",
+        "sections/projects/":       "layout_1.html (cards grid), layout_2.html (horizontal list), layout_3.html (masonry-style)",
+        "sections/certifications/": "layout_1.html (badge cards), layout_2.html (timeline list), layout_3.html (compact table-style)",
+        "sections/contact/":        "layout_1.html (centered email + links), layout_2.html (split with quicklinks), layout_3.html (minimal icon row)",
+        "base/base.css":            "CSS resets, typography, shared utility classes: .container .btn-primary .btn-outline .chip .skill-chip .card .section",
+        "base/animations.js":       "IntersectionObserver scroll-in animations — adds 'visible' class to elements with data-animate attribute",
+        "themes/themes.json":       "10 theme objects keyed by theme name, each containing CSS custom property map",
+        "wrapper.html":             "Outer HTML shell with slots: {{PORTFOLIO_TITLE}} {{THEME_CSS}} {{BASE_CSS}} {{SECTIONS_BODY}} {{ANIMATIONS_JS}}"
+      }
+    }
+  },
+
+  "api_contract": {
+    "endpoint": "POST /generate",
+    "base_url_dev": "http://localhost:8000",
+    "request_schema": {
+      "customization": {
+        "theme": "string — must match a key in themes.json",
+        "sections_order": "string[] — ordered list of active section names",
+        "excluded_sections": "string[] — sections to completely omit (default: [])",
+        "section_layouts": "Record<string, 1|2|3> — layout number per section (default: 1 for all)"
+      },
+      "userData": {
+        "name": "string REQUIRED",
+        "title": "string REQUIRED",
+        "bio": "string REQUIRED",
+        "github": "string | null",
+        "linkedin": "string | null",
+        "skills": "string[]",
+        "projects": "Project[] — each: { name, description, link?, tech_stack[] }",
+        "certifications": "Certification[] — each: { name, issuer, year, link? }",
+        "contact_email": "string | null",
+        "profile_image": "string | null — base64 data URL or remote URL"
+      }
+    },
+    "response_schema": {
+      "html": "string — complete single-file HTML portfolio (DOCTYPE + all styles + all sections + JS)"
+    },
+    "error_handling": "FastAPI returns 422 on Pydantic validation failure; frontend should catch and show retry UI"
+  },
+
+  "section_template_contract": {
+    "description": "Rules every .html file in library/sections/*/ MUST follow for the assembler to process it correctly",
+    "rules": [
+      "Every <section> element must have id equal to the section folder name (e.g. id='hero', id='projects')",
+      "NO hardcoded color values anywhere — only var(--color-*) custom properties",
+      "Scalar placeholders use double curly brace syntax: {{NAME}} {{TITLE}} {{BIO}} {{GITHUB}} {{LINKEDIN}} {{EMAIL}} {{PROFILE_IMAGE}}",
+      "List placeholders: {{PROJECTS_LOOP}} {{SKILLS_LOOP}} {{CERTS_LOOP}}",
+      "Each template includes its own scoped <style> block at the bottom — assembler concatenates all styles",
+      "No external JS imports inside templates — animations handled globally by animations.js via data-animate attribute",
+      "Navbar template additionally uses {{NAV_LINKS}} placeholder which the assembler fills with generated anchor tags",
+      "All interactive animations must be CSS-only or via the shared animations.js IntersectionObserver — no form submissions"
+    ],
+    "placeholder_registry": {
+      "{{NAME}}":            "userData.name",
+      "{{TITLE}}":           "userData.title",
+      "{{BIO}}":             "userData.bio",
+      "{{GITHUB}}":          "userData.github or '#'",
+      "{{LINKEDIN}}":        "userData.linkedin or '#'",
+      "{{EMAIL}}":           "userData.contact_email",
+      "{{PROFILE_IMAGE}}":   "userData.profile_image",
+      "{{PROJECTS_LOOP}}":   "Rendered HTML block of project cards — see _render_projects()",
+      "{{SKILLS_LOOP}}":     "Rendered HTML block of skill chips — see _render_skills()",
+      "{{CERTS_LOOP}}":      "Rendered HTML block of cert cards — see _render_certs()",
+      "{{NAV_LINKS}}":       "Assembled anchor tags for in-page nav + GitHub/LinkedIn quicklinks (navbar only)"
+    }
+  },
+
+  "theme_contract": {
+    "file": "library/themes/themes.json",
+    "total_themes": 10,
+    "light_themes": ["Ivory", "Sky", "Sage", "Rose", "Stone"],
+    "dark_themes":  ["Midnight", "Ocean", "Forest", "Crimson", "Slate"],
+    "required_css_vars_per_theme": [
+      "--color-bg",
+      "--color-surface",
+      "--color-text",
+      "--color-text-muted",
+      "--color-accent",
+      "--color-accent-hover",
+      "--color-border",
+      "--color-card-bg",
+      "--color-btn-text",
+      "--section-padding"
+    ],
+    "how_theme_is_applied": "assembler.py calls _theme_to_css_vars() which converts the theme dict to a CSS :root { } block injected into wrapper.html via {{THEME_CSS}} slot"
+  },
+
+  "wrapper_html_contract": {
+    "file": "library/wrapper.html",
+    "slots": {
+      "{{PORTFOLIO_TITLE}}": "Inserted into <title> tag and optionally <meta og:title>",
+      "{{THEME_CSS}}":       "CSS :root { --var: value; } block from selected theme",
+      "{{BASE_CSS}}":        "Full contents of base/base.css",
+      "{{SECTIONS_BODY}}":   "Concatenated HTML of all processed section templates in user-defined order",
+      "{{ANIMATIONS_JS}}":   "Full contents of base/animations.js wrapped in <script> tag"
+    },
+    "structure": "<!DOCTYPE html><html><head><title>{{PORTFOLIO_TITLE}}</title><style>{{THEME_CSS}}\n{{BASE_CSS}}</style></head><body>{{SECTIONS_BODY}}<script>{{ANIMATIONS_JS}}</script></body></html>"
+  },
+
+  "backend_processing_pipeline": {
+    "entry_function": "build_portfolio(customization: dict, user_data: dict) → str",
+    "file": "backend/generator/assembler.py",
+    "steps": [
+      {
+        "step": 1,
+        "name": "Load Theme",
+        "action": "Call load_theme(customization['theme']) → returns dict of CSS var → value",
+        "then":   "Call _theme_to_css_vars(theme_dict) → returns CSS :root {} block string"
+      },
+      {
+        "step": 2,
+        "name": "Load Shared Assets",
+        "action": "Read base/base.css and base/animations.js as raw text strings"
+      },
+      {
+        "step": 3,
+        "name": "Build Navbar",
+        "action": "Load navbar template using section_layouts.get('navbar', 1)",
+        "then":   "Call _build_nav_links(active_sections, github, linkedin) to generate anchor tags",
+        "then2":  "Replace {{NAV_LINKS}} in navbar template, then call inject_user_data()",
+        "note":   "Navbar is ALWAYS included regardless of sections_order or excluded_sections"
+      },
+      {
+        "step": 4,
+        "name": "Process Sections Loop",
+        "action": "Iterate customization['sections_order'] in order",
+        "for_each": [
+          "Skip if section is in excluded_sections",
+          "Get layout number from section_layouts dict (default 1)",
+          "Call load_section_template(section_name, layout_num) to read from filesystem",
+          "Call inject_user_data(raw_template, user_data, section_name) to fill all placeholders",
+          "Append filled HTML string to sections_html_parts list"
+        ]
+      },
+      {
+        "step": 5,
+        "name": "Assemble Final HTML",
+        "action": "Read wrapper.html, replace all 5 slots with computed values",
+        "return": "Complete single-file HTML string"
+      }
+    ]
+  },
+
+  "frontend_state_shape": {
+    "context_file": "frontend/src/context/CraftContext.jsx",
+    "customization_default": {
+      "theme": "Midnight",
+      "sections_order": ["hero", "about", "skills", "projects", "certifications", "contact"],
+      "excluded_sections": [],
+      "section_layouts": {
+        "navbar": 1, "hero": 1, "about": 1,
+        "skills": 1, "projects": 1, "certifications": 1, "contact": 1
+      }
+    },
+    "userData_default": {
+      "name": "", "title": "", "bio": "",
+      "github": "", "linkedin": "", "contact_email": "",
+      "profile_image": "", "skills": [], "projects": [], "certifications": []
+    },
+    "generatedHtml_default": null
+  },
+
+  "frontend_routing": {
+    "router": "React Router v6",
+    "routes": [
+      { "path": "/",          "component": "Landing.jsx",    "level": 0, "action": "Craft Now button → navigate('/customize')" },
+      { "path": "/customize", "component": "Customizer.jsx", "level": 1, "action": "User picks theme, reorders/excludes sections, picks layouts → navigate('/form')" },
+      { "path": "/form",      "component": "UserForm.jsx",   "level": 2, "action": "User fills in all personal data → navigate('/loading')" },
+      { "path": "/loading",   "component": "Loading.jsx",    "level": 3, "action": "Fires generatePortfolio(), enforces 5000ms minimum, then navigate('/output')" },
+      { "path": "/output",    "component": "Output.jsx",     "level": 4, "action": "Renders iframe with srcDoc=generatedHtml, download + copy buttons" }
+    ]
+  },
+
+  "loading_screen_logic": {
+    "file": "frontend/src/pages/Loading.jsx",
+    "min_display_ms": 5000,
+    "algorithm": "Record startTime = Date.now() before API call. On resolve: elapsed = Date.now() - startTime; remaining = max(0, 5000 - elapsed); setTimeout(navigate('/output'), remaining)",
+    "on_error": "Show error state with retry button; do NOT auto-navigate"
+  },
+
+  "output_page_logic": {
+    "file": "frontend/src/pages/Output.jsx",
+    "iframe_method": "srcDoc attribute — injects HTML string directly, no URL or blob URL needed",
+    "sandbox_attr": "allow-scripts allow-same-origin",
+    "download": "Create Blob({type:'text/html'}), URL.createObjectURL(), anchor click, revokeObjectURL",
+    "copy":     "navigator.clipboard.writeText(generatedHtml) then show toast"
+  },
+
+  "sections_config": {
+    "always_included": ["navbar"],
+    "optionally_included": ["hero", "about", "skills", "projects", "certifications", "contact"],
+    "layouts_per_section": 3,
+    "total_template_files": 21,
+    "navbar_special_behavior": "Assembled before the loop; receives {{NAV_LINKS}} with anchor hrefs matching section IDs + GitHub/LinkedIn quicklinks"
+  },
+
+  "path_resolution": {
+    "LIBRARY_PATH": "Path(__file__).parent.parent.parent / 'library'",
+    "note": "Set once in assembler.py; all reads cascade from it. Assumes backend/ is one level inside craftfolio/ root, same level as library/"
+  },
+
+  "extensibility_hooks": {
+    "add_new_section": "Create library/sections/{new_section_name}/layout_1.html, layout_2.html, layout_3.html following template contract — zero backend code changes needed",
+    "add_new_theme": "Append new key to library/themes/themes.json with all 10 required CSS vars — zero backend code changes needed",
+    "add_new_layout": "Add layout_4.html to an existing section folder — update frontend LayoutSelector to offer 4 options for that section"
+  },
+
+  "constraints": {
+    "no_auth": true,
+    "no_persistence": true,
+    "no_database": true,
+    "no_deployment_required": true,
+    "no_form_submission_in_portfolio": true,
+    "single_file_output": true,
+    "portfolio_animations": "CSS + IntersectionObserver only — no heavy animation libraries",
+    "portfolio_interactivity": "Scroll animations, hover effects, smooth nav anchors — no backend calls from portfolio"
+  },
+
+  "build_order_for_agent": {
+    "recommended_sequence": [
+      {
+        "phase": 1,
+        "task": "Build library/themes/themes.json with all 10 theme objects",
+        "depends_on": []
+      },
+      {
+        "phase": 2,
+        "task": "Build library/base/base.css and library/base/animations.js",
+        "depends_on": []
+      },
+      {
+        "phase": 3,
+        "task": "Build library/wrapper.html with all 5 slots",
+        "depends_on": ["phase_2"]
+      },
+      {
+        "phase": 4,
+        "task": "Build all 21 section template files (7 sections × 3 layouts) following template contract",
+        "depends_on": ["phase_2", "phase_3"],
+        "note": "Start with navbar (special) then hero, about, skills, projects, certifications, contact"
+      },
+      {
+        "phase": 5,
+        "task": "Build backend/models.py (Pydantic models)",
+        "depends_on": []
+      },
+      {
+        "phase": 6,
+        "task": "Build backend/generator/template_engine.py (load_theme, load_section_template, inject_user_data, render helpers)",
+        "depends_on": ["phase_4", "phase_5"]
+      },
+      {
+        "phase": 7,
+        "task": "Build backend/generator/assembler.py (build_portfolio orchestrator)",
+        "depends_on": ["phase_6"]
+      },
+      {
+        "phase": 8,
+        "task": "Build backend/main.py (FastAPI app, CORS, POST /generate route)",
+        "depends_on": ["phase_7"]
+      },
+      {
+        "phase": 9,
+        "task": "Build frontend CraftContext.jsx and craftApi.js",
+        "depends_on": []
+      },
+      {
+        "phase": 10,
+        "task": "Build all 5 page components (Landing, Customizer, UserForm, Loading, Output)",
+        "depends_on": ["phase_9"]
+      },
+      {
+        "phase": 11,
+        "task": "Wire up React Router in App.jsx, wrap in CraftProvider in main.jsx",
+        "depends_on": ["phase_10"]
+      },
+      {
+        "phase": 12,
+        "task": "Integration test: run backend (uvicorn main:app), run frontend (vite), submit form, verify iframe output, verify download",
+        "depends_on": ["phase_8", "phase_11"]
+      }
+    ]
+  }
+}
