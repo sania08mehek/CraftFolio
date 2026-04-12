@@ -4,7 +4,14 @@ const TopNav = ({ step, onBack }) => {
   const steps = ['Customize', 'Details', 'Build', 'Output'];
   return (
     <nav className="top-nav">
-      <span className="logo">CraftFolio</span>
+      <span
+        className="logo"
+        onClick={() => window.location.reload()}
+        style={{ cursor: 'pointer' }}
+        title="Go to home"
+      >
+        CraftFolio
+      </span>
       <div className="step-trail">
         {steps.map((_, i) => (
           <div key={i} className={`step-dot ${i < step ? 'done' : i === step ? 'active' : ''}`}></div>

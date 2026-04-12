@@ -123,7 +123,14 @@ const Landing = ({ onStart }) => {
           zIndex: 100,
         }}
       >
-        <span className="logo">CraftFolio</span>
+        <span
+          className="logo"
+          onClick={() => window.location.reload()}
+          style={{ cursor: 'pointer' }}
+          title="Go to home"
+        >
+          CraftFolio
+        </span>
         <div style={{ display: 'flex', gap: '.75rem' }}>
         </div>
       </nav>
@@ -148,16 +155,12 @@ const Landing = ({ onStart }) => {
           beautiful HTML file. Zero setup. Zero backend. Zero compromise.
         </p>
 
-        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
           <button
-            className="btn btn-primary"
+            className="btn btn-primary btn-craft-now"
             onClick={onStart}
-            style={{ fontSize: '1.05rem', padding: '.9rem 2rem' }}
           >
             Craft Now →
-          </button>
-          <button className="btn btn-ghost" style={{ fontSize: '1.05rem', padding: '.9rem 2rem' }}>
-            See demo
           </button>
         </div>
 

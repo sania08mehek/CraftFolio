@@ -21,6 +21,44 @@ h1,h2,h3,h4{font-family:'Syne',sans-serif}
 .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.5rem;border-radius:var(--radius-sm);font-size:.95rem;font-weight:600;cursor:pointer;border:none;transition:.2s;font-family:'Space Grotesk',sans-serif}
 .btn-primary{background:var(--accent);color:#fff}
 .btn-primary:hover{background:#5a4ee0;transform:translateY(-1px)}
+/* ── Craft Now hero button ── */
+.btn-craft-now{
+  font-size:1.15rem;
+  padding:1rem 2.75rem;
+  border-radius:10px;
+  background: linear-gradient(135deg, #7B6FFF 0%, #6B5EFF 50%, #5A4EE0 100%);
+  box-shadow: 0 4px 24px rgba(107,94,255,.40), 0 1px 0 rgba(255,255,255,.12) inset;
+  position: relative;
+  overflow: hidden;
+  transition: transform .22s cubic-bezier(.34,1.56,.64,1), box-shadow .22s ease, background .22s ease;
+}
+.btn-craft-now::after{
+  content:'';
+  position:absolute;
+  top:-50%;left:-70%;
+  width:50%;height:200%;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255,255,255,0.22) 50%,
+    transparent 70%
+  );
+  transform: skewX(-15deg);
+  transition: left .55s ease;
+  pointer-events: none;
+}
+.btn-craft-now:hover::after{
+  left:140%;
+}
+.btn-craft-now:hover{
+  transform: translateY(-4px) scale(1.045);
+  box-shadow: 0 10px 36px rgba(107,94,255,.55), 0 1px 0 rgba(255,255,255,.18) inset;
+  background: linear-gradient(135deg, #8B7FFF 0%, #7B6FFF 50%, #6B5EFF 100%);
+}
+.btn-craft-now:active{
+  transform: translateY(-1px) scale(1.01);
+  box-shadow: 0 4px 16px rgba(107,94,255,.35);
+}
 .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--border)}
 .btn-ghost:hover{color:var(--text);border-color:var(--muted)}
 .btn-sm{padding:.5rem 1rem;font-size:.85rem}
