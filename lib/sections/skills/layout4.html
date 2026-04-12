@@ -1,0 +1,46 @@
+<!-- SKILLS · Layout 4 · Aurora Dark -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  .skills4{background:#04080f;padding:80px 48px;font-family:'Plus Jakarta Sans',sans-serif;position:relative;overflow:hidden}
+  .skills4-aurora{position:absolute;inset:0;background:linear-gradient(130deg,rgba(56,189,248,0.05),rgba(167,139,250,0.04),rgba(244,114,182,0.04),transparent);background-size:300% 300%;animation:aMove4 10s ease infinite;pointer-events:none}
+  @keyframes aMove4{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+  .skills4-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1}
+  .skills4-eyebrow{font-size:12px;color:#38bdf8;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:10px}
+  .skills4-eyebrow::before{content:'';width:28px;height:1px;background:#38bdf8}
+  .skills4-title{font-family:'Fraunces',serif;font-size:clamp(28px,4vw,44px);color:#e8f4ff;margin-bottom:48px;font-weight:700}
+  .skills4-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+  .skills4-card{
+    background:rgba(255,255,255,0.03);border:1px solid rgba(56,189,248,0.12);
+    border-radius:14px;padding:24px;
+    transition:all .25s;position:relative;overflow:hidden;
+  }
+  .skills4-card::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:2px;
+    background:linear-gradient(90deg,#38bdf8,#a78bfa,#f472b6);
+    opacity:0;transition:opacity .3s;
+  }
+  .skills4-card:hover{border-color:rgba(56,189,248,0.3);transform:translateY(-4px);box-shadow:0 12px 40px rgba(56,189,248,0.1)}
+  .skills4-card:hover::before{opacity:1}
+  .skills4-card-name{font-size:16px;font-weight:600;color:#e8f4ff;margin-bottom:12px}
+  .skills4-card-bar-bg{height:3px;background:rgba(255,255,255,0.08);border-radius:2px;overflow:hidden}
+  .skills4-card-bar-fill{height:100%;background:linear-gradient(90deg,#38bdf8,#a78bfa);border-radius:2px;animation:bfill4 1.2s ease both}
+  @keyframes bfill4{from{transform:scaleX(0);transform-origin:left}to{transform:scaleX(1)}}
+  .skills4-card-footer{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+  .skills4-card-cat{font-size:11px;color:rgba(232,244,255,.35);text-transform:uppercase;letter-spacing:.06em}
+  .skills4-card-pct{font-size:13px;color:#38bdf8;font-weight:600}
+</style>
+<section class="skills4">
+  <div class="skills4-aurora"></div>
+  <div class="skills4-inner">
+    <div class="skills4-eyebrow">Expertise</div>
+    <h2 class="skills4-title">Tech Stack</h2>
+    <div class="skills4-grid">
+      <div class="skills4-card"><div class="skills4-card-name">React / Next.js</div><div class="skills4-card-bar-bg"><div class="skills4-card-bar-fill" style="width:95%;animation-delay:.1s"></div></div><div class="skills4-card-footer"><span class="skills4-card-cat">Frontend</span><span class="skills4-card-pct">95%</span></div></div>
+      <div class="skills4-card"><div class="skills4-card-name">TypeScript</div><div class="skills4-card-bar-bg"><div class="skills4-card-bar-fill" style="width:93%;animation-delay:.15s"></div></div><div class="skills4-card-footer"><span class="skills4-card-cat">Language</span><span class="skills4-card-pct">93%</span></div></div>
+      <div class="skills4-card"><div class="skills4-card-name">Node.js / Express</div><div class="skills4-card-bar-bg"><div class="skills4-card-bar-fill" style="width:90%;animation-delay:.2s"></div></div><div class="skills4-card-footer"><span class="skills4-card-cat">Backend</span><span class="skills4-card-pct">90%</span></div></div>
+      <div class="skills4-card"><div class="skills4-card-name">Python / FastAPI</div><div class="skills4-card-bar-bg"><div class="skills4-card-bar-fill" style="width:82%;animation-delay:.25s"></div></div><div class="skills4-card-footer"><span class="skills4-card-cat">Backend</span><span class="skills4-card-pct">82%</span></div></div>
+      <div class="skills4-card"><div class="skills4-card-name">PostgreSQL / Redis</div><div class="skills4-card-bar-bg"><div class="skills4-card-bar-fill" style="width:80%;animation-delay:.3s"></div></div><div class="skills4-card-footer"><span class="skills4-card-cat">Database</span><span class="skills4-card-pct">80%</span></div></div>
+      <div class="skills4-card"><div class="skills4-card-name">AWS / DevOps</div><div class="skills4-card-bar-bg"><div class="skills4-card-bar-fill" style="width:74%;animation-delay:.35s"></div></div><div class="skills4-card-footer"><span class="skills4-card-cat">Cloud</span><span class="skills4-card-pct">74%</span></div></div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,77 @@
+<!-- NAVBAR · Layout 3 · Neon Cyber -->
+<!-- Placeholders: {{NAME}} {{NAV_LINKS}} -->
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  .nav3 {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(2,2,9,0.92); backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0,255,200,0.15);
+    font-family: 'Outfit', sans-serif;
+  }
+  /* animated scanline top border */
+  .nav3::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, #00ffc8, #ff2d78, transparent);
+    background-size: 200% 100%;
+    animation: scanLine 3s linear infinite;
+  }
+  @keyframes scanLine {
+    0%   { background-position: -100% 0; }
+    100% { background-position: 200% 0; }
+  }
+  .nav3-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 62px; position: relative;
+  }
+  .nav3-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px; letter-spacing: 0.08em;
+    color: #00ffc8; text-decoration: none;
+    text-shadow: 0 0 20px rgba(0,255,200,0.5);
+    transition: text-shadow 0.3s;
+  }
+  .nav3-logo:hover { text-shadow: 0 0 30px rgba(0,255,200,0.9), 0 0 60px rgba(0,255,200,0.4); }
+  .nav3-links { display: flex; align-items: center; gap: 4px; }
+  .nav3-link {
+    color: rgba(232,255,248,0.5); text-decoration: none;
+    font-size: 13px; font-weight: 500; letter-spacing: 0.05em;
+    padding: 6px 14px; border-radius: 4px;
+    border: 1px solid transparent;
+    transition: all 0.2s; position: relative; overflow: hidden;
+  }
+  .nav3-link::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(0,255,200,0.08), transparent);
+    opacity: 0; transition: opacity 0.2s;
+  }
+  .nav3-link:hover {
+    color: #00ffc8; border-color: rgba(0,255,200,0.3);
+    text-shadow: 0 0 10px rgba(0,255,200,0.5);
+  }
+  .nav3-link:hover::before { opacity: 1; }
+  .nav3-cta {
+    margin-left: 8px; padding: 7px 18px;
+    background: transparent; border: 1px solid #ff2d78;
+    color: #ff2d78; font-size: 12px; font-weight: 600;
+    text-decoration: none; border-radius: 4px;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    transition: all 0.2s;
+    box-shadow: 0 0 15px rgba(255,45,120,0.2);
+  }
+  .nav3-cta:hover {
+    background: #ff2d78; color: #020209;
+    box-shadow: 0 0 25px rgba(255,45,120,0.5);
+  }
+</style>
+
+<nav class="nav3">
+  <div class="nav3-inner">
+    <a class="nav3-logo" href="#">{{NAME}}</a>
+    <div class="nav3-links">
+      {{NAV_LINKS}}
+      <a class="nav3-cta" href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>

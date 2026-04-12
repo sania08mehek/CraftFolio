@@ -1,0 +1,186 @@
+<!-- HERO · Layout 1 · Midnight Dark -->
+<!-- Placeholders: {{NAME}} {{TITLE}} {{BIO}} {{PROFILE_IMAGE}} -->
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  .hero1 {
+    background: #07070f;
+    min-height: 92vh; display: flex; align-items: center;
+    padding: 80px 48px; position: relative; overflow: hidden;
+    font-family: 'Outfit', sans-serif;
+  }
+  /* Animated background grid */
+  .hero1::before {
+    content: ''; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(99,102,241,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(99,102,241,0.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: gridDrift 20s linear infinite;
+  }
+  @keyframes gridDrift {
+    from { background-position: 0 0; }
+    to   { background-position: 60px 60px; }
+  }
+  /* Gradient orbs */
+  .hero1-orb1, .hero1-orb2 {
+    position: absolute; border-radius: 50%; pointer-events: none;
+    filter: blur(80px);
+  }
+  .hero1-orb1 {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(99,102,241,0.2), transparent 70%);
+    top: -150px; right: -100px;
+    animation: float1 8s ease-in-out infinite;
+  }
+  .hero1-orb2 {
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(236,72,153,0.12), transparent 70%);
+    bottom: -100px; left: 10%;
+    animation: float1 10s ease-in-out infinite reverse;
+  }
+  @keyframes float1 {
+    0%,100%{ transform: translateY(0) scale(1); }
+    50%    { transform: translateY(-30px) scale(1.05); }
+  }
+  .hero1-inner {
+    max-width: 1100px; margin: 0 auto; width: 100%;
+    display: grid; grid-template-columns: 1fr auto;
+    gap: 60px; align-items: center; position: relative; z-index: 1;
+  }
+  .hero1-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(99,102,241,0.12); border: 1px solid rgba(99,102,241,0.3);
+    padding: 6px 16px; border-radius: 20px; font-size: 12px; color: #a78bfa;
+    margin-bottom: 24px; font-weight: 500; letter-spacing: 0.03em;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero1-badge-dot {
+    width: 6px; height: 6px; background: #6366f1;
+    border-radius: 50%; animation: pulse1 2s infinite;
+  }
+  @keyframes pulse1 { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.3;transform:scale(1.4)} }
+  @keyframes fadeUp  { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+  .hero1-h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(38px, 6vw, 72px); font-weight: 800;
+    line-height: 1.02; letter-spacing: -0.04em; color: #f0f0ff;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  .hero1-h1 .grad {
+    background: linear-gradient(135deg, #6366f1 0%, #a78bfa 50%, #ec4899 100%);
+    background-size: 200% auto;
+    animation: shimmerText 5s linear infinite;
+  }
+  @keyframes shimmerText {
+    0%   { background-position: 0% center; }
+    100% { background-position: 200% center; }
+  }
+  .hero1-role {
+    font-size: 18px; color: rgba(240,240,255,0.45); margin-top: 12px;
+    font-weight: 400; letter-spacing: 0.02em;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+  .hero1-bio {
+    font-size: 16px; color: rgba(240,240,255,0.4); line-height: 1.8;
+    max-width: 540px; margin-top: 20px;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+  .hero1-actions {
+    display: flex; gap: 14px; margin-top: 36px;
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+  .hero1-btn-p {
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    border: none; color: #fff; border-radius: 10px;
+    font-size: 15px; font-weight: 600; cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+    box-shadow: 0 6px 25px rgba(99,102,241,0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none; display: inline-block;
+  }
+  .hero1-btn-p:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(99,102,241,0.55);
+  }
+  .hero1-btn-s {
+    padding: 14px 32px; background: transparent;
+    border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.7);
+    border-radius: 10px; font-size: 15px; cursor: pointer;
+    font-family: 'Outfit', sans-serif; transition: all 0.2s;
+    text-decoration: none; display: inline-block;
+  }
+  .hero1-btn-s:hover { border-color: rgba(255,255,255,0.4); color: #fff; }
+  /* avatar */
+  .hero1-avatar {
+    width: 200px; height: 200px; border-radius: 20px;
+    position: relative; animation: float1 6s ease-in-out infinite;
+    animation-delay: 1s;
+    flex-shrink: 0;
+  }
+  .hero1-avatar img {
+    width: 100%; height: 100%; object-fit: cover;
+    border-radius: 20px; border: 2px solid rgba(99,102,241,0.35);
+  }
+  .hero1-avatar-glow {
+    position: absolute; inset: -2px; border-radius: 22px;
+    background: linear-gradient(135deg, #6366f1, #ec4899);
+    z-index: -1; opacity: 0.4; filter: blur(12px);
+  }
+  /* stats row */
+  .hero1-stats {
+    display: flex; gap: 36px; margin-top: 40px; padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    animation: fadeUp 0.6s 0.5s ease both;
+  }
+  .hero1-stat-num {
+    font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 800;
+    background: linear-gradient(135deg, #6366f1, #a78bfa);
+  }
+  .hero1-stat-label {
+    font-size: 12px; color: rgba(255,255,255,0.3); text-transform: uppercase;
+    letter-spacing: 0.08em; margin-top: 2px;
+  }
+</style>
+
+<section class="hero1">
+  <div class="hero1-orb1"></div>
+  <div class="hero1-orb2"></div>
+  <div class="hero1-inner">
+    <div>
+      <div class="hero1-badge">
+        <span class="hero1-badge-dot"></span>
+        Available for work
+      </div>
+      <h1 class="hero1-h1">
+        Hi, I'm<br>
+        <span class="grad">{{NAME}}</span>
+      </h1>
+      <p class="hero1-role">{{TITLE}}</p>
+      <p class="hero1-bio">{{BIO}}</p>
+      <div class="hero1-actions">
+        <a class="hero1-btn-p" href="#projects">View My Work</a>
+        <a class="hero1-btn-s" href="#contact">Let's Talk</a>
+      </div>
+      <div class="hero1-stats">
+        <div>
+          <div class="hero1-stat-num">5+</div>
+          <div class="hero1-stat-label">Years Exp.</div>
+        </div>
+        <div>
+          <div class="hero1-stat-num">40+</div>
+          <div class="hero1-stat-label">Projects</div>
+        </div>
+        <div>
+          <div class="hero1-stat-num">12</div>
+          <div class="hero1-stat-label">Clients</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero1-avatar">
+      <div class="hero1-avatar-glow"></div>
+      <img src="{{PROFILE_IMAGE}}" alt="{{NAME}}" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1a1a2e,#16213e)'" />
+    </div>
+  </div>
+</section>

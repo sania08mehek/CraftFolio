@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — All 6 Layouts</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Playfair+Display:wght@400;500;700&family=DM+Sans:wght@300;400;500;600&family=Bebas+Neue&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:#111;color:#fff}
+.layout-switcher{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(0,0,0,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08);padding:10px 20px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.layout-switcher span{font-size:11px;color:#666;letter-spacing:2px;text-transform:uppercase;margin-right:6px}
+.sw-btn{padding:5px 14px;border:1px solid rgba(255,255,255,.15);border-radius:20px;background:transparent;color:rgba(255,255,255,.5);cursor:pointer;font-size:11px;transition:all .2s;font-family:'DM Sans',sans-serif}
+.sw-btn.active{background:#fff;color:#000;border-color:#fff}
+.layout{display:none}
+.layout.active{display:block}
+.pt{padding-top:56px}
+
+/* L1 MIDNIGHT */
+.l1-about{background:#07070f;min-height:100vh;padding:80px 60px;font-family:'Syne',sans-serif}
+.l1-about .eyebrow{font-size:11px;letter-spacing:4px;color:#8b5cf6;text-transform:uppercase;margin-bottom:12px}
+.l1-about .heading{font-size:52px;font-weight:800;color:#fff;line-height:1.1;margin-bottom:60px}
+.l1-about .heading span{color:#8b5cf6}
+.l1-about-inner{display:grid;grid-template-columns:1fr 1.3fr;gap:80px;align-items:start}
+.l1-avatar{width:100%;aspect-ratio:1;border-radius:24px;background:linear-gradient(135deg,#13131f,#1a1a30);border:1px solid #2a2a4e;display:flex;align-items:center;justify-content:center;font-size:80px;margin-bottom:24px;position:relative;overflow:hidden}
+.l1-avatar::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 80%,rgba(139,92,246,.2),transparent 60%)}
+.l1-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.l1-stat{background:#0d0d1a;border:1px solid #1a1a2e;border-radius:12px;padding:16px;text-align:center;transition:all .3s;cursor:default}
+.l1-stat:hover{border-color:#8b5cf6}
+.l1-stat .s-num{font-size:28px;font-weight:800;color:#8b5cf6;line-height:1;margin-bottom:4px}
+.l1-stat .s-label{font-size:10px;color:#3a3a5c;letter-spacing:1px;text-transform:uppercase}
+.l1-content .bio-para{font-size:15px;color:#5a5a7a;line-height:1.8;margin-bottom:20px}
+.l1-content .bio-para strong{color:#e2e4ff}
+.l1-exp-list{margin-top:32px}
+.l1-exp-list h4{font-size:10px;letter-spacing:3px;color:#3a3a5c;text-transform:uppercase;margin-bottom:20px}
+.l1-exp-item{display:flex;gap:16px;margin-bottom:24px;position:relative;padding-left:16px}
+.l1-exp-item::before{content:'';position:absolute;left:0;top:6px;bottom:-18px;width:1px;background:#1a1a2e}
+.l1-exp-item::after{content:'';position:absolute;left:-3px;top:6px;width:7px;height:7px;border-radius:50%;background:#8b5cf6;border:2px solid #07070f}
+.l1-exp-item:last-child::before{display:none}
+.l1-exp-item .exp-content h5{font-size:14px;font-weight:700;color:#e2e4ff;margin-bottom:2px}
+.l1-exp-item .exp-content .company{font-size:12px;color:#8b5cf6;margin-bottom:2px}
+.l1-exp-item .exp-content .period{font-size:11px;color:#3a3a5c;font-family:'Space Mono',monospace}
+.l1-skills-section{margin-top:32px}
+.l1-skills-section h4{font-size:10px;letter-spacing:3px;color:#3a3a5c;text-transform:uppercase;margin-bottom:16px}
+.l1-skill-tags{display:flex;flex-wrap:wrap;gap:8px}
+.l1-skill-tag{font-size:11px;padding:6px 14px;border-radius:8px;background:#0d0d1a;color:#8b5cf6;border:1px solid #2a2a4e;cursor:default;transition:all .25s;font-family:'Space Mono',monospace}
+.l1-skill-tag:hover{border-color:#8b5cf6;background:rgba(139,92,246,.08)}
+
+/* L2 LIGHT */
+.l2-about{background:#f9f9f7;min-height:100vh;padding:80px 60px;font-family:'DM Sans',sans-serif}
+.l2-about .header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:60px;border-bottom:1px solid #e5e5e0;padding-bottom:30px}
+.l2-about .title{font-size:48px;font-weight:600;color:#0f0f0f;letter-spacing:-1px}
+.l2-about .tagline{font-size:14px;color:#999;max-width:260px;text-align:right;line-height:1.6}
+.l2-about-inner{display:grid;grid-template-columns:300px 1fr;gap:60px}
+.l2-about-avatar{width:280px;aspect-ratio:3/4;border-radius:16px;background:#f0f0ec;border:1px solid #ebebeb;display:flex;align-items:center;justify-content:center;font-size:80px;margin-bottom:20px}
+.l2-quick-facts{display:flex;flex-direction:column;gap:12px}
+.l2-fact{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #ebebeb}
+.l2-fact .f-key{font-size:12px;color:#bbb}
+.l2-fact .f-val{font-size:12px;color:#0f0f0f;font-weight:500}
+.l2-about-content h2{font-size:32px;font-weight:600;color:#0f0f0f;margin-bottom:20px;letter-spacing:-.5px;line-height:1.3}
+.l2-about-content .bio{font-size:15px;color:#666;line-height:1.8;margin-bottom:30px}
+.l2-exp-items{display:flex;flex-direction:column;gap:0}
+.l2-exp-item{padding:20px 0;border-bottom:1px solid #ebebeb;display:grid;grid-template-columns:180px 1fr;gap:20px}
+.l2-exp-item .e-period{font-size:11px;color:#bbb;letter-spacing:1px;padding-top:2px}
+.l2-exp-item .e-content h4{font-size:16px;font-weight:600;color:#0f0f0f;margin-bottom:2px}
+.l2-exp-item .e-content .co{font-size:12px;color:#3b82f6;margin-bottom:4px}
+.l2-exp-item .e-content p{font-size:13px;color:#888;line-height:1.6}
+.l2-skills-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}
+.l2-skill{font-size:12px;background:#f0f0ec;color:#444;padding:6px 14px;border-radius:20px;cursor:default;transition:all .2s}
+.l2-skill:hover{background:#0f0f0f;color:#f9f9f7}
+
+/* L3 NEON */
+.l3-about{background:#020208;min-height:100vh;padding:80px 60px;font-family:'Space Mono',monospace;position:relative;overflow:hidden}
+.l3-about .grid-bg{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(139,92,246,.03) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(139,92,246,.03) 40px);pointer-events:none}
+.l3-about .eyebrow{font-size:10px;letter-spacing:4px;color:#a78bfa;text-transform:uppercase;margin-bottom:10px;position:relative}
+.l3-about .heading{font-size:48px;color:#fff;margin-bottom:60px;position:relative;font-weight:700;line-height:1.1}
+.l3-about .heading .purple{color:#a78bfa;text-shadow:0 0 20px rgba(167,139,250,.4)}
+.l3-about-inner{display:grid;grid-template-columns:1fr 1.4fr;gap:60px;position:relative}
+.l3-profile-card{border:1px solid rgba(139,92,246,.2);border-radius:4px;padding:24px;background:rgba(139,92,246,.02);position:relative}
+.l3-profile-card .corner-tl,.l3-profile-card .corner-br{position:absolute;width:10px;height:10px}
+.l3-profile-card .corner-tl{top:0;left:0;border-top:2px solid #a78bfa;border-left:2px solid #a78bfa}
+.l3-profile-card .corner-br{bottom:0;right:0;border-bottom:2px solid #a78bfa;border-right:2px solid #a78bfa}
+.l3-profile-card .p-header{font-size:9px;letter-spacing:2px;color:#a78bfa;opacity:.6;margin-bottom:16px}
+.l3-avatar-cyber{width:100%;aspect-ratio:1;border:1px solid rgba(139,92,246,.2);border-radius:4px;background:rgba(139,92,246,.05);display:flex;align-items:center;justify-content:center;font-size:60px;margin-bottom:20px}
+.l3-profile-lines{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.l3-pl{font-size:10px;color:#4a3a7a;line-height:1.6}
+.l3-pl .pk{color:#a78bfa}
+.l3-pl a{color:#e0d4ff;text-decoration:none}
+.l3-cyber-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}
+.l3-cstat{border:1px solid rgba(139,92,246,.15);padding:10px;text-align:center}
+.l3-cstat .cn{font-size:22px;color:#a78bfa;font-weight:700;line-height:1}
+.l3-cstat .cl{font-size:8px;color:#4a3a7a;letter-spacing:2px;text-transform:uppercase;margin-top:4px}
+.l3-about-content .c-label{font-size:9px;letter-spacing:3px;color:#a78bfa;text-transform:uppercase;margin-bottom:10px;opacity:.7}
+.l3-about-content .bio-block{border:1px solid rgba(139,92,246,.1);padding:20px;border-radius:4px;background:rgba(139,92,246,.02);margin-bottom:20px}
+.l3-about-content .bio-block p{font-size:12px;color:#4a3a7a;line-height:1.9}
+.l3-about-content .bio-block p strong{color:#e0d4ff}
+.l3-exp-terminal{display:flex;flex-direction:column;gap:12px;margin-top:8px}
+.l3-exp-entry{border:1px solid rgba(139,92,246,.1);padding:16px;border-radius:4px;background:rgba(139,92,246,.02)}
+.l3-exp-entry .e-title{font-size:12px;color:#e0d4ff;margin-bottom:4px}
+.l3-exp-entry .e-co{font-size:10px;color:#a78bfa;margin-bottom:4px}
+.l3-exp-entry .e-period{font-size:9px;color:#3a2a6a;letter-spacing:1px}
+.l3-skill-grid{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.l3-skill-chip{font-size:9px;border:1px solid rgba(139,92,246,.2);padding:4px 10px;border-radius:2px;color:#a78bfa;background:rgba(139,92,246,.04);letter-spacing:1px;text-transform:uppercase;transition:all .2s}
+.l3-skill-chip:hover{background:rgba(139,92,246,.12);border-color:#a78bfa}
+
+/* L4 AURORA */
+.l4-about{background:#060810;min-height:100vh;padding:80px 60px;font-family:'Syne',sans-serif;position:relative;overflow:hidden}
+.l4-about .aurora{position:absolute;top:-200px;right:-100px;width:600px;height:600px;background:radial-gradient(ellipse,rgba(139,92,246,.15) 0%,transparent 60%);animation:ab 10s ease-in-out infinite alternate;pointer-events:none}
+.l4-about .aurora2{position:absolute;bottom:-100px;left:-200px;width:500px;height:500px;background:radial-gradient(ellipse,rgba(99,102,241,.1) 0%,transparent 60%);animation:ab 12s ease-in-out infinite alternate-reverse;pointer-events:none}
+@keyframes ab{0%{transform:translate(0,0)}100%{transform:translate(30px,30px)}}
+.l4-about .eyebrow{font-size:11px;letter-spacing:4px;color:#c4b5fd;text-transform:uppercase;margin-bottom:12px;position:relative}
+.l4-about .heading{font-size:52px;font-weight:800;color:#fff;margin-bottom:60px;position:relative;line-height:1.1}
+.l4-about-inner{display:grid;grid-template-columns:1fr 1.5fr;gap:80px;align-items:start;position:relative}
+.l4-card-avatar{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:24px;padding:28px;backdrop-filter:blur(20px);text-align:center;margin-bottom:20px}
+.l4-card-avatar .av{width:100px;height:100px;border-radius:50%;background:rgba(139,92,246,.1);border:2px solid rgba(196,181,253,.15);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:40px}
+.l4-card-avatar h3{font-size:20px;font-weight:700;color:#e0e4ff;margin-bottom:4px}
+.l4-card-avatar .role{font-size:13px;color:#4a5070;margin-bottom:16px}
+.l4-card-avatar .avail-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2);padding:6px 14px;border-radius:20px;font-size:11px;color:#6ee7b7}
+.l4-card-avatar .avail-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:#10b981}
+.l4-aurora-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:20px}
+.l4-as{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);border-radius:12px;padding:14px;text-align:center}
+.l4-as .n{font-size:24px;font-weight:800;color:#c4b5fd;line-height:1;margin-bottom:4px}
+.l4-as .l{font-size:9px;color:#3a3a5a;letter-spacing:1px;text-transform:uppercase}
+.l4-about-text .bio{font-size:15px;color:#4a5070;line-height:1.8;margin-bottom:24px}
+.l4-about-text .bio strong{color:#c4b5fd}
+.l4-exp-aurora{display:flex;flex-direction:column;gap:2px;margin-bottom:28px}
+.l4-exp-aurora h4{font-size:10px;letter-spacing:3px;color:#2a2a5a;text-transform:uppercase;margin-bottom:16px}
+.l4-exp-aitem{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04);border-radius:12px;padding:18px;transition:all .3s;cursor:default}
+.l4-exp-aitem:not(:last-child){margin-bottom:8px}
+.l4-exp-aitem:hover{background:rgba(139,92,246,.06);border-color:rgba(196,181,253,.12)}
+.l4-exp-aitem .ea-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.l4-exp-aitem .ea-title{font-size:14px;font-weight:700;color:#e0e4ff}
+.l4-exp-aitem .ea-period{font-size:10px;color:#2a2a5a;font-family:'Space Mono',monospace}
+.l4-exp-aitem .ea-co{font-size:12px;color:#c4b5fd;margin-bottom:6px}
+.l4-exp-aitem p{font-size:12px;color:#3a3a5a;line-height:1.6}
+.l4-skill-aurora{display:flex;flex-wrap:wrap;gap:8px}
+.l4-skill-aurora span{font-size:10px;padding:5px 12px;border-radius:20px;background:rgba(196,181,253,.06);color:#c4b5fd;border:1px solid rgba(196,181,253,.1);font-family:'Space Mono',monospace;transition:all .2s}
+.l4-skill-aurora span:hover{background:rgba(139,92,246,.12);border-color:rgba(196,181,253,.3)}
+
+/* L5 WARM EDITORIAL */
+.l5-about{background:#fdf8f2;min-height:100vh;padding:80px 60px;font-family:'Crimson Pro',serif}
+.l5-about .kicker{font-size:12px;letter-spacing:3px;color:#b45309;text-transform:uppercase;font-family:'DM Sans',sans-serif;margin-bottom:12px}
+.l5-about .title{font-size:64px;font-weight:300;color:#1a1208;line-height:1;margin-bottom:8px;letter-spacing:-2px}
+.l5-about .title em{font-style:italic;color:#d97706}
+.l5-about .rule{width:60px;height:2px;background:#d97706;margin-top:20px;margin-bottom:50px}
+.l5-about-inner{display:grid;grid-template-columns:300px 1fr;gap:60px}
+.l5-about-img{width:280px;height:320px;border-radius:4px;background:#f5f0e8;border:1px solid #e7e2d8;display:flex;align-items:center;justify-content:center;font-size:80px;margin-bottom:24px}
+.l5-quick-info{display:flex;flex-direction:column;gap:14px}
+.l5-qi{border-bottom:1px solid #ebe5d8;padding-bottom:14px}
+.l5-qi .qi-key{font-size:10px;color:#d97706;letter-spacing:2px;text-transform:uppercase;font-family:'DM Sans',sans-serif;margin-bottom:4px}
+.l5-qi .qi-val{font-size:15px;color:#1a1208}
+.l5-right-col .pull-quote{font-size:28px;font-weight:300;color:#1a1208;line-height:1.5;margin-bottom:28px;font-style:italic;border-left:3px solid #d97706;padding-left:24px}
+.l5-right-col .bio-text{font-size:16px;color:#78716c;line-height:1.9;margin-bottom:28px;font-family:'DM Sans',sans-serif}
+.l5-right-col .bio-text strong{color:#1a1208}
+.l5-exp-editorial{display:flex;flex-direction:column;gap:0;margin-top:10px}
+.l5-exp-editorial h4{font-size:11px;letter-spacing:3px;color:#d97706;text-transform:uppercase;font-family:'DM Sans',sans-serif;margin-bottom:20px}
+.l5-exp-ed{display:grid;grid-template-columns:160px 1fr;gap:20px;padding:20px 0;border-bottom:1px solid #ebe5d8}
+.l5-exp-ed .ep{font-size:12px;color:#b45309;font-family:'DM Sans',sans-serif;padding-top:2px}
+.l5-exp-ed .ec h4{font-size:18px;font-weight:400;color:#1a1208;margin-bottom:2px}
+.l5-exp-ed .ec .eco{font-size:13px;color:#b45309;font-family:'DM Sans',sans-serif;margin-bottom:4px}
+.l5-exp-ed .ec p{font-size:14px;color:#78716c;line-height:1.6;font-family:'DM Sans',sans-serif}
+.l5-skills-editorial{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.l5-se{font-size:13px;color:#92400e;background:#fef3c7;padding:6px 16px;border-radius:2px;font-family:'DM Sans',sans-serif;cursor:default;transition:all .2s}
+.l5-se:hover{background:#fde68a}
+
+/* L6 3D DEPTH */
+.l6-about{background:#eceef5;min-height:100vh;padding:80px 60px;font-family:'Syne',sans-serif}
+.l6-about .eyebrow{font-size:11px;letter-spacing:4px;color:#7c3aed;text-transform:uppercase;margin-bottom:12px}
+.l6-about .title{font-size:56px;font-weight:800;color:#0f0f1e;line-height:1;letter-spacing:-1px;margin-bottom:60px}
+.l6-about .title .accent{-webkit-text-stroke:2px #7c3aed;color:transparent}
+.l6-about-inner{display:grid;grid-template-columns:280px 1fr;gap:40px;align-items:start}
+.l6-profile-card{background:#fff;border-radius:12px;padding:28px;box-shadow:0 2px 0 #d8dbe8,0 4px 0 #cdd0df,0 6px 0 #c2c6d6,0 8px 16px rgba(0,0,0,.1);margin-bottom:24px;text-align:center}
+.l6-profile-card .l6-av{width:80px;height:80px;border-radius:50%;background:#f3f0ff;border:3px solid #e9e3ff;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:32px}
+.l6-profile-card h3{font-size:18px;font-weight:700;color:#0f0f1e;margin-bottom:4px}
+.l6-profile-card .l6-role{font-size:12px;color:#9ca3af;margin-bottom:16px}
+.l6-profile-card .l6-avail{display:inline-flex;align-items:center;gap:6px;background:#f0fdf4;border:1px solid #bbf7d0;padding:5px 14px;border-radius:20px;font-size:11px;color:#166534}
+.l6-profile-card .l6-avail::before{content:'';width:6px;height:6px;border-radius:50%;background:#22c55e}
+.l6-stat-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
+.l6-scard{background:#fff;border-radius:12px;padding:16px;text-align:center;box-shadow:0 2px 0 #d8dbe8,0 4px 0 #cdd0df,0 5px 8px rgba(0,0,0,.08);transition:all .25s;cursor:default}
+.l6-scard:hover{transform:translateY(-4px);box-shadow:0 2px 0 #d8dbe8,0 4px 0 #cdd0df,0 6px 0 #c2c6d6,0 8px 12px rgba(0,0,0,.14)}
+.l6-scard .sn{font-size:28px;font-weight:800;color:#7c3aed;line-height:1;margin-bottom:4px}
+.l6-scard .sl{font-size:9px;color:#9ca3af;letter-spacing:1px;text-transform:uppercase}
+.l6-about-card{background:#fff;border-radius:12px;padding:32px;box-shadow:0 2px 0 #d8dbe8,0 4px 0 #cdd0df,0 6px 0 #c2c6d6,0 8px 16px rgba(0,0,0,.1);margin-bottom:24px}
+.l6-about-card h2{font-size:26px;font-weight:700;color:#0f0f1e;margin-bottom:16px;line-height:1.3}
+.l6-about-card p{font-size:14px;color:#6b7280;line-height:1.7;margin-bottom:10px}
+.l6-about-card p strong{color:#0f0f1e}
+.l6-exp-cards{display:flex;flex-direction:column;gap:14px;margin-bottom:24px}
+.l6-exp-card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 2px 0 #d8dbe8,0 3px 0 #cdd0df,0 4px 6px rgba(0,0,0,.06);display:flex;gap:14px;align-items:flex-start;cursor:default;transition:all .25s}
+.l6-exp-card:hover{transform:translateY(-3px);box-shadow:0 2px 0 #d8dbe8,0 4px 0 #cdd0df,0 5px 0 #c2c6d6,0 7px 12px rgba(0,0,0,.1)}
+.l6-exp-card .ec-icon{width:40px;height:40px;border-radius:10px;background:#f3f0ff;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.l6-exp-card .ec-content h5{font-size:14px;font-weight:700;color:#0f0f1e;margin-bottom:2px}
+.l6-exp-card .ec-content .eco{font-size:12px;color:#7c3aed;margin-bottom:2px}
+.l6-exp-card .ec-content .ep{font-size:11px;color:#9ca3af;margin-bottom:6px}
+.l6-exp-card .ec-content p{font-size:12px;color:#6b7280;line-height:1.5}
+.l6-skills-card{background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 0 #d8dbe8,0 4px 0 #cdd0df,0 6px 0 #c2c6d6,0 8px 14px rgba(0,0,0,.1)}
+.l6-skills-card h4{font-size:10px;letter-spacing:3px;color:#7c3aed;text-transform:uppercase;margin-bottom:14px}
+.l6-skill-tags{display:flex;flex-wrap:wrap;gap:8px}
+.l6-skill-tags span{font-size:10px;background:#f3f0ff;color:#7c3aed;padding:5px 12px;border-radius:6px;font-family:'Space Mono',monospace;cursor:default;transition:all .2s}
+.l6-skill-tags span:hover{background:#7c3aed;color:#fff}
+</style>
+</head>
+<body>
+
+<div class="layout-switcher">
+  <span>ABOUT</span>
+  <button class="sw-btn active" onclick="show(1)">L1 Midnight</button>
+  <button class="sw-btn" onclick="show(2)">L2 Light</button>
+  <button class="sw-btn" onclick="show(3)">L3 Neon Cyber</button>
+  <button class="sw-btn" onclick="show(4)">L4 Aurora</button>
+  <button class="sw-btn" onclick="show(5)">L5 Editorial</button>
+  <button class="sw-btn" onclick="show(6)">L6 3D Depth</button>
+</div>
+
+<!-- L1 -->
+<div class="layout active pt" id="l1">
+<section class="l1-about">
+  <div class="eyebrow">About Me</div>
+  <div class="heading">Crafting <span>Clean Code</span> & Beautiful Experiences</div>
+  <div class="l1-about-inner">
+    <div class="l1-avatar-col">
+      <div class="l1-avatar">🧑‍💻</div>
+      <div class="l1-stats">
+        <div class="l1-stat"><div class="s-num">5+</div><div class="s-label">Years Exp.</div></div>
+        <div class="l1-stat"><div class="s-num">40+</div><div class="s-label">Projects</div></div>
+        <div class="l1-stat"><div class="s-num">12+</div><div class="s-label">Clients</div></div>
+        <div class="l1-stat"><div class="s-num">6</div><div class="s-label">Certifications</div></div>
+      </div>
+    </div>
+    <div class="l1-content">
+      <p class="bio-para">I'm a <strong>Full Stack Developer</strong> based in Bengaluru, India, with 5+ years of experience building scalable web applications and developer tooling. I specialize in React, Node.js, and cloud-native architectures.</p>
+      <p class="bio-para">My passion lies in <strong>solving complex engineering problems</strong> — from designing microservice architectures to building tools that help teams manage technical debt and ship faster with confidence.</p>
+      <p class="bio-para">When I'm not coding, I'm contributing to open source, writing technical articles, or exploring the latest trends in DevOps and platform engineering.</p>
+      <div class="l1-exp-list">
+        <h4>Experience</h4>
+        <div class="l1-exp-item"><div class="exp-content"><h5>Senior Full Stack Engineer</h5><div class="company">TechCorp Solutions</div><div class="period">2022 — Present</div></div></div>
+        <div class="l1-exp-item"><div class="exp-content"><h5>Full Stack Developer</h5><div class="company">StartupXYZ</div><div class="period">2020 — 2022</div></div></div>
+        <div class="l1-exp-item"><div class="exp-content"><h5>Frontend Developer</h5><div class="company">Digital Agency</div><div class="period">2019 — 2020</div></div></div>
+      </div>
+      <div class="l1-skills-section">
+        <h4>Core Skills</h4>
+        <div class="l1-skill-tags">
+          <span class="l1-skill-tag">React</span><span class="l1-skill-tag">Node.js</span><span class="l1-skill-tag">TypeScript</span><span class="l1-skill-tag">Python</span><span class="l1-skill-tag">AWS</span><span class="l1-skill-tag">Docker</span><span class="l1-skill-tag">PostgreSQL</span><span class="l1-skill-tag">GraphQL</span><span class="l1-skill-tag">Kubernetes</span><span class="l1-skill-tag">Rust</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- L2 -->
+<div class="layout pt" id="l2">
+<section class="l2-about">
+  <div class="header">
+    <div class="title">About Me</div>
+    <div class="tagline">Full Stack Developer crafting scalable systems and developer tools.</div>
+  </div>
+  <div class="l2-about-inner">
+    <div>
+      <div class="l2-about-avatar">🧑‍💻</div>
+      <div class="l2-quick-facts">
+        <div class="l2-fact"><span class="f-key">Location</span><span class="f-val">Bengaluru, India</span></div>
+        <div class="l2-fact"><span class="f-key">Experience</span><span class="f-val">5+ Years</span></div>
+        <div class="l2-fact"><span class="f-key">Focus</span><span class="f-val">Full Stack / DevOps</span></div>
+        <div class="l2-fact"><span class="f-key">Available</span><span class="f-val" style="color:#22c55e">Open to work</span></div>
+      </div>
+    </div>
+    <div class="l2-about-content">
+      <h2>Building tools that developers actually love to use.</h2>
+      <p class="bio">I'm a Full Stack Developer with 5+ years building scalable web applications and engineering tooling. I specialize in React, Node.js, Python and cloud-native architectures on AWS and GCP. I care deeply about code quality, developer experience and shipping products that actually solve real problems.</p>
+      <div class="l2-exp-items">
+        <div class="l2-exp-item"><div class="e-period">2022 – Present</div><div class="e-content"><h4>Senior Full Stack Engineer</h4><div class="co">TechCorp Solutions</div><p>Led development of a microservice platform serving 500k+ daily users. Built internal tooling reducing deployment time by 60%.</p></div></div>
+        <div class="l2-exp-item"><div class="e-period">2020 – 2022</div><div class="e-content"><h4>Full Stack Developer</h4><div class="co">StartupXYZ</div><p>Built the core product from 0→1. Architected real-time data pipelines processing 10M+ events/day.</p></div></div>
+        <div class="l2-exp-item"><div class="e-period">2019 – 2020</div><div class="e-content"><h4>Frontend Developer</h4><div class="co">Digital Agency</div><p>Delivered 15+ client projects. Established component library used across all agency products.</p></div></div>
+      </div>
+      <div class="l2-skills-row">
+        <span class="l2-skill">React</span><span class="l2-skill">Node.js</span><span class="l2-skill">TypeScript</span><span class="l2-skill">Python</span><span class="l2-skill">AWS</span><span class="l2-skill">Docker</span><span class="l2-skill">PostgreSQL</span><span class="l2-skill">GraphQL</span>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- L3 -->
+<div class="layout pt" id="l3">
+<section class="l3-about">
+  <div class="grid-bg"></div>
+  <div class="eyebrow">// profile.load()</div>
+  <div class="heading">ABOUT <span class="purple">ME_</span></div>
+  <div class="l3-about-inner">
+    <div>
+      <div class="l3-profile-card">
+        <div class="corner-tl"></div><div class="corner-br"></div>
+        <div class="p-header">USER_PROFILE.JSON</div>
+        <div class="l3-avatar-cyber">🧑‍💻</div>
+        <div class="l3-profile-lines">
+          <div class="l3-pl"><span class="pk">name:</span> "Your Name"</div>
+          <div class="l3-pl"><span class="pk">role:</span> "Full Stack Dev"</div>
+          <div class="l3-pl"><span class="pk">location:</span> "Bengaluru, IN"</div>
+          <div class="l3-pl"><span class="pk">status:</span> <a href="#">"available"</a></div>
+          <div class="l3-pl"><span class="pk">github:</span> <a href="#">"@yourname"</a></div>
+        </div>
+        <div class="l3-cyber-stats">
+          <div class="l3-cstat"><div class="cn">5+</div><div class="cl">Years</div></div>
+          <div class="l3-cstat"><div class="cn">40+</div><div class="cl">Projects</div></div>
+          <div class="l3-cstat"><div class="cn">12+</div><div class="cl">Clients</div></div>
+          <div class="l3-cstat"><div class="cn">6</div><div class="cl">Certs</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="l3-about-content">
+      <div class="c-label">BIO_DATA</div>
+      <div class="l3-bio-block bio-block"><p>Full Stack Engineer with <strong>5+ years</strong> building scalable systems and developer tooling. Deep expertise in React, Node.js, Python and cloud-native architectures. I help engineering teams ship <strong>cleaner, faster, more maintainable code</strong>.</p></div>
+      <div class="c-label" style="margin-top:16px">EXP_LOG[]</div>
+      <div class="l3-exp-terminal">
+        <div class="l3-exp-entry"><div class="e-title">Senior Full Stack Engineer</div><div class="e-co">→ TechCorp Solutions</div><div class="e-period">2022.01 — PRESENT</div></div>
+        <div class="l3-exp-entry"><div class="e-title">Full Stack Developer</div><div class="e-co">→ StartupXYZ</div><div class="e-period">2020.06 — 2022.01</div></div>
+        <div class="l3-exp-entry"><div class="e-title">Frontend Developer</div><div class="e-co">→ Digital Agency</div><div class="e-period">2019.03 — 2020.06</div></div>
+      </div>
+      <div class="c-label" style="margin-top:16px">SKILL_STACK[]</div>
+      <div class="l3-skill-grid">
+        <span class="l3-skill-chip">React</span><span class="l3-skill-chip">Node</span><span class="l3-skill-chip">TypeScript</span><span class="l3-skill-chip">Python</span><span class="l3-skill-chip">AWS</span><span class="l3-skill-chip">Docker</span><span class="l3-skill-chip">K8s</span><span class="l3-skill-chip">PostgreSQL</span><span class="l3-skill-chip">GraphQL</span><span class="l3-skill-chip">Rust</span>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- L4 -->
+<div class="layout pt" id="l4">
+<section class="l4-about">
+  <div class="aurora"></div><div class="aurora2"></div>
+  <div class="eyebrow">About Me</div>
+  <div class="heading">Who I Am</div>
+  <div class="l4-about-inner">
+    <div>
+      <div class="l4-card-avatar">
+        <div class="av">🧑‍💻</div>
+        <h3>Your Name</h3>
+        <div class="role">Senior Full Stack Engineer</div>
+        <div class="avail-badge">Available for work</div>
+      </div>
+      <div class="l4-aurora-stats">
+        <div class="l4-as"><div class="n">5+</div><div class="l">Years</div></div>
+        <div class="l4-as"><div class="n">40+</div><div class="l">Projects</div></div>
+        <div class="l4-as"><div class="n">12+</div><div class="l">Clients</div></div>
+      </div>
+    </div>
+    <div class="l4-about-text">
+      <p class="bio">I'm a <strong>Full Stack Developer</strong> from Bengaluru with 5+ years building scalable systems. I specialize in cloud-native architectures, developer tooling and real-time data systems.</p>
+      <p class="bio">My work sits at the intersection of <strong>product engineering and platform infrastructure</strong> — I love building systems that are both delightful to use and rock-solid under the hood.</p>
+      <div class="l4-exp-aurora">
+        <h4>Experience</h4>
+        <div class="l4-exp-aitem"><div class="ea-top"><span class="ea-title">Senior Full Stack Engineer</span><span class="ea-period">2022 – Now</span></div><div class="ea-co">TechCorp Solutions</div><p>Led development of microservice platform serving 500k+ daily users. Reduced deployment time by 60%.</p></div>
+        <div class="l4-exp-aitem"><div class="ea-top"><span class="ea-title">Full Stack Developer</span><span class="ea-period">2020 – 2022</span></div><div class="ea-co">StartupXYZ</div><p>Built core product from 0→1. Architected data pipelines processing 10M+ events/day.</p></div>
+        <div class="l4-exp-aitem"><div class="ea-top"><span class="ea-title">Frontend Developer</span><span class="ea-period">2019 – 2020</span></div><div class="ea-co">Digital Agency</div><p>Delivered 15+ client projects. Established shared component library.</p></div>
+      </div>
+      <div class="l4-skill-aurora">
+        <span>React</span><span>Node.js</span><span>TypeScript</span><span>Python</span><span>AWS</span><span>Docker</span><span>K8s</span><span>PostgreSQL</span><span>GraphQL</span>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- L5 -->
+<div class="layout pt" id="l5">
+<section class="l5-about">
+  <div class="kicker">About</div>
+  <div class="title">The <em>Story</em> So Far</div>
+  <div class="rule"></div>
+  <div class="l5-about-inner">
+    <div class="l5-left-col">
+      <div class="l5-about-img">🧑‍💻</div>
+      <div class="l5-quick-info">
+        <div class="l5-qi"><div class="qi-key">Based In</div><div class="qi-val">Bengaluru, India</div></div>
+        <div class="l5-qi"><div class="qi-key">Experience</div><div class="qi-val">5+ Years</div></div>
+        <div class="l5-qi"><div class="qi-key">Speciality</div><div class="qi-val">Full Stack & DevOps</div></div>
+        <div class="l5-qi" style="border:none"><div class="qi-key">Status</div><div class="qi-val" style="color:#d97706">Open to Work</div></div>
+      </div>
+    </div>
+    <div class="l5-right-col">
+      <div class="pull-quote">"I build systems that engineers love working with — and that users never have to think about."</div>
+      <p class="bio-text">I'm a Full Stack Developer with <strong>5+ years</strong> of experience turning complex engineering problems into elegant, maintainable solutions. My background spans everything from building React frontends to designing distributed microservice architectures on AWS and GCP.</p>
+      <p class="bio-text">I care deeply about <strong>developer experience</strong> — both for the engineers using my tools and for future me maintaining the codebase. That's what drives my obsession with clean architecture and thorough documentation.</p>
+      <div class="l5-exp-editorial">
+        <h4>Work History</h4>
+        <div class="l5-exp-ed"><div class="ep">2022 – Present</div><div class="ec"><h4>Senior Full Stack Engineer</h4><div class="eco">TechCorp Solutions</div><p>Leading microservice architecture for platform serving 500k+ daily users.</p></div></div>
+        <div class="l5-exp-ed"><div class="ep">2020 – 2022</div><div class="ec"><h4>Full Stack Developer</h4><div class="eco">StartupXYZ</div><p>Built the core product end-to-end. Architected real-time data pipelines.</p></div></div>
+        <div class="l5-exp-ed"><div class="ep">2019 – 2020</div><div class="ec"><h4>Frontend Developer</h4><div class="eco">Digital Agency</div><p>Delivered 15+ client projects and built a shared component system.</p></div></div>
+      </div>
+      <div class="l5-skills-editorial">
+        <span class="l5-se">React</span><span class="l5-se">Node.js</span><span class="l5-se">TypeScript</span><span class="l5-se">Python</span><span class="l5-se">AWS</span><span class="l5-se">Docker</span><span class="l5-se">PostgreSQL</span>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- L6 -->
+<div class="layout pt" id="l6">
+<section class="l6-about">
+  <div class="eyebrow">About Me</div>
+  <div class="title">Who I <span class="accent">Am</span></div>
+  <div class="l6-about-inner">
+    <div>
+      <div class="l6-profile-card">
+        <div class="l6-av">🧑‍💻</div>
+        <h3>Your Name</h3>
+        <div class="l6-role">Senior Full Stack Engineer</div>
+        <div class="l6-avail">Available for work</div>
+      </div>
+      <div class="l6-stat-cards">
+        <div class="l6-scard"><div class="sn">5+</div><div class="sl">Years Exp.</div></div>
+        <div class="l6-scard"><div class="sn">40+</div><div class="sl">Projects</div></div>
+        <div class="l6-scard"><div class="sn">12+</div><div class="sl">Clients</div></div>
+        <div class="l6-scard"><div class="sn">6</div><div class="sl">Certs</div></div>
+      </div>
+    </div>
+    <div class="l6-right-col">
+      <div class="l6-about-card">
+        <h2>Building scalable systems & developer tools that actually work.</h2>
+        <p>I'm a Full Stack Developer based in Bengaluru with <strong>5+ years</strong> of experience. I specialize in React, Node.js, Python and cloud-native architectures on AWS and GCP.</p>
+        <p>I'm obsessed with code quality, developer experience, and shipping products that solve real problems cleanly and at scale.</p>
+      </div>
+      <div class="l6-exp-cards">
+        <div class="l6-exp-card"><div class="ec-icon">🏢</div><div class="ec-content"><h5>Senior Full Stack Engineer</h5><div class="eco">TechCorp Solutions</div><div class="ep">2022 – Present</div><p>Microservice platform serving 500k+ daily users. Reduced deployment time by 60%.</p></div></div>
+        <div class="l6-exp-card"><div class="ec-icon">🚀</div><div class="ec-content"><h5>Full Stack Developer</h5><div class="eco">StartupXYZ</div><div class="ep">2020 – 2022</div><p>Built core product from 0→1. Data pipelines processing 10M+ events/day.</p></div></div>
+        <div class="l6-exp-card"><div class="ec-icon">🎨</div><div class="ec-content"><h5>Frontend Developer</h5><div class="eco">Digital Agency</div><div class="ep">2019 – 2020</div><p>15+ client projects and shared component library.</p></div></div>
+      </div>
+      <div class="l6-skills-card">
+        <h4>Core Skills</h4>
+        <div class="l6-skill-tags">
+          <span>React</span><span>Node.js</span><span>TypeScript</span><span>Python</span><span>AWS</span><span>Docker</span><span>Kubernetes</span><span>PostgreSQL</span><span>GraphQL</span><span>Rust</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<script>
+function show(n){
+  document.querySelectorAll('.layout').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.sw-btn').forEach(el=>el.classList.remove('active'));
+  document.getElementById('l'+n).classList.add('active');
+  document.querySelectorAll('.sw-btn')[n-1].classList.add('active');
+}
+</script>
+</body>
+</html>

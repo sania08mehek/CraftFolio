@@ -1,0 +1,131 @@
+<!-- HERO · Layout 2 · Light Minimal -->
+<!-- Placeholders: {{NAME}} {{TITLE}} {{BIO}} {{PROFILE_IMAGE}} -->
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  .hero2 {
+    background: #fafaf8; min-height: 92vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  .hero2-left {
+    padding: 80px 48px 80px 64px;
+    display: flex; flex-direction: column; justify-content: center;
+    border-right: 1px solid #e2ddd6;
+    animation: fadeRight 0.8s ease both;
+  }
+  @keyframes fadeRight { from{opacity:0;transform:translateX(-20px)} to{opacity:1;transform:translateX(0)} }
+  .hero2-eyebrow {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em;
+    color: #aaa; margin-bottom: 20px;
+  }
+  .hero2-h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(40px, 5vw, 64px); line-height: 1.06;
+    letter-spacing: -0.03em; color: #1a1a1a;
+  }
+  .hero2-h1 em { font-style: italic; color: #888; }
+  .hero2-role {
+    margin-top: 16px; font-size: 15px; color: #888; font-weight: 400;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .hero2-role::before {
+    content: ''; flex: 1; max-width: 40px;
+    height: 1px; background: #ddd;
+  }
+  .hero2-bio {
+    margin-top: 24px; font-size: 16px; color: #666;
+    line-height: 1.8; max-width: 440px;
+  }
+  .hero2-actions { display: flex; gap: 16px; margin-top: 36px; align-items: center; }
+  .hero2-btn {
+    padding: 13px 30px; background: #1a1a1a; color: #fff;
+    border: none; border-radius: 6px; font-size: 14px; font-weight: 600;
+    font-family: 'Plus Jakarta Sans', sans-serif; cursor: pointer;
+    text-decoration: none; transition: background 0.2s; letter-spacing: 0.02em;
+  }
+  .hero2-btn:hover { background: #333; }
+  .hero2-link {
+    font-size: 14px; color: #888; text-decoration: none;
+    letter-spacing: 0.04em; transition: color 0.2s;
+  }
+  .hero2-link:hover { color: #1a1a1a; }
+  .hero2-right {
+    position: relative; overflow: hidden;
+    animation: fadeLeft 0.8s 0.2s ease both; opacity: 0;
+  }
+  @keyframes fadeLeft { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
+  .hero2-img-wrap {
+    width: 100%; height: 100%; min-height: 400px;
+    background: linear-gradient(160deg, #f0ede6, #e8e3d8);
+    display: flex; align-items: flex-end; overflow: hidden;
+  }
+  .hero2-img-wrap img {
+    width: 100%; height: 100%; object-fit: cover; object-position: top;
+  }
+  /* floating card */
+  .hero2-card {
+    position: absolute; bottom: 40px; right: 32px;
+    background: #fff; border: 1px solid #e2ddd6;
+    border-radius: 12px; padding: 16px 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    animation: floatCard 5s ease-in-out infinite;
+  }
+  @keyframes floatCard {
+    0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)}
+  }
+  .hero2-card-label { font-size: 11px; color: #aaa; text-transform: uppercase; letter-spacing: 0.1em; }
+  .hero2-card-val { font-family: 'DM Serif Display',serif; font-size: 22px; color: #1a1a1a; margin-top: 2px; }
+  /* bottom stats */
+  .hero2-stats {
+    display: flex; gap: 0;
+    border-top: 1px solid #e2ddd6;
+  }
+  .hero2-stat {
+    flex: 1; padding: 20px 24px;
+    border-right: 1px solid #e2ddd6;
+  }
+  .hero2-stat:last-child { border-right: none; }
+  .hero2-stat-num {
+    font-family: 'DM Serif Display', serif; font-size: 28px; color: #1a1a1a;
+  }
+  .hero2-stat-label { font-size: 12px; color: #aaa; margin-top: 2px; }
+</style>
+
+<section class="hero2">
+  <div class="hero2-left">
+    <div class="hero2-eyebrow">Portfolio · 2025</div>
+    <h1 class="hero2-h1">
+      Hello,<br>I'm <em>{{NAME}}</em>
+    </h1>
+    <p class="hero2-role">{{TITLE}}</p>
+    <p class="hero2-bio">{{BIO}}</p>
+    <div class="hero2-actions">
+      <a class="hero2-btn" href="#projects">See My Work →</a>
+      <a class="hero2-link" href="#contact">Or say hello ↗</a>
+    </div>
+    <div class="hero2-stats">
+      <div class="hero2-stat">
+        <div class="hero2-stat-num">5+</div>
+        <div class="hero2-stat-label">Years</div>
+      </div>
+      <div class="hero2-stat">
+        <div class="hero2-stat-num">40+</div>
+        <div class="hero2-stat-label">Projects</div>
+      </div>
+      <div class="hero2-stat">
+        <div class="hero2-stat-num">12</div>
+        <div class="hero2-stat-label">Clients</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero2-right">
+    <div class="hero2-img-wrap">
+      <img src="{{PROFILE_IMAGE}}" alt="{{NAME}}" onerror="this.style.display='none'" />
+    </div>
+    <div class="hero2-card">
+      <div class="hero2-card-label">Open to</div>
+      <div class="hero2-card-val">Full-time roles</div>
+    </div>
+  </div>
+</section>

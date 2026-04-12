@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{META_DESCRIPTION}}">
+  <title>{{PORTFOLIO_TITLE}}</title>
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Dynamic font loading based on theme -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&family=Bebas+Neue&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Critical CSS inlined for performance */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { 
+      font-family: var(--font-body, 'DM Sans', sans-serif); 
+      background: var(--bg, #07070f); 
+      color: var(--text, #f0f0ff);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Prevent FOUC */
+    [data-animate] { opacity: 0; }
+    [data-animate].visible { opacity: 1; }
+
+    /* Reduced motion support */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+   
+  </style>
+<base target="_blank">
+</head>
+
+<body data-theme="{{ACTIVE_THEME}}">
+
+  <!-- Navigation (optional) -->
+  {{NAVIGATION}}
+
+  <!-- Main Content -->
+  <main id="main-content">
+    {{SECTIONS_BODY}}
+  </main>
+
+  <!-- Footer (optional) -->
+  {{FOOTER}}
+
+  <!-- Scroll to top button -->
+  <button id="scrollTop" class="scroll-top" aria-label="Scroll to top">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M18 15l-6-6-6 6"/>
+    </svg>
+  </button>
+
+  <script>
+    // Critical JS inlined
+    document.documentElement.style.setProperty('--vh', window.innerHeight * 0.01 + 'px');
+    window.addEventListener('resize', () => {
+      document.documentElement.style.setProperty('--vh', window.innerHeight * 0.01 + 'px');
+    });
+
+    {{ANIMATIONS_JS}}
+  </script>
+</body>
+</html>
