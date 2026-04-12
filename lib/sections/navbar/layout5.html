@@ -1,0 +1,50 @@
+<!-- NAVBAR · Layout 5 · Warm Editorial -->
+<!-- Placeholders: {{NAME}} {{NAV_LINKS}} -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  .nav5 {
+    background: #fffbf5;
+    border-bottom: 2px solid #2c1810;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .nav5-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px; height: 66px;
+  }
+  .nav5-left { display: flex; align-items: center; gap: 32px; }
+  .nav5-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-size: 22px; font-weight: 400;
+    color: #2c1810; text-decoration: none; letter-spacing: 0.01em;
+  }
+  .nav5-tag {
+    font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em;
+    color: #b08060; border: 1px solid rgba(176,128,96,0.4);
+    padding: 3px 10px; border-radius: 3px;
+  }
+  .nav5-links { display: flex; align-items: center; gap: 0; }
+  .nav5-link {
+    color: #7a4f3a; text-decoration: none;
+    font-size: 12px; font-weight: 500; letter-spacing: 0.06em;
+    text-transform: uppercase; padding: 8px 16px;
+    border-left: 1px solid rgba(44,24,16,0.1);
+    transition: all 0.18s;
+  }
+  .nav5-link:last-child { border-right: 1px solid rgba(44,24,16,0.1); }
+  .nav5-link:hover { color: #2c1810; background: rgba(44,24,16,0.04); }
+</style>
+
+<nav class="nav5">
+  <div class="nav5-inner">
+    <div class="nav5-left">
+      <a class="nav5-logo" href="#">{{NAME}}</a>
+      <span class="nav5-tag">Portfolio</span>
+    </div>
+    <div class="nav5-links">
+      {{NAV_LINKS}}
+    </div>
+  </div>
+</nav>

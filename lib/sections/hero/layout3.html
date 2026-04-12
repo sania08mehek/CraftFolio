@@ -1,0 +1,156 @@
+<!-- HERO · Layout 3 · Neon Cyber -->
+<!-- Placeholders: {{NAME}} {{TITLE}} {{BIO}} -->
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  .hero3 {
+    background: #020209; min-height: 92vh;
+    display: flex; align-items: center;
+    padding: 80px 48px; position: relative; overflow: hidden;
+    font-family: 'Outfit', sans-serif;
+  }
+  /* animated neon grid */
+  .hero3::before {
+    content: ''; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(0,255,200,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,255,200,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: cyberGrid 15s linear infinite;
+  }
+  @keyframes cyberGrid { from{background-position:0 0} to{background-position:40px 40px} }
+  /* corner accents */
+  .hero3-corner {
+    position: absolute; width: 80px; height: 80px; pointer-events: none;
+  }
+  .hero3-corner.tl { top: 32px; left: 32px; border-top: 2px solid #00ffc8; border-left: 2px solid #00ffc8; }
+  .hero3-corner.br { bottom: 32px; right: 32px; border-bottom: 2px solid #ff2d78; border-right: 2px solid #ff2d78; }
+  /* scanline sweep */
+  .hero3-scan {
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent 0%, #00ffc8 50%, transparent 100%);
+    animation: scanSweep 4s linear infinite; opacity: 0.6;
+  }
+  @keyframes scanSweep {
+    0%   { top: 0%; opacity: 0; }
+    10%  { opacity: 0.6; }
+    90%  { opacity: 0.6; }
+    100% { top: 100%; opacity: 0; }
+  }
+  .hero3-inner {
+    max-width: 1100px; margin: 0 auto; width: 100%;
+    position: relative; z-index: 1;
+  }
+  .hero3-tag {
+    display: inline-block; font-size: 12px; font-weight: 500;
+    color: #00ffc8; letter-spacing: 0.12em; text-transform: uppercase;
+    margin-bottom: 20px;
+    animation: fadeUp3 0.5s ease both;
+  }
+  .hero3-tag::before { content: '[ '; } .hero3-tag::after { content: ' ]'; }
+  @keyframes fadeUp3 { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+  .hero3-h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(56px, 9vw, 120px);
+    line-height: 0.92; letter-spacing: 0.03em;
+    color: #e8fff8;
+    animation: fadeUp3 0.5s 0.1s ease both;
+  }
+  .hero3-h1 .cyber-name {
+    display: block; color: transparent;
+    -webkit-text-stroke: 2px #00ffc8;
+    text-shadow: 0 0 40px rgba(0,255,200,0.4),
+                 0 0 80px rgba(0,255,200,0.15);
+    transition: all 0.3s;
+  }
+  .hero3-h1 .cyber-name:hover {
+    color: #00ffc8;
+    text-shadow: 0 0 40px rgba(0,255,200,0.8), 0 0 80px rgba(0,255,200,0.4);
+  }
+  .hero3-h1 .cyber-role {
+    display: block; font-size: 0.45em; color: #ff2d78;
+    letter-spacing: 0.06em;
+    text-shadow: 0 0 20px rgba(255,45,120,0.5);
+  }
+  .hero3-bio {
+    font-size: 16px; color: rgba(232,255,248,0.45); line-height: 1.8;
+    max-width: 560px; margin-top: 24px;
+    animation: fadeUp3 0.5s 0.2s ease both;
+  }
+  .hero3-actions {
+    display: flex; gap: 16px; margin-top: 40px; flex-wrap: wrap;
+    animation: fadeUp3 0.5s 0.3s ease both;
+  }
+  .hero3-btn-p {
+    padding: 14px 36px; border: 2px solid #00ffc8;
+    background: transparent; color: #00ffc8;
+    font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 600;
+    cursor: pointer; letter-spacing: 0.08em; text-transform: uppercase;
+    text-decoration: none; transition: all 0.2s;
+    box-shadow: 0 0 20px rgba(0,255,200,0.2), inset 0 0 20px transparent;
+    clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+  }
+  .hero3-btn-p:hover {
+    background: rgba(0,255,200,0.12);
+    box-shadow: 0 0 30px rgba(0,255,200,0.5), 0 0 60px rgba(0,255,200,0.2);
+  }
+  .hero3-btn-s {
+    padding: 14px 36px; border: 2px solid rgba(255,45,120,0.5);
+    background: transparent; color: #ff2d78;
+    font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 600;
+    cursor: pointer; letter-spacing: 0.08em; text-transform: uppercase;
+    text-decoration: none; transition: all 0.2s;
+    clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+  }
+  .hero3-btn-s:hover {
+    background: rgba(255,45,120,0.1); border-color: #ff2d78;
+    box-shadow: 0 0 25px rgba(255,45,120,0.4);
+  }
+  /* glitch stats */
+  .hero3-stats {
+    display: flex; gap: 40px; margin-top: 48px;
+    padding-top: 32px; border-top: 1px solid rgba(0,255,200,0.1);
+    animation: fadeUp3 0.5s 0.4s ease both;
+  }
+  .hero3-stat-num {
+    font-family: 'Bebas Neue', sans-serif; font-size: 36px;
+    color: #00ffc8; letter-spacing: 0.04em;
+    text-shadow: 0 0 15px rgba(0,255,200,0.5);
+  }
+  .hero3-stat-label {
+    font-size: 11px; color: rgba(232,255,248,0.35);
+    text-transform: uppercase; letter-spacing: 0.1em;
+  }
+</style>
+
+<section class="hero3">
+  <div class="hero3-scan"></div>
+  <div class="hero3-corner tl"></div>
+  <div class="hero3-corner br"></div>
+  <div class="hero3-inner">
+    <div class="hero3-tag">Available · Full Stack Dev</div>
+    <h1 class="hero3-h1">
+      <span class="cyber-name">{{NAME}}</span>
+      <span class="cyber-role">{{TITLE}}</span>
+    </h1>
+    <p class="hero3-bio">{{BIO}}</p>
+    <div class="hero3-actions">
+      <a class="hero3-btn-p" href="#projects">View Projects</a>
+      <a class="hero3-btn-s" href="#contact">Get In Touch</a>
+    </div>
+    <div class="hero3-stats">
+      <div>
+        <div class="hero3-stat-num">5+</div>
+        <div class="hero3-stat-label">Years</div>
+      </div>
+      <div>
+        <div class="hero3-stat-num">40+</div>
+        <div class="hero3-stat-label">Projects</div>
+      </div>
+      <div>
+        <div class="hero3-stat-num">12</div>
+        <div class="hero3-stat-label">Clients</div>
+      </div>
+    </div>
+  </div>
+</section>

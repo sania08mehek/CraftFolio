@@ -1,0 +1,143 @@
+<!-- HERO · Layout 5 · Warm Editorial -->
+<!-- Placeholders: {{NAME}} {{TITLE}} {{BIO}} -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  .hero5 {
+    background: #fffbf5;
+    min-height: 92vh; display: flex; flex-direction: column;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    position: relative; overflow: hidden;
+  }
+  /* decorative line texture */
+  .hero5::before {
+    content: ''; position: absolute;
+    top: 0; right: 0; width: 50%; height: 100%;
+    background: repeating-linear-gradient(
+      -55deg, transparent, transparent 40px,
+      rgba(44,24,16,0.025) 40px, rgba(44,24,16,0.025) 41px
+    );
+    pointer-events: none;
+  }
+  .hero5-main {
+    flex: 1; display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid rgba(44,24,16,0.12);
+  }
+  .hero5-left {
+    padding: 80px 48px; border-right: 1px solid rgba(44,24,16,0.12);
+    display: flex; flex-direction: column; justify-content: space-between;
+    animation: slideIn5 0.7s ease both;
+  }
+  @keyframes slideIn5 { from{opacity:0;transform:translateX(-16px)} to{opacity:1;transform:translateX(0)} }
+  .hero5-eyebrow {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em;
+    color: #b08060; margin-bottom: 32px;
+  }
+  .hero5-h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(44px, 6vw, 80px);
+    font-weight: 700; line-height: 0.96; letter-spacing: -0.02em;
+    color: #2c1810;
+  }
+  .hero5-h1 em { font-style: italic; font-weight: 400; }
+  .hero5-divider {
+    width: 56px; height: 2px; background: #2c1810; margin: 28px 0;
+    animation: expandLine 0.8s 0.3s ease both; transform-origin: left;
+  }
+  @keyframes expandLine { from{transform:scaleX(0)} to{transform:scaleX(1)} }
+  .hero5-bio {
+    font-size: 16px; color: #7a4f3a; line-height: 1.8;
+    max-width: 420px;
+  }
+  .hero5-bottom {
+    margin-top: auto; padding-top: 28px;
+    display: flex; gap: 20px; align-items: center;
+  }
+  .hero5-btn {
+    padding: 12px 28px; background: #2c1810; color: #fffbf5;
+    border-radius: 4px; font-size: 13px; font-weight: 500;
+    letter-spacing: 0.05em; text-transform: uppercase;
+    text-decoration: none; transition: background 0.2s;
+  }
+  .hero5-btn:hover { background: #4a2a1c; }
+  .hero5-link {
+    font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em;
+    color: #b08060; text-decoration: none;
+    padding-bottom: 2px; border-bottom: 1px solid rgba(176,128,96,0.4);
+  }
+  .hero5-right {
+    padding: 80px 48px; position: relative;
+    animation: slideIn5R 0.7s 0.2s ease both; opacity: 0;
+  }
+  @keyframes slideIn5R { from{opacity:0;transform:translateX(16px)} to{opacity:1;transform:translateX(0)} }
+  .hero5-role-big {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-size: 22px; color: #b08060;
+    margin-bottom: 32px; font-weight: 400;
+  }
+  .hero5-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; font-style: italic; font-weight: 400;
+    color: #2c1810; line-height: 1.4;
+    border-left: 3px solid #b08060; padding-left: 24px;
+    margin-top: 40px;
+  }
+  .hero5-meta {
+    margin-top: auto; position: absolute; bottom: 80px; left: 48px; right: 48px;
+    display: flex; gap: 0; border: 1px solid rgba(44,24,16,0.12); border-radius: 8px;
+    overflow: hidden;
+  }
+  .hero5-meta-item {
+    flex: 1; padding: 16px 20px; border-right: 1px solid rgba(44,24,16,0.12);
+    text-align: center;
+  }
+  .hero5-meta-item:last-child { border-right: none; }
+  .hero5-meta-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px; color: #2c1810; line-height: 1;
+  }
+  .hero5-meta-label {
+    font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em;
+    color: #b08060; margin-top: 4px;
+  }
+</style>
+
+<section class="hero5">
+  <div class="hero5-main">
+    <div class="hero5-left">
+      <div>
+        <div class="hero5-eyebrow">Developer · Designer · Creator</div>
+        <h1 class="hero5-h1">
+          <em>{{NAME}}</em>
+        </h1>
+        <div class="hero5-divider"></div>
+        <p class="hero5-bio">{{BIO}}</p>
+      </div>
+      <div class="hero5-bottom">
+        <a class="hero5-btn" href="#projects">Selected Work</a>
+        <a class="hero5-link" href="#contact">Get in touch ↗</a>
+      </div>
+    </div>
+    <div class="hero5-right">
+      <p class="hero5-role-big">{{TITLE}}</p>
+      <blockquote class="hero5-quote">
+        "Building things people<br>love to use."
+      </blockquote>
+      <div class="hero5-meta">
+        <div class="hero5-meta-item">
+          <div class="hero5-meta-num">5+</div>
+          <div class="hero5-meta-label">Years</div>
+        </div>
+        <div class="hero5-meta-item">
+          <div class="hero5-meta-num">40+</div>
+          <div class="hero5-meta-label">Projects</div>
+        </div>
+        <div class="hero5-meta-item">
+          <div class="hero5-meta-num">12</div>
+          <div class="hero5-meta-label">Clients</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

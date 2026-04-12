@@ -1,0 +1,368 @@
+{
+  "version": "2.0",
+  "lastUpdated": "2024-04-12",
+  "defaults": {
+    "theme": "midnight",
+    "fontSize": {
+      "base": "16px",
+      "scale": "1.25"
+    }
+  },
+  "themes": {
+    "Midnight": {
+      "id": "midnight",
+      "name": "Midnight",
+      "description": "Dark theme with purple/indigo accents - perfect for developers",
+      "category": "dark",
+      "properties": {
+        "--color-bg": "#07070f",
+        "--color-bg-2": "#0d0d1a",
+        "--color-surface": "#111125",
+        "--color-surface-2": "#1a1a2e",
+        "--color-border": "rgba(99,102,241,0.18)",
+        "--color-border-2": "#2a2a4e",
+        "--color-accent": "#6366f1",
+        "--color-accent-2": "#a78bfa",
+        "--color-accent-3": "#8b5cf6",
+        "--color-text": "#f0f0ff",
+        "--color-text-muted": "rgba(240,240,255,0.5)",
+        "--color-text-subtle": "rgba(240,240,255,0.28)",
+        "--color-success": "#10b981",
+        "--color-warning": "#f59e0b",
+        "--color-error": "#ef4444"
+      },
+      "typography": {
+        "font-head": "Syne",
+        "font-body": "DM Sans",
+        "font-mono": "Space Mono",
+        "heading-weight": 800,
+        "body-weight": 400
+      },
+      "effects": {
+        "glassmorphism": true,
+        "neon-glow": true,
+        "gradient-borders": true,
+        "aurora-bg": false
+      },
+      "radius": {
+        "sm": "8px",
+        "md": "12px",
+        "lg": "16px",
+        "xl": "24px"
+      },
+      "shadows": {
+        "sm": "0 2px 8px rgba(0,0,0,0.3)",
+        "md": "0 4px 24px rgba(0,0,0,0.4)",
+        "lg": "0 8px 32px rgba(0,0,0,0.5)",
+        "glow": "0 0 40px rgba(99,102,241,0.15)"
+      },
+      "transitions": {
+        "fast": "150ms cubic-bezier(0.4, 0, 0.2, 1)",
+        "base": "250ms cubic-bezier(0.4, 0, 0.2, 1)",
+        "slow": "350ms cubic-bezier(0.4, 0, 0.2, 1)",
+        "bounce": "500ms cubic-bezier(0.175, 0.885, 0.32, 1.275)"
+      }
+    },
+    "Light": {
+      "id": "light",
+      "name": "Light Minimal",
+      "description": "Clean, minimal light theme with warm grays",
+      "category": "light",
+      "properties": {
+        "--color-bg": "#fafaf8",
+        "--color-bg-2": "#f4f1eb",
+        "--color-surface": "#ffffff",
+        "--color-surface-2": "#f9f9f7",
+        "--color-border": "#e2ddd6",
+        "--color-border-2": "#ebebeb",
+        "--color-accent": "#1a1a1a",
+        "--color-accent-2": "#888880",
+        "--color-accent-3": "#3b82f6",
+        "--color-text": "#1a1a1a",
+        "--color-text-muted": "#6b6b6b",
+        "--color-text-subtle": "#aaa",
+        "--color-success": "#22c55e",
+        "--color-warning": "#f59e0b",
+        "--color-error": "#ef4444"
+      },
+      "typography": {
+        "font-head": "DM Serif Display",
+        "font-body": "Plus Jakarta Sans",
+        "font-mono": "Space Mono",
+        "heading-weight": 600,
+        "body-weight": 400
+      },
+      "effects": {
+        "glassmorphism": false,
+        "neon-glow": false,
+        "gradient-borders": false,
+        "aurora-bg": false
+      },
+      "radius": {
+        "sm": "4px",
+        "md": "8px",
+        "lg": "12px",
+        "xl": "16px"
+      },
+      "shadows": {
+        "sm": "0 1px 3px rgba(0,0,0,0.05)",
+        "md": "0 4px 12px rgba(0,0,0,0.08)",
+        "lg": "0 8px 24px rgba(0,0,0,0.12)",
+        "glow": "0 0 20px rgba(0,0,0,0.08)"
+      },
+      "transitions": {
+        "fast": "150ms ease-out",
+        "base": "200ms ease-out",
+        "slow": "300ms ease-out",
+        "bounce": "400ms cubic-bezier(0.175, 0.885, 0.32, 1.275)"
+      }
+    },
+    "Neon Cyber": {
+      "id": "cyber",
+      "name": "Neon Cyber",
+      "description": "High-contrast cyberpunk theme with neon accents",
+      "category": "dark",
+      "properties": {
+        "--color-bg": "#020208",
+        "--color-bg-2": "#06060f",
+        "--color-surface": "#0a0a18",
+        "--color-surface-2": "#0f0f24",
+        "--color-border": "rgba(0,255,200,0.15)",
+        "--color-border-2": "rgba(139,92,246,0.2)",
+        "--color-accent": "#00ffc8",
+        "--color-accent-2": "#ff2d78",
+        "--color-accent-3": "#a78bfa",
+        "--color-text": "#e8fff8",
+        "--color-text-muted": "rgba(232,255,248,0.5)",
+        "--color-text-subtle": "rgba(232,255,248,0.25)",
+        "--color-success": "#00ffc8",
+        "--color-warning": "#ffd700",
+        "--color-error": "#ff2d78"
+      },
+      "typography": {
+        "font-head": "Bebas Neue",
+        "font-body": "Outfit",
+        "font-mono": "Space Mono",
+        "heading-weight": 400,
+        "body-weight": 400
+      },
+      "effects": {
+        "glassmorphism": false,
+        "neon-glow": true,
+        "gradient-borders": false,
+        "aurora-bg": false,
+        "grid-bg": true,
+        "glitch-effect": true
+      },
+      "radius": {
+        "sm": "2px",
+        "md": "4px",
+        "lg": "8px",
+        "xl": "12px"
+      },
+      "shadows": {
+        "sm": "0 0 10px rgba(0,255,200,0.1)",
+        "md": "0 0 20px rgba(0,255,200,0.15)",
+        "lg": "0 0 40px rgba(0,255,200,0.2)",
+        "glow": "0 0 60px rgba(0,255,200,0.3)"
+      },
+      "transitions": {
+        "fast": "100ms ease",
+        "base": "200ms ease",
+        "slow": "300ms ease",
+        "bounce": "400ms cubic-bezier(0.68, -0.55, 0.265, 1.55)"
+      }
+    },
+    "Aurora": {
+      "id": "aurora",
+      "name": "Aurora Dark",
+      "description": "Ethereal dark theme with aurora borealis effects",
+      "category": "dark",
+      "properties": {
+        "--color-bg": "#04080f",
+        "--color-bg-2": "#070d18",
+        "--color-surface": "#0c1525",
+        "--color-surface-2": "#111d33",
+        "--color-border": "rgba(56,189,248,0.15)",
+        "--color-border-2": "rgba(196,181,253,0.1)",
+        "--color-accent": "#38bdf8",
+        "--color-accent-2": "#f472b6",
+        "--color-accent-3": "#c4b5fd",
+        "--color-text": "#e8f4ff",
+        "--color-text-muted": "rgba(232,244,255,0.5)",
+        "--color-text-subtle": "rgba(232,244,255,0.25)",
+        "--color-success": "#6ee7b7",
+        "--color-warning": "#fbbf24",
+        "--color-error": "#f87171"
+      },
+      "typography": {
+        "font-head": "Fraunces",
+        "font-body": "Plus Jakarta Sans",
+        "font-mono": "Space Mono",
+        "heading-weight": 700,
+        "body-weight": 400
+      },
+      "effects": {
+        "glassmorphism": true,
+        "neon-glow": false,
+        "gradient-borders": true,
+        "aurora-bg": true
+      },
+      "radius": {
+        "sm": "8px",
+        "md": "12px",
+        "lg": "16px",
+        "xl": "24px"
+      },
+      "shadows": {
+        "sm": "0 2px 8px rgba(0,0,0,0.3)",
+        "md": "0 8px 32px rgba(0,0,0,0.4)",
+        "lg": "0 16px 48px rgba(0,0,0,0.5)",
+        "glow": "0 0 60px rgba(56,189,248,0.12)"
+      },
+      "transitions": {
+        "fast": "200ms ease",
+        "base": "300ms ease",
+        "slow": "500ms ease",
+        "bounce": "600ms cubic-bezier(0.175, 0.885, 0.32, 1.275)"
+      }
+    },
+    "Warm Editorial": {
+      "id": "editorial",
+      "name": "Warm Editorial",
+      "description": "Elegant editorial theme with warm earth tones",
+      "category": "light",
+      "properties": {
+        "--color-bg": "#fffbf5",
+        "--color-bg-2": "#f5ede0",
+        "--color-surface": "#fff8f0",
+        "--color-surface-2": "#fdf8f2",
+        "--color-border": "rgba(44,24,16,0.12)",
+        "--color-border-2": "#ebe5d8",
+        "--color-accent": "#2c1810",
+        "--color-accent-2": "#b08060",
+        "--color-accent-3": "#d97706",
+        "--color-text": "#2c1810",
+        "--color-text-muted": "#7a4f3a",
+        "--color-text-subtle": "#b08060",
+        "--color-success": "#65a30d",
+        "--color-warning": "#d97706",
+        "--color-error": "#dc2626"
+      },
+      "typography": {
+        "font-head": "Crimson Pro",
+        "font-body": "DM Sans",
+        "font-mono": "Space Mono",
+        "heading-weight": 300,
+        "body-weight": 400
+      },
+      "effects": {
+        "glassmorphism": false,
+        "neon-glow": false,
+        "gradient-borders": false,
+        "aurora-bg": false,
+        "paper-texture": true
+      },
+      "radius": {
+        "sm": "2px",
+        "md": "4px",
+        "lg": "8px",
+        "xl": "12px"
+      },
+      "shadows": {
+        "sm": "0 1px 2px rgba(44,24,16,0.05)",
+        "md": "0 4px 8px rgba(44,24,16,0.08)",
+        "lg": "0 8px 16px rgba(44,24,16,0.12)",
+        "glow": "0 0 20px rgba(217,119,6,0.1)"
+      },
+      "transitions": {
+        "fast": "150ms ease",
+        "base": "250ms ease",
+        "slow": "350ms ease",
+        "bounce": "400ms cubic-bezier(0.175, 0.885, 0.32, 1.275)"
+      }
+    },
+    "3D Depth": {
+      "id": "depth",
+      "name": "3D Depth",
+      "description": "Modern theme with layered 3D shadow effects",
+      "category": "light",
+      "properties": {
+        "--color-bg": "#eceef5",
+        "--color-bg-2": "#e2e5f0",
+        "--color-surface": "#ffffff",
+        "--color-surface-2": "#f8f9fc",
+        "--color-border": "#d8dbe8",
+        "--color-border-2": "#cdd0df",
+        "--color-accent": "#7c3aed",
+        "--color-accent-2": "#a78bfa",
+        "--color-accent-3": "#5b21b6",
+        "--color-text": "#0f0f1e",
+        "--color-text-muted": "#6b7280",
+        "--color-text-subtle": "#9ca3af",
+        "--color-success": "#22c55e",
+        "--color-warning": "#f59e0b",
+        "--color-error": "#ef4444"
+      },
+      "typography": {
+        "font-head": "Syne",
+        "font-body": "Outfit",
+        "font-mono": "Space Mono",
+        "heading-weight": 800,
+        "body-weight": 400
+      },
+      "effects": {
+        "glassmorphism": false,
+        "neon-glow": false,
+        "gradient-borders": false,
+        "aurora-bg": false,
+        "3d-shadows": true
+      },
+      "radius": {
+        "sm": "6px",
+        "md": "10px",
+        "lg": "14px",
+        "xl": "20px"
+      },
+      "shadows": {
+        "sm": "0 2px 0 #d8dbe8, 0 3px 4px rgba(0,0,0,0.05)",
+        "md": "0 2px 0 #d8dbe8, 0 4px 0 #cdd0df, 0 6px 8px rgba(0,0,0,0.08)",
+        "lg": "0 2px 0 #d8dbe8, 0 4px 0 #cdd0df, 0 6px 0 #c2c6d6, 0 8px 16px rgba(0,0,0,0.1)",
+        "glow": "0 0 30px rgba(124,58,237,0.15)"
+      },
+      "transitions": {
+        "fast": "150ms cubic-bezier(0.4, 0, 0.2, 1)",
+        "base": "250ms cubic-bezier(0.4, 0, 0.2, 1)",
+        "slow": "350ms cubic-bezier(0.4, 0, 0.2, 1)",
+        "bounce": "400ms cubic-bezier(0.175, 0.885, 0.32, 1.275)"
+      }
+    }
+  },
+  "utilities": {
+    "breakpoints": {
+      "sm": "640px",
+      "md": "768px",
+      "lg": "1024px",
+      "xl": "1280px",
+      "2xl": "1536px"
+    },
+    "spacing": {
+      "xs": "0.25rem",
+      "sm": "0.5rem",
+      "md": "1rem",
+      "lg": "1.5rem",
+      "xl": "2rem",
+      "2xl": "3rem",
+      "3xl": "4rem"
+    },
+    "zIndex": {
+      "base": 0,
+      "dropdown": 100,
+      "sticky": 200,
+      "fixed": 300,
+      "modal": 400,
+      "popover": 500,
+      "tooltip": 600
+    }
+  }
+}

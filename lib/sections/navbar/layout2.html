@@ -1,0 +1,53 @@
+<!-- NAVBAR · Layout 2 · Light Minimal -->
+<!-- Placeholders: {{NAME}} {{NAV_LINKS}} -->
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  .nav2 {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250,250,248,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #e2ddd6;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  .nav2-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px; height: 68px;
+  }
+  .nav2-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px; font-style: italic;
+    color: #1a1a1a; text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+  .nav2-links { display: flex; align-items: center; gap: 0; }
+  .nav2-link {
+    color: #888; text-decoration: none;
+    font-size: 13px; font-weight: 500;
+    padding: 8px 16px; border-radius: 6px;
+    transition: color 0.2s, background 0.2s;
+    letter-spacing: 0.01em;
+  }
+  .nav2-link:hover { color: #1a1a1a; background: #f4f1eb; }
+  .nav2-sep { width: 1px; height: 16px; background: #e2ddd6; margin: 0 4px; }
+  .nav2-resume {
+    margin-left: 12px; padding: 8px 20px;
+    border: 1.5px solid #1a1a1a; border-radius: 6px;
+    color: #1a1a1a; text-decoration: none;
+    font-size: 13px; font-weight: 600;
+    transition: all 0.18s;
+  }
+  .nav2-resume:hover { background: #1a1a1a; color: #fafaf8; }
+</style>
+
+<nav class="nav2">
+  <div class="nav2-inner">
+    <a class="nav2-logo" href="#">{{NAME}}</a>
+    <div class="nav2-links">
+      {{NAV_LINKS}}
+      <div class="nav2-sep"></div>
+      <a class="nav2-resume" href="#">Resume ↗</a>
+    </div>
+  </div>
+</nav>
