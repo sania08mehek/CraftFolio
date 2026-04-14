@@ -1,0 +1,303 @@
+<!-- SKILLS · Layout 6 Match · 3D Depth Theme -->
+<!-- Edit the `skills` array in the script to customise your data -->
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .l6s {
+    background: #eceef5;
+    padding: 72px 56px;
+    font-family: 'Syne', sans-serif;
+  }
+
+  .l6s-eyebrow {
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: #7c3aed;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .l6s-title {
+    font-size: 56px;
+    font-weight: 800;
+    color: #0f0f1e;
+    line-height: 1;
+    letter-spacing: -1px;
+    margin-bottom: 56px;
+  }
+
+  .l6s-title .accent {
+    -webkit-text-stroke: 2px #7c3aed;
+    color: transparent;
+  }
+
+  .l6s-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1100px;
+  }
+
+  /* 3D stacked card — identical shadow stack to L6 certs */
+  .l6s-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow:
+      0 2px 0 #d8dbe8,
+      0 4px 0 #cdd0df,
+      0 6px 0 #c2c6d6,
+      0 8px 14px rgba(0, 0, 0, 0.10);
+    position: relative;
+    animation: cardIn6 0.45s ease both;
+  }
+
+  .l6s-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow:
+      0 2px 0 #d8dbe8,
+      0 4px 0 #cdd0df,
+      0 6px 0 #c2c6d6,
+      0 8px 0 #b7bbcd,
+      0 10px 0 #acb0c4,
+      0 14px 24px rgba(0, 0, 0, 0.16);
+  }
+
+  @keyframes cardIn6 {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Folded ribbon — identical to L6 cert-ribbon */
+  .l6s-ribbon {
+    position: absolute;
+    top: 16px;
+    right: -4px;
+    background: #7c3aed;
+    color: #fff;
+    font-size: 9px;
+    padding: 4px 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 2px;
+    font-family: 'Space Mono', monospace;
+  }
+
+  .l6s-ribbon::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    right: 0;
+    border-left: 4px solid #5b21b6;
+    border-bottom: 4px solid transparent;
+  }
+
+  /* Card internals */
+  .l6s-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .l6s-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: #f3f0ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 20px;
+  }
+
+  .l6s-meta h4 {
+    font-size: 11px;
+    color: #7c3aed;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+    font-family: 'Syne', sans-serif;
+  }
+
+  .l6s-meta .sub {
+    font-size: 10px;
+    color: #9ca3af;
+    font-family: 'Space Mono', monospace;
+  }
+
+  .l6s-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f0f1e;
+    margin-bottom: 10px;
+    line-height: 1.35;
+  }
+
+  /* Skill tags — same as .l6-cert .skill-tags */
+  .l6s-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+
+  .l6s-tags span {
+    font-size: 9px;
+    background: #f3f0ff;
+    color: #7c3aed;
+    padding: 3px 9px;
+    border-radius: 6px;
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 0.5px;
+  }
+
+  /* Footer with proficiency bar */
+  .l6s-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f0f0f5;
+    padding-top: 12px;
+  }
+
+  .l6s-bar-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+  }
+
+  .l6s-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .l6s-bar-track {
+    flex: 1;
+    height: 3px;
+    background: #ece9f5;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .l6s-bar-fill {
+    height: 100%;
+    background: #7c3aed;
+    border-radius: 2px;
+    animation: bfill6 1s ease both;
+    transform-origin: left;
+    transform: scaleX(0);
+  }
+
+  @keyframes bfill6 { to { transform: scaleX(1); } }
+
+  .l6s-pct {
+    font-size: 11px;
+    color: #7c3aed;
+    font-family: 'Space Mono', monospace;
+    min-width: 28px;
+    text-align: right;
+  }
+
+  .l6s-level {
+    font-size: 9px;
+    color: #9ca3af;
+    font-family: 'Space Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+</style>
+
+<section class="l6s">
+  <div class="l6s-eyebrow">Expertise</div>
+  <h2 class="l6s-title">Skills &amp; <span class="accent">Technologies</span></h2>
+  <div class="l6s-grid" id="skills-grid"></div>
+</section>
+
+<script>
+  /* ─── Edit this array to customise your skills ─── */
+  const skills = [
+    {
+      icon: "⚛️", cat: "Frontend", sub: "UI Layer",
+      name: "React / Next.js",
+      tags: ["React", "Next.js", "JSX", "Hooks"],
+      pct: 95, level: "Expert",
+      ribbon: "Top Skill", delay: 0.04
+    },
+    {
+      icon: "🟦", cat: "Language", sub: "Core Stack",
+      name: "TypeScript / JavaScript",
+      tags: ["TS", "ES2024", "Types"],
+      pct: 93, level: "Expert",
+      delay: 0.08
+    },
+    {
+      icon: "🟢", cat: "Backend", sub: "Server Side",
+      name: "Node.js / Express",
+      tags: ["REST", "GraphQL", "APIs"],
+      pct: 90, level: "Expert",
+      delay: 0.12
+    },
+    {
+      icon: "🐍", cat: "Backend", sub: "Server Side",
+      name: "Python / FastAPI",
+      tags: ["FastAPI", "Pydantic", "Async"],
+      pct: 82, level: "Advanced",
+      delay: 0.16
+    },
+    {
+      icon: "🗄️", cat: "Database", sub: "Data Layer",
+      name: "PostgreSQL / Redis",
+      tags: ["SQL", "ORM", "Cache"],
+      pct: 80, level: "Advanced",
+      delay: 0.20
+    },
+    {
+      icon: "☁️", cat: "Cloud", sub: "Infra & Ops",
+      name: "AWS / Docker / K8s",
+      tags: ["EC2", "Docker", "CI/CD"],
+      pct: 74, level: "Advanced",
+      delay: 0.24
+    },
+  ];
+
+  const grid = document.getElementById("skills-grid");
+
+  skills.forEach(s => {
+    const el = document.createElement("div");
+    el.className = "l6s-card";
+    el.style.animationDelay = s.delay + "s";
+
+    el.innerHTML = `
+      ${s.ribbon ? `<div class="l6s-ribbon">${s.ribbon}</div>` : ""}
+      <div class="l6s-top">
+        <div class="l6s-icon">${s.icon}</div>
+        <div class="l6s-meta">
+          <h4>${s.cat}</h4>
+          <span class="sub">${s.sub}</span>
+        </div>
+      </div>
+      <div class="l6s-name">${s.name}</div>
+      <div class="l6s-tags">${s.tags.map(t => `<span>${t}</span>`).join("")}</div>
+      <div class="l6s-footer">
+        <div class="l6s-bar-wrap">
+          <div class="l6s-bar-row">
+            <div class="l6s-bar-track">
+              <div class="l6s-bar-fill" style="width:${s.pct}%;animation-delay:${s.delay + 0.35}s"></div>
+            </div>
+            <span class="l6s-pct">${s.pct}%</span>
+          </div>
+          <span class="l6s-level">${s.level}</span>
+        </div>
+      </div>
+    `;
+    grid.appendChild(el);
+  });
+</script>
