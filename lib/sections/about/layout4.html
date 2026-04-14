@@ -1,0 +1,317 @@
+<style>
+
+
+/* L4 AURORA */
+      .l4-about {
+        background: #060810;
+        min-height: 100vh;
+        padding: 80px 60px;
+        font-family: "Syne", sans-serif;
+        position: relative;
+        overflow: hidden;
+      }
+      .l4-about .aurora {
+        position: absolute;
+        top: -200px;
+        right: -100px;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+          ellipse,
+          rgba(139,92,246,0.15) 0%,
+          transparent 60%
+        );
+        animation: ab 10s ease-in-out infinite alternate;
+        pointer-events: none;
+      }
+      .l4-about .aurora2 {
+        position: absolute;
+        bottom: -100px;
+        left: -200px;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(
+          ellipse,
+          rgba(99,102,241,0.1) 0%,
+          transparent 60%
+        );
+        animation: ab 12s ease-in-out infinite alternate-reverse;
+        pointer-events: none;
+      }
+      @keyframes ab {
+        0% {
+          transform: translate(0, 0);
+        }
+        100% {
+          transform: translate(30px, 30px);
+        }
+      }
+      .l4-about .eyebrow {
+        font-size: 11px;
+        letter-spacing: 4px;
+        color: var(--accent-3);
+        text-transform: uppercase;
+        margin-bottom: 12px;
+        position: relative;
+      }
+      .l4-about .heading {
+        font-size: 52px;
+        font-weight: 800;
+        color: #fff;
+        margin-bottom: 60px;
+        position: relative;
+        line-height: 1.1;
+      }
+      .l4-about-inner {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 80px;
+        align-items: start;
+        position: relative;
+      }
+      .l4-card-avatar {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.06);
+        border-radius: 24px;
+        padding: 28px;
+        backdrop-filter: blur(20px);
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .l4-card-avatar .av {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: rgba(139,92,246,0.1);
+        border: 2px solid rgba(196,181,253,0.15);
+        margin: 0 auto 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 40px;
+      }
+      .l4-card-avatar h3 {
+        font-size: 20px;
+        font-weight: 700;
+        color: #e0e4ff;
+        margin-bottom: 4px;
+      }
+      .l4-card-avatar .role {
+        font-size: 13px;
+        color: #4a5070;
+        margin-bottom: 16px;
+      }
+      .l4-card-avatar .avail-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(16,185,129,0.1);
+        border: 1px solid rgba(16,185,129,0.2);
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 11px;
+        color: var(--success);
+      }
+      .l4-card-avatar .avail-badge::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #10b981;
+      }
+      .l4-aurora-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+      .l4-as {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.05);
+        border-radius: 12px;
+        padding: 14px;
+        text-align: center;
+      }
+      .l4-as .n {
+        font-size: 24px;
+        font-weight: 800;
+        color: var(--accent-3);
+        line-height: 1;
+        margin-bottom: 4px;
+      }
+      .l4-as .l {
+        font-size: 9px;
+        color: #3a3a5a;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+      .l4-about-text .bio {
+        font-size: 15px;
+        color: #4a5070;
+        line-height: 1.8;
+        margin-bottom: 24px;
+      }
+      .l4-about-text .bio strong {
+        color: var(--accent-3);
+      }
+      .l4-exp-aurora {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        margin-bottom: 28px;
+      }
+      .l4-exp-aurora h4 {
+        font-size: 10px;
+        letter-spacing: 3px;
+        color: #2a2a5a;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+      .l4-exp-aitem {
+        background: rgba(255,255,255,0.02);
+        border: 1px solid rgba(255,255,255,0.04);
+        border-radius: 12px;
+        padding: 18px;
+        transition: all 0.3s;
+        cursor: default;
+      }
+      .l4-exp-aitem:not(:last-child) {
+        margin-bottom: 8px;
+      }
+      .l4-exp-aitem:hover {
+        background: rgba(139,92,246,0.06);
+        border-color: rgba(196,181,253,0.12);
+      }
+      .l4-exp-aitem .ea-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 4px;
+      }
+      .l4-exp-aitem .ea-title {
+        font-size: 14px;
+        font-weight: 700;
+        color: #e0e4ff;
+      }
+      .l4-exp-aitem .ea-period {
+        font-size: 10px;
+        color: #2a2a5a;
+        font-family: var(--font-mono), monospace;
+      }
+      .l4-exp-aitem .ea-co {
+        font-size: 12px;
+        color: var(--accent-3);
+        margin-bottom: 6px;
+      }
+      .l4-exp-aitem p {
+        font-size: 12px;
+        color: #3a3a5a;
+        line-height: 1.6;
+      }
+      .l4-skill-aurora {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .l4-skill-aurora span {
+        font-size: 10px;
+        padding: 5px 12px;
+        border-radius: 20px;
+        background: rgba(196,181,253,0.06);
+        color: var(--accent-3);
+        border: 1px solid var(--border-2);
+        font-family: var(--font-mono), monospace;
+        transition: all 0.2s;
+      }
+      .l4-skill-aurora span:hover {
+        background: rgba(139,92,246,0.12);
+        border-color: rgba(196,181,253,0.3);
+      }
+
+
+</style>
+
+<section id="about" class="l4-about">
+      <div class="aurora"></div>
+      <div class="aurora2"></div>
+      <div class="eyebrow">About Me</div>
+      <div class="heading">Who I Am</div>
+      <div class="l4-about-inner">
+        <div>
+          <div class="l4-card-avatar">
+            <div class="av">🧑‍💻</div>
+            <h3>Your Name</h3>
+            <div class="role">Senior Full Stack Engineer</div>
+            <div class="avail-badge">Available for work</div>
+          </div>
+          <div class="l4-aurora-stats">
+            <div class="l4-as">
+              <div class="n">5+</div>
+              <div class="l">Years</div>
+            </div>
+            <div class="l4-as">
+              <div class="n">40+</div>
+              <div class="l">Projects</div>
+            </div>
+            <div class="l4-as">
+              <div class="n">12+</div>
+              <div class="l">Clients</div>
+            </div>
+          </div>
+        </div>
+        <div class="l4-about-text">
+          <p class="bio">
+            I'm a <strong>Full Stack Developer</strong> from Bengaluru with 5+
+            years building scalable systems. I specialize in cloud-native
+            architectures, developer tooling and real-time data systems.
+          </p>
+          <p class="bio">
+            My work sits at the intersection of
+            <strong>product engineering and platform infrastructure</strong> — I
+            love building systems that are both delightful to use and rock-solid
+            under the hood.
+          </p>
+          <div class="l4-exp-aurora">
+            <h4>Experience</h4>
+            <div class="l4-exp-aitem">
+              <div class="ea-top">
+                <span class="ea-title">Senior Full Stack Engineer</span
+                ><span class="ea-period">2022 – Now</span>
+              </div>
+              <div class="ea-co">TechCorp Solutions</div>
+              <p>
+                Led development of microservice platform serving 500k+ daily
+                users. Reduced deployment time by 60%.
+              </p>
+            </div>
+            <div class="l4-exp-aitem">
+              <div class="ea-top">
+                <span class="ea-title">Full Stack Developer</span
+                ><span class="ea-period">2020 – 2022</span>
+              </div>
+              <div class="ea-co">StartupXYZ</div>
+              <p>
+                Built core product from 0→1. Architected data pipelines
+                processing 10M+ events/day.
+              </p>
+            </div>
+            <div class="l4-exp-aitem">
+              <div class="ea-top">
+                <span class="ea-title">Frontend Developer</span
+                ><span class="ea-period">2019 – 2020</span>
+              </div>
+              <div class="ea-co">Digital Agency</div>
+              <p>
+                Delivered 15+ client projects. Established shared component
+                library.
+              </p>
+            </div>
+          </div>
+          <div class="l4-skill-aurora">
+            <span>React</span><span>Node.js</span><span>TypeScript</span
+            ><span>Python</span><span>AWS</span><span>Docker</span
+            ><span>K8s</span><span>PostgreSQL</span><span>GraphQL</span>
+          </div>
+        </div>
+      </div>
+    </section>

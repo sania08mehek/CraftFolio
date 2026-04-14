@@ -1,20 +1,18 @@
-<!-- SKILLS · Layout 6 Match · 3D Depth Theme -->
-<!-- Edit the `skills` array in the script to customise your data -->
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  .l6s {
-    background: #eceef5;
+
+.l6s {
+    background: var(--bg);
     padding: 72px 56px;
-    font-family: 'Syne', sans-serif;
+    font-family: var(--font-head), sans-serif;
   }
 
   .l6s-eyebrow {
     font-size: 11px;
     letter-spacing: 4px;
-    color: #7c3aed;
+    color: var(--accent);
     text-transform: uppercase;
     margin-bottom: 12px;
   }
@@ -22,14 +20,14 @@
   .l6s-title {
     font-size: 56px;
     font-weight: 800;
-    color: #0f0f1e;
+    color: var(--text);
     line-height: 1;
     letter-spacing: -1px;
     margin-bottom: 56px;
   }
 
   .l6s-title .accent {
-    -webkit-text-stroke: 2px #7c3aed;
+    -webkit-text-stroke: 2px var(--accent);
     color: transparent;
   }
 
@@ -42,16 +40,16 @@
 
   /* 3D stacked card — identical shadow stack to L6 certs */
   .l6s-card {
-    background: #fff;
+    background: var(--surface);
     border-radius: 12px;
     padding: 24px;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     box-shadow:
-      0 2px 0 #d8dbe8,
-      0 4px 0 #cdd0df,
-      0 6px 0 #c2c6d6,
-      0 8px 14px rgba(0, 0, 0, 0.10);
+      0 2px 0 var(--border),
+      0 4px 0 var(--border-2),
+      0 6px 0 var(--border-2),
+      0 8px 14px rgba(0,0,0,0.10);
     position: relative;
     animation: cardIn6 0.45s ease both;
   }
@@ -59,12 +57,12 @@
   .l6s-card:hover {
     transform: translateY(-6px) scale(1.02);
     box-shadow:
-      0 2px 0 #d8dbe8,
-      0 4px 0 #cdd0df,
-      0 6px 0 #c2c6d6,
-      0 8px 0 #b7bbcd,
-      0 10px 0 #acb0c4,
-      0 14px 24px rgba(0, 0, 0, 0.16);
+      0 2px 0 var(--border),
+      0 4px 0 var(--border-2),
+      0 6px 0 var(--border-2),
+      0 8px 0 var(--border-2),
+      0 10px 0 var(--border-2),
+      0 14px 24px rgba(0,0,0,0.16);
   }
 
   @keyframes cardIn6 {
@@ -77,14 +75,14 @@
     position: absolute;
     top: 16px;
     right: -4px;
-    background: #7c3aed;
-    color: #fff;
+    background: var(--accent);
+    color: var(--surface);
     font-size: 9px;
     padding: 4px 12px;
     letter-spacing: 1px;
     text-transform: uppercase;
     border-radius: 2px;
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-mono), monospace;
   }
 
   .l6s-ribbon::after {
@@ -92,7 +90,7 @@
     position: absolute;
     bottom: -4px;
     right: 0;
-    border-left: 4px solid #5b21b6;
+    border-left: 4px solid var(--accent-3);
     border-bottom: 4px solid transparent;
   }
 
@@ -108,7 +106,7 @@
     width: 48px;
     height: 48px;
     border-radius: 12px;
-    background: #f3f0ff;
+    background: var(--surface-2);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -118,23 +116,23 @@
 
   .l6s-meta h4 {
     font-size: 11px;
-    color: #7c3aed;
+    color: var(--accent);
     letter-spacing: 1px;
     text-transform: uppercase;
     margin-bottom: 2px;
-    font-family: 'Syne', sans-serif;
+    font-family: var(--font-head), sans-serif;
   }
 
   .l6s-meta .sub {
     font-size: 10px;
-    color: #9ca3af;
-    font-family: 'Space Mono', monospace;
+    color: var(--text-3);
+    font-family: var(--font-mono), monospace;
   }
 
   .l6s-name {
     font-size: 15px;
     font-weight: 700;
-    color: #0f0f1e;
+    color: var(--text);
     margin-bottom: 10px;
     line-height: 1.35;
   }
@@ -149,11 +147,11 @@
 
   .l6s-tags span {
     font-size: 9px;
-    background: #f3f0ff;
-    color: #7c3aed;
+    background: var(--surface-2);
+    color: var(--accent);
     padding: 3px 9px;
     border-radius: 6px;
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-mono), monospace;
     letter-spacing: 0.5px;
   }
 
@@ -162,7 +160,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: 1px solid #f0f0f5;
+    border-top: 1px solid var(--border);
     padding-top: 12px;
   }
 
@@ -182,14 +180,14 @@
   .l6s-bar-track {
     flex: 1;
     height: 3px;
-    background: #ece9f5;
+    background: var(--surface-2);
     border-radius: 2px;
     overflow: hidden;
   }
 
   .l6s-bar-fill {
     height: 100%;
-    background: #7c3aed;
+    background: var(--accent);
     border-radius: 2px;
     animation: bfill6 1s ease both;
     transform-origin: left;
@@ -200,22 +198,24 @@
 
   .l6s-pct {
     font-size: 11px;
-    color: #7c3aed;
-    font-family: 'Space Mono', monospace;
+    color: var(--accent);
+    font-family: var(--font-mono), monospace;
     min-width: 28px;
     text-align: right;
   }
 
   .l6s-level {
     font-size: 9px;
-    color: #9ca3af;
-    font-family: 'Space Mono', monospace;
+    color: var(--text-3);
+    font-family: var(--font-mono), monospace;
     text-transform: uppercase;
     letter-spacing: 1px;
   }
+
+
 </style>
 
-<section class="l6s">
+<section id="skills" class="l6s">
   <div class="l6s-eyebrow">Expertise</div>
   <h2 class="l6s-title">Skills &amp; <span class="accent">Technologies</span></h2>
   <div class="l6s-grid" id="skills-grid"></div>

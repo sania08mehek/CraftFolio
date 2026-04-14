@@ -1,0 +1,273 @@
+<style>
+
+
+/* L1 MIDNIGHT */
+      .l1-about {
+        background: var(--bg);
+        min-height: 100vh;
+        padding: 80px 60px;
+        font-family: var(--font-head), sans-serif;
+      }
+      .l1-about .eyebrow {
+        font-size: 11px;
+        letter-spacing: 4px;
+        color: var(--accent-3);
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+      .l1-about .heading {
+        font-size: 52px;
+        font-weight: 800;
+        color: var(--text);
+        line-height: 1.1;
+        margin-bottom: 60px;
+      }
+      .l1-about .heading span {
+        color: var(--accent-3);
+      }
+      .l1-about-inner {
+        display: grid;
+        grid-template-columns: 1fr 1.3fr;
+        gap: 80px;
+        align-items: start;
+      }
+      .l1-avatar {
+        width: 100%;
+        aspect-ratio: 1;
+        border-radius: 24px;
+        background: linear-gradient(135deg, var(--surface), var(--surface-2));
+        border: 1px solid var(--border-2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 80px;
+        margin-bottom: 24px;
+        position: relative;
+        overflow: hidden;
+      }
+      .l1-avatar::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          circle at 50% 80%,
+          color-mix(in srgb, var(--accent-3) 20%, transparent),
+          transparent 60%
+        );
+      }
+      .l1-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .l1-stat {
+        background: var(--bg2);
+        border: 1px solid var(--surface-2);
+        border-radius: 12px;
+        padding: 16px;
+        text-align: center;
+        transition: all 0.3s;
+        cursor: default;
+      }
+      .l1-stat:hover {
+        border-color: var(--accent-3);
+      }
+      .l1-stat .s-num {
+        font-size: 28px;
+        font-weight: 800;
+        color: var(--accent-3);
+        line-height: 1;
+        margin-bottom: 4px;
+      }
+      .l1-stat .s-label {
+        font-size: 10px;
+        color: var(--text-3);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+      .l1-content .bio-para {
+        font-size: 15px;
+        color: var(--text-2);
+        line-height: 1.8;
+        margin-bottom: 20px;
+      }
+      .l1-content .bio-para strong {
+        color: var(--text);
+      }
+      .l1-exp-list {
+        margin-top: 32px;
+      }
+      .l1-exp-list h4 {
+        font-size: 10px;
+        letter-spacing: 3px;
+        color: var(--text-3);
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+      .l1-exp-item {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 24px;
+        position: relative;
+        padding-left: 16px;
+      }
+      .l1-exp-item::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 6px;
+        bottom: -18px;
+        width: 1px;
+        background: var(--surface-2);
+      }
+      .l1-exp-item::after {
+        content: "";
+        position: absolute;
+        left: -3px;
+        top: 6px;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--accent-3);
+        border: 2px solid var(--bg);
+      }
+      .l1-exp-item:last-child::before {
+        display: none;
+      }
+      .l1-exp-item .exp-content h5 {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 2px;
+      }
+      .l1-exp-item .exp-content .company {
+        font-size: 12px;
+        color: var(--accent-3);
+        margin-bottom: 2px;
+      }
+      .l1-exp-item .exp-content .period {
+        font-size: 11px;
+        color: var(--text-3);
+        font-family: var(--font-mono), monospace;
+      }
+      .l1-skills-section {
+        margin-top: 32px;
+      }
+      .l1-skills-section h4 {
+        font-size: 10px;
+        letter-spacing: 3px;
+        color: var(--text-3);
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+      .l1-skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .l1-skill-tag {
+        font-size: 11px;
+        padding: 6px 14px;
+        border-radius: 8px;
+        background: var(--bg2);
+        color: var(--accent-3);
+        border: 1px solid var(--border-2);
+        cursor: default;
+        transition: all 0.25s;
+        font-family: var(--font-mono), monospace;
+      }
+      .l1-skill-tag:hover {
+        border-color: var(--accent-3);
+        background: color-mix(in srgb, var(--accent-3) 8%, transparent);
+      }
+
+
+</style>
+
+<section id="about" class="l1-about">
+      <div class="eyebrow">About Me</div>
+      <div class="heading">
+        Crafting <span>Clean Code</span> & Beautiful Experiences
+      </div>
+      <div class="l1-about-inner">
+        <div class="l1-avatar-col">
+          <div class="l1-avatar">🧑‍💻</div>
+          <div class="l1-stats">
+            <div class="l1-stat">
+              <div class="s-num">5+</div>
+              <div class="s-label">Years Exp.</div>
+            </div>
+            <div class="l1-stat">
+              <div class="s-num">40+</div>
+              <div class="s-label">Projects</div>
+            </div>
+            <div class="l1-stat">
+              <div class="s-num">12+</div>
+              <div class="s-label">Clients</div>
+            </div>
+            <div class="l1-stat">
+              <div class="s-num">6</div>
+              <div class="s-label">Certifications</div>
+            </div>
+          </div>
+        </div>
+        <div class="l1-content">
+          <p class="bio-para">
+            I'm a <strong>Full Stack Developer</strong> based in Bengaluru,
+            India, with 5+ years of experience building scalable web
+            applications and developer tooling. I specialize in React, Node.js,
+            and cloud-native architectures.
+          </p>
+          <p class="bio-para">
+            My passion lies in
+            <strong>solving complex engineering problems</strong> — from
+            designing microservice architectures to building tools that help
+            teams manage technical debt and ship faster with confidence.
+          </p>
+          <p class="bio-para">
+            When I'm not coding, I'm contributing to open source, writing
+            technical articles, or exploring the latest trends in DevOps and
+            platform engineering.
+          </p>
+          <div class="l1-exp-list">
+            <h4>Experience</h4>
+            <div class="l1-exp-item">
+              <div class="exp-content">
+                <h5>Senior Full Stack Engineer</h5>
+                <div class="company">TechCorp Solutions</div>
+                <div class="period">2022 — Present</div>
+              </div>
+            </div>
+            <div class="l1-exp-item">
+              <div class="exp-content">
+                <h5>Full Stack Developer</h5>
+                <div class="company">StartupXYZ</div>
+                <div class="period">2020 — 2022</div>
+              </div>
+            </div>
+            <div class="l1-exp-item">
+              <div class="exp-content">
+                <h5>Frontend Developer</h5>
+                <div class="company">Digital Agency</div>
+                <div class="period">2019 — 2020</div>
+              </div>
+            </div>
+          </div>
+          <div class="l1-skills-section">
+            <h4>Core Skills</h4>
+            <div class="l1-skill-tags">
+              <span class="l1-skill-tag">React</span
+              ><span class="l1-skill-tag">Node.js</span
+              ><span class="l1-skill-tag">TypeScript</span
+              ><span class="l1-skill-tag">Python</span
+              ><span class="l1-skill-tag">AWS</span
+              ><span class="l1-skill-tag">Docker</span
+              ><span class="l1-skill-tag">PostgreSQL</span
+              ><span class="l1-skill-tag">GraphQL</span
+              ><span class="l1-skill-tag">Kubernetes</span
+              ><span class="l1-skill-tag">Rust</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

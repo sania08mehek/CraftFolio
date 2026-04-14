@@ -2,13 +2,15 @@
 <!-- Placeholders: {{SKILLS_LOOP}} -->
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  .skills3{background:#020209;padding:80px 48px;font-family:'Outfit',sans-serif;position:relative;overflow:hidden}
+
+
+.skills3{background:#020209;padding:80px 48px;font-family:var(--font-body),sans-serif;position:relative;overflow:hidden}
   .skills3::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(0,255,200,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,200,0.03) 1px,transparent 1px);background-size:40px 40px;animation:cgrid 12s linear infinite}
   @keyframes cgrid{from{background-position:0 0}to{background-position:40px 40px}}
   .skills3-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1}
   .skills3-eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(0,255,200,0.4);margin-bottom:8px}
-  .skills3-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,60px);letter-spacing:.04em;color:#e8fff8;margin-bottom:48px;line-height:1}
-  .skills3-title span{color:#00ffc8;text-shadow:0 0 20px rgba(0,255,200,0.5)}
+  .skills3-title{font-family:var(--font-head),sans-serif;font-size:clamp(36px,5vw,60px);letter-spacing:.04em;color:var(--text);margin-bottom:48px;line-height:1}
+  .skills3-title span{color:var(--accent);text-shadow:0 0 20px rgba(0,255,200,0.5)}
 
   .skills3-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-bottom:48px}
   .skills3-card{
@@ -25,12 +27,12 @@
   }
   .skills3-card:hover{
     border-color:rgba(0,255,200,0.4);transform:translateY(-4px);
-    box-shadow:0 8px 30px rgba(0,255,200,0.15),0 0 0 1px rgba(0,255,200,0.1);
+    box-shadow:0 8px 30px var(--border),0 0 0 1px color-mix(in srgb, var(--accent) 10%, transparent);
   }
   .skills3-card:hover::before{opacity:1}
   .skills3-card-icon{font-size:26px;margin-bottom:10px;filter:drop-shadow(0 0 6px rgba(0,255,200,0.4))}
   .skills3-card-name{font-size:13px;color:rgba(232,255,248,0.8);font-weight:500}
-  .skills3-card-level{font-size:11px;color:#00ffc8;margin-top:4px;letter-spacing:.04em}
+  .skills3-card-level{font-size:11px;color:var(--accent);margin-top:4px;letter-spacing:.04em}
   @keyframes cardIn3{from{opacity:0;transform:scale(0.92) translateY(8px)}to{opacity:1;transform:scale(1) translateY(0)}}
 
   /* Circular radar chart visual */
@@ -40,12 +42,14 @@
   }
   .skills3-bar-item{position:relative}
   .skills3-bar-label{font-size:12px;color:rgba(232,255,248,.5);margin-bottom:6px}
-  .skills3-bar-track{height:3px;background:rgba(0,255,200,0.1);border-radius:2px;overflow:hidden}
-  .skills3-bar-fill{height:100%;background:linear-gradient(90deg,#00ffc8,#ff2d78);border-radius:2px;animation:barGrow3 1s ease both}
+  .skills3-bar-track{height:3px;background:color-mix(in srgb, var(--accent) 10%, transparent);border-radius:2px;overflow:hidden}
+  .skills3-bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));border-radius:2px;animation:barGrow3 1s ease both}
   @keyframes barGrow3{from{transform:scaleX(0);transform-origin:left}to{transform:scaleX(1)}}
-  .skills3-bar-val{font-size:11px;color:#00ffc8;margin-top:4px;font-weight:600}
+  .skills3-bar-val{font-size:11px;color:var(--accent);margin-top:4px;font-weight:600}
+
+
 </style>
-<section class="skills3">
+<section id="skills" class="skills3">
   <div class="skills3-inner">
     <div class="skills3-eyebrow">[ Tech Stack ]</div>
     <h2 class="skills3-title">Skills &amp; <span>Abilities</span></h2>

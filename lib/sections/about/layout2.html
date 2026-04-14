@@ -1,0 +1,225 @@
+<style>
+
+
+/* L2 LIGHT */
+      .l2-about {
+        background: var(--surface-2);
+        min-height: 100vh;
+        padding: 80px 60px;
+        font-family: var(--font-body), sans-serif;
+      }
+      .l2-about .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 60px;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 30px;
+      }
+      .l2-about .title {
+        font-size: 48px;
+        font-weight: 600;
+        color: var(--accent);
+        letter-spacing: -1px;
+      }
+      .l2-about .tagline {
+        font-size: 14px;
+        color: var(--text-2);
+        max-width: 260px;
+        text-align: right;
+        line-height: 1.6;
+      }
+      .l2-about-inner {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        gap: 60px;
+      }
+      .l2-about-avatar {
+        width: 280px;
+        aspect-ratio: 3/4;
+        border-radius: 16px;
+        background: var(--surface-2);
+        border: 1px solid var(--border-2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 80px;
+        margin-bottom: 20px;
+      }
+      .l2-quick-facts {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .l2-fact {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--border-2);
+      }
+      .l2-fact .f-key {
+        font-size: 12px;
+        color: var(--text-3);
+      }
+      .l2-fact .f-val {
+        font-size: 12px;
+        color: var(--accent);
+        font-weight: 500;
+      }
+      .l2-about-content h2 {
+        font-size: 32px;
+        font-weight: 600;
+        color: var(--accent);
+        margin-bottom: 20px;
+        letter-spacing: -0.5px;
+        line-height: 1.3;
+      }
+      .l2-about-content .bio {
+        font-size: 15px;
+        color: var(--accent-2);
+        line-height: 1.8;
+        margin-bottom: 30px;
+      }
+      .l2-exp-items {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+      .l2-exp-item {
+        padding: 20px 0;
+        border-bottom: 1px solid var(--border-2);
+        display: grid;
+        grid-template-columns: 180px 1fr;
+        gap: 20px;
+      }
+      .l2-exp-item .e-period {
+        font-size: 11px;
+        color: var(--text-3);
+        letter-spacing: 1px;
+        padding-top: 2px;
+      }
+      .l2-exp-item .e-content h4 {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--accent);
+        margin-bottom: 2px;
+      }
+      .l2-exp-item .e-content .co {
+        font-size: 12px;
+        color: var(--accent-3);
+        margin-bottom: 4px;
+      }
+      .l2-exp-item .e-content p {
+        font-size: 13px;
+        color: var(--text-2);
+        line-height: 1.6;
+      }
+      .l2-skills-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 30px;
+      }
+      .l2-skill {
+        font-size: 12px;
+        background: var(--surface-2);
+        color: var(--accent-2);
+        padding: 6px 14px;
+        border-radius: 20px;
+        cursor: default;
+        transition: all 0.2s;
+      }
+      .l2-skill:hover {
+        background: var(--accent);
+        color: var(--surface-2);
+      }
+
+
+</style>
+
+<section id="about" class="l2-about">
+      <div class="header">
+        <div class="title">About Me</div>
+        <div class="tagline">
+          Full Stack Developer crafting scalable systems and developer tools.
+        </div>
+      </div>
+      <div class="l2-about-inner">
+        <div>
+          <div class="l2-about-avatar">🧑‍💻</div>
+          <div class="l2-quick-facts">
+            <div class="l2-fact">
+              <span class="f-key">Location</span
+              ><span class="f-val">Bengaluru, India</span>
+            </div>
+            <div class="l2-fact">
+              <span class="f-key">Experience</span
+              ><span class="f-val">5+ Years</span>
+            </div>
+            <div class="l2-fact">
+              <span class="f-key">Focus</span
+              ><span class="f-val">Full Stack / DevOps</span>
+            </div>
+            <div class="l2-fact">
+              <span class="f-key">Available</span
+              ><span class="f-val" style="color: var(--success)">Open to work</span>
+            </div>
+          </div>
+        </div>
+        <div class="l2-about-content">
+          <h2>Building tools that developers actually love to use.</h2>
+          <p class="bio">
+            I'm a Full Stack Developer with 5+ years building scalable web
+            applications and engineering tooling. I specialize in React,
+            Node.js, Python and cloud-native architectures on AWS and GCP. I
+            care deeply about code quality, developer experience and shipping
+            products that actually solve real problems.
+          </p>
+          <div class="l2-exp-items">
+            <div class="l2-exp-item">
+              <div class="e-period">2022 – Present</div>
+              <div class="e-content">
+                <h4>Senior Full Stack Engineer</h4>
+                <div class="co">TechCorp Solutions</div>
+                <p>
+                  Led development of a microservice platform serving 500k+ daily
+                  users. Built internal tooling reducing deployment time by 60%.
+                </p>
+              </div>
+            </div>
+            <div class="l2-exp-item">
+              <div class="e-period">2020 – 2022</div>
+              <div class="e-content">
+                <h4>Full Stack Developer</h4>
+                <div class="co">StartupXYZ</div>
+                <p>
+                  Built the core product from 0→1. Architected real-time data
+                  pipelines processing 10M+ events/day.
+                </p>
+              </div>
+            </div>
+            <div class="l2-exp-item">
+              <div class="e-period">2019 – 2020</div>
+              <div class="e-content">
+                <h4>Frontend Developer</h4>
+                <div class="co">Digital Agency</div>
+                <p>
+                  Delivered 15+ client projects. Established component library
+                  used across all agency products.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="l2-skills-row">
+            <span class="l2-skill">React</span
+            ><span class="l2-skill">Node.js</span
+            ><span class="l2-skill">TypeScript</span
+            ><span class="l2-skill">Python</span
+            ><span class="l2-skill">AWS</span
+            ><span class="l2-skill">Docker</span
+            ><span class="l2-skill">PostgreSQL</span
+            ><span class="l2-skill">GraphQL</span>
+          </div>
+        </div>
+      </div>
+    </section>

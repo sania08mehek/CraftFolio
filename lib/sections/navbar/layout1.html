@@ -4,12 +4,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-  .nav1 {
+
+
+.nav1 {
     position: sticky; top: 0; z-index: 100;
-    background: rgba(7,7,15,0.85);
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(99,102,241,0.18);
-    font-family: 'Syne', sans-serif;
+    border-bottom: 1px solid var(--border);
+    font-family: var(--font-head), sans-serif;
   }
   .nav1-inner {
     max-width: 1100px; margin: 0 auto;
@@ -18,32 +20,34 @@
   }
   .nav1-logo {
     font-size: 20px; font-weight: 800; letter-spacing: -0.02em;
-    background: linear-gradient(135deg, #6366f1, #a78bfa);
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
     text-decoration: none;
   }
   .nav1-links { display: flex; align-items: center; gap: 8px; }
   .nav1-link {
-    color: rgba(240,240,255,0.5); text-decoration: none;
+    color: var(--text-2); text-decoration: none;
     font-size: 13px; font-weight: 500; letter-spacing: 0.06em;
     text-transform: uppercase; padding: 8px 14px; border-radius: 8px;
     transition: all 0.2s; position: relative;
   }
-  .nav1-link:hover { color: #fff; background: rgba(99,102,241,0.12); }
-  .nav1-link.active { color: #a78bfa; }
+  .nav1-link:hover { color: var(--text); background: color-mix(in srgb, var(--accent) 12%, transparent); }
+  .nav1-link.active { color: var(--accent-2); }
   .nav1-dot {
-    width: 6px; height: 6px; background: #6366f1; border-radius: 50%;
+    width: 6px; height: 6px; background: var(--accent); border-radius: 50%;
     animation: pulse1 2s infinite;
   }
   @keyframes pulse1 {
     0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(1.4)}
   }
   .nav1-cta {
-    padding: 8px 20px; background: linear-gradient(135deg,#6366f1,#8b5cf6);
-    border-radius: 8px; color: #fff; font-size: 13px; font-weight: 600;
+    padding: 8px 20px; background: linear-gradient(135deg,var(--accent),var(--accent-3));
+    border-radius: 8px; color: var(--text); font-size: 13px; font-weight: 600;
     text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 4px 15px rgba(99,102,241,0.3);
+    box-shadow: 0 4px 15px color-mix(in srgb, var(--accent) 30%, transparent);
   }
-  .nav1-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 25px rgba(99,102,241,0.45); }
+  .nav1-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 25px color-mix(in srgb, var(--accent) 45%, transparent); }
+
+
 </style>
 
 <nav class="nav1">

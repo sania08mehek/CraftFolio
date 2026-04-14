@@ -3,15 +3,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;1,300&family=Plus+Jakarta+Sans:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-  .nav4 {
+
+
+.nav4 {
     position: sticky; top: 0; z-index: 100;
     background: rgba(4,8,15,0.88); backdrop-filter: blur(24px);
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: var(--font-body), sans-serif;
     border-bottom: 1px solid rgba(56,189,248,0.1);
   }
   .nav4-aurora-bar {
     height: 3px;
-    background: linear-gradient(90deg, #38bdf8, #a78bfa, #f472b6, #38bdf8);
+    background: linear-gradient(90deg, var(--accent), #a78bfa, var(--accent-2), var(--accent));
     background-size: 300% 100%;
     animation: auroraBar 5s ease infinite;
   }
@@ -25,11 +27,11 @@
     padding: 0 44px; height: 62px;
   }
   .nav4-logo {
-    font-family: 'Fraunces', serif; font-style: italic;
+    font-family: var(--font-head), serif; font-style: italic;
     font-size: 21px; font-weight: 300;
-    color: #e8f4ff; text-decoration: none; letter-spacing: 0.02em;
+    color: var(--text); text-decoration: none; letter-spacing: 0.02em;
   }
-  .nav4-logo span { color: #38bdf8; }
+  .nav4-logo span { color: var(--accent); }
   .nav4-links { display: flex; align-items: center; gap: 2px; }
   .nav4-link {
     color: rgba(232,244,255,0.45); text-decoration: none;
@@ -38,7 +40,7 @@
     transition: all 0.25s;
   }
   .nav4-link:hover {
-    color: #38bdf8; background: rgba(56,189,248,0.08);
+    color: var(--accent); background: rgba(56,189,248,0.08);
   }
   .nav4-indicator {
     display: flex; align-items: center; gap: 6px;
@@ -49,13 +51,15 @@
   }
   .nav4-indicator::before {
     content: ''; width: 6px; height: 6px;
-    background: #38bdf8; border-radius: 50%;
+    background: var(--accent); border-radius: 50%;
     animation: pulse4 2s infinite;
-    box-shadow: 0 0 6px #38bdf8;
+    box-shadow: 0 0 6px var(--accent);
   }
   @keyframes pulse4 {
     0%,100%{opacity:1} 50%{opacity:0.3}
   }
+
+
 </style>
 
 <nav class="nav4">

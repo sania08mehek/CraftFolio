@@ -1,0 +1,308 @@
+<style>
+
+
+/* L3 NEON */
+      .l3-about {
+        background: var(--bg);
+        min-height: 100vh;
+        padding: 80px 60px;
+        font-family: var(--font-mono), monospace;
+        position: relative;
+        overflow: hidden;
+      }
+      .l3-about .grid-bg {
+        position: absolute;
+        inset: 0;
+        background:
+          repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 39px,
+            rgba(139,92,246,0.03) 40px
+          ),
+          repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 39px,
+            rgba(139,92,246,0.03) 40px
+          );
+        pointer-events: none;
+      }
+      .l3-about .eyebrow {
+        font-size: 10px;
+        letter-spacing: 4px;
+        color: var(--accent-3);
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        position: relative;
+      }
+      .l3-about .heading {
+        font-size: 48px;
+        color: #fff;
+        margin-bottom: 60px;
+        position: relative;
+        font-weight: 700;
+        line-height: 1.1;
+      }
+      .l3-about .heading .purple {
+        color: var(--accent-3);
+        text-shadow: 0 0 20px rgba(167,139,250,0.4);
+      }
+      .l3-about-inner {
+        display: grid;
+        grid-template-columns: 1fr 1.4fr;
+        gap: 60px;
+        position: relative;
+      }
+      .l3-profile-card {
+        border: 1px solid var(--border-2);
+        border-radius: 4px;
+        padding: 24px;
+        background: rgba(139,92,246,0.02);
+        position: relative;
+      }
+      .l3-profile-card .corner-tl,
+      .l3-profile-card .corner-br {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+      }
+      .l3-profile-card .corner-tl {
+        top: 0;
+        left: 0;
+        border-top: 2px solid var(--accent-3);
+        border-left: 2px solid var(--accent-3);
+      }
+      .l3-profile-card .corner-br {
+        bottom: 0;
+        right: 0;
+        border-bottom: 2px solid var(--accent-3);
+        border-right: 2px solid var(--accent-3);
+      }
+      .l3-profile-card .p-header {
+        font-size: 9px;
+        letter-spacing: 2px;
+        color: var(--accent-3);
+        opacity: 0.6;
+        margin-bottom: 16px;
+      }
+      .l3-avatar-cyber {
+        width: 100%;
+        aspect-ratio: 1;
+        border: 1px solid var(--border-2);
+        border-radius: 4px;
+        background: rgba(139,92,246,0.05);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 60px;
+        margin-bottom: 20px;
+      }
+      .l3-profile-lines {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-bottom: 16px;
+      }
+      .l3-pl {
+        font-size: 10px;
+        color: #4a3a7a;
+        line-height: 1.6;
+      }
+      .l3-pl .pk {
+        color: var(--accent-3);
+      }
+      .l3-pl a {
+        color: #e0d4ff;
+        text-decoration: none;
+      }
+      .l3-cyber-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-top: 16px;
+      }
+      .l3-cstat {
+        border: 1px solid rgba(139,92,246,0.15);
+        padding: 10px;
+        text-align: center;
+      }
+      .l3-cstat .cn {
+        font-size: 22px;
+        color: var(--accent-3);
+        font-weight: 700;
+        line-height: 1;
+      }
+      .l3-cstat .cl {
+        font-size: 8px;
+        color: #4a3a7a;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-top: 4px;
+      }
+      .l3-about-content .c-label {
+        font-size: 9px;
+        letter-spacing: 3px;
+        color: var(--accent-3);
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        opacity: 0.7;
+      }
+      .l3-about-content .bio-block {
+        border: 1px solid rgba(139,92,246,0.1);
+        padding: 20px;
+        border-radius: 4px;
+        background: rgba(139,92,246,0.02);
+        margin-bottom: 20px;
+      }
+      .l3-about-content .bio-block p {
+        font-size: 12px;
+        color: #4a3a7a;
+        line-height: 1.9;
+      }
+      .l3-about-content .bio-block p strong {
+        color: #e0d4ff;
+      }
+      .l3-exp-terminal {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 8px;
+      }
+      .l3-exp-entry {
+        border: 1px solid rgba(139,92,246,0.1);
+        padding: 16px;
+        border-radius: 4px;
+        background: rgba(139,92,246,0.02);
+      }
+      .l3-exp-entry .e-title {
+        font-size: 12px;
+        color: #e0d4ff;
+        margin-bottom: 4px;
+      }
+      .l3-exp-entry .e-co {
+        font-size: 10px;
+        color: var(--accent-3);
+        margin-bottom: 4px;
+      }
+      .l3-exp-entry .e-period {
+        font-size: 9px;
+        color: #3a2a6a;
+        letter-spacing: 1px;
+      }
+      .l3-skill-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 16px;
+      }
+      .l3-skill-chip {
+        font-size: 9px;
+        border: 1px solid var(--border-2);
+        padding: 4px 10px;
+        border-radius: 2px;
+        color: var(--accent-3);
+        background: rgba(139,92,246,0.04);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: all 0.2s;
+      }
+      .l3-skill-chip:hover {
+        background: rgba(139,92,246,0.12);
+        border-color: var(--accent-3);
+      }
+
+
+</style>
+
+<section id="about" class="l3-about">
+      <div class="grid-bg"></div>
+      <div class="eyebrow">// profile.load()</div>
+      <div class="heading">ABOUT <span class="purple">ME_</span></div>
+      <div class="l3-about-inner">
+        <div>
+          <div class="l3-profile-card">
+            <div class="corner-tl"></div>
+            <div class="corner-br"></div>
+            <div class="p-header">USER_PROFILE.JSON</div>
+            <div class="l3-avatar-cyber">🧑‍💻</div>
+            <div class="l3-profile-lines">
+              <div class="l3-pl"><span class="pk">name:</span> "Your Name"</div>
+              <div class="l3-pl">
+                <span class="pk">role:</span> "Full Stack Dev"
+              </div>
+              <div class="l3-pl">
+                <span class="pk">location:</span> "Bengaluru, IN"
+              </div>
+              <div class="l3-pl">
+                <span class="pk">status:</span> <a href="#">"available"</a>
+              </div>
+              <div class="l3-pl">
+                <span class="pk">github:</span> <a href="#">"@yourname"</a>
+              </div>
+            </div>
+            <div class="l3-cyber-stats">
+              <div class="l3-cstat">
+                <div class="cn">5+</div>
+                <div class="cl">Years</div>
+              </div>
+              <div class="l3-cstat">
+                <div class="cn">40+</div>
+                <div class="cl">Projects</div>
+              </div>
+              <div class="l3-cstat">
+                <div class="cn">12+</div>
+                <div class="cl">Clients</div>
+              </div>
+              <div class="l3-cstat">
+                <div class="cn">6</div>
+                <div class="cl">Certs</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="l3-about-content">
+          <div class="c-label">BIO_DATA</div>
+          <div class="l3-bio-block bio-block">
+            <p>
+              Full Stack Engineer with <strong>5+ years</strong> building
+              scalable systems and developer tooling. Deep expertise in React,
+              Node.js, Python and cloud-native architectures. I help engineering
+              teams ship
+              <strong>cleaner, faster, more maintainable code</strong>.
+            </p>
+          </div>
+          <div class="c-label" style="margin-top: 16px">EXP_LOG[]</div>
+          <div class="l3-exp-terminal">
+            <div class="l3-exp-entry">
+              <div class="e-title">Senior Full Stack Engineer</div>
+              <div class="e-co">→ TechCorp Solutions</div>
+              <div class="e-period">2022.01 — PRESENT</div>
+            </div>
+            <div class="l3-exp-entry">
+              <div class="e-title">Full Stack Developer</div>
+              <div class="e-co">→ StartupXYZ</div>
+              <div class="e-period">2020.06 — 2022.01</div>
+            </div>
+            <div class="l3-exp-entry">
+              <div class="e-title">Frontend Developer</div>
+              <div class="e-co">→ Digital Agency</div>
+              <div class="e-period">2019.03 — 2020.06</div>
+            </div>
+          </div>
+          <div class="c-label" style="margin-top: 16px">SKILL_STACK[]</div>
+          <div class="l3-skill-grid">
+            <span class="l3-skill-chip">React</span
+            ><span class="l3-skill-chip">Node</span
+            ><span class="l3-skill-chip">TypeScript</span
+            ><span class="l3-skill-chip">Python</span
+            ><span class="l3-skill-chip">AWS</span
+            ><span class="l3-skill-chip">Docker</span
+            ><span class="l3-skill-chip">K8s</span
+            ><span class="l3-skill-chip">PostgreSQL</span
+            ><span class="l3-skill-chip">GraphQL</span
+            ><span class="l3-skill-chip">Rust</span>
+          </div>
+        </div>
+      </div>
+    </section>
