@@ -1,92 +1,75 @@
 import React from 'react';
-import TopNav from './TopNav';
-import { THEMES } from '../constants';
 
-const Output = ({ generatedHtml, customization, onBack, onStartOver, showToast }) => {
+const Output = ({ generatedHtml, onBack, onStartOver, showToast }) => {
   const hasHtml = !!generatedHtml;
 
   const copyCode = () => {
     if (!generatedHtml) return;
-    navigator.clipboard.writeText(generatedHtml);
-    showToast('Code copied to clipboard!');
+    navigator.clipboard.writeText(generatedHtml)
+      .then(() => showToast('HTML copied to clipboard! 🎉'))
+      .catch(() => showToast('Could not access clipboard', 'warn'));
   };
 
   const downloadHtml = () => {
     if (!generatedHtml) return;
     const blob = new Blob([generatedHtml], { type: 'text/html' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
+    const url  = URL.createObjectURL(blob);
+    const a    = document.createElement('a');
+    a.href     = url;
     a.download = 'portfolio.html';
+    document.body.appendChild(a);
     a.click();
+    document.body.removeChild(a);
     URL.revokeObjectURL(url);
-    showToast('Download started!');
-  };
-
-  const renderDemoPreview = () => {
-    const t = customization.theme;
-    const allT = { ...THEMES.light, ...THEMES.dark };
-    const vals = allT[t] || { bg: '#0D1117', accent: '#58A6FF' };
-    const isDark = Object.keys(THEMES.dark).includes(t);
-    const tc = isDark ? 'rgba(255,255,255,.85)' : 'rgba(0,0,0,.85)';
-    const sc = isDark ? 'rgba(255,255,255,.5)' : 'rgba(0,0,0,.5)';
-    const bc = isDark ? 'rgba(255,255,255,.08)' : 'rgba(0,0,0,.06)';
-
-    return (
-      <div style={{ flex: 1, background: vals.bg, padding: '3rem', overflow: 'auto', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '.75rem 1.5rem', background: bc, borderRadius: '8px' }}>
-          <span style={{ color: vals.accent, fontWeight: 700 }}>Portfolio</span>
-          <div style={{ display: 'flex', gap: '1rem' }}>
-            {customization.sections_order.filter(s => !customization.excluded_sections.includes(s)).map(s => (
-              <span key={s} style={{ fontSize: '.75rem', color: sc }}>{s}</span>
-            ))}
-          </div>
-        </div>
-        <div style={{ maxWidth: '640px', margin: '2rem auto', textAlign: 'center' }}>
-          <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: vals.accent, opacity: .2, margin: '0 auto 1.5rem' }}></div>
-          <div style={{ width: '280px', height: '20px', borderRadius: '4px', background: tc, opacity: .8, margin: '0 auto .75rem' }}></div>
-          <div style={{ width: '180px', height: '14px', borderRadius: '4px', background: sc, opacity: .6, margin: '0 auto .5rem' }}></div>
-          <div style={{ width: '360px', height: '10px', borderRadius: '4px', background: bc, margin: '.5rem auto' }}></div>
-          <div style={{ width: '300px', height: '10px', borderRadius: '4px', background: bc, margin: '.5rem auto' }}></div>
-          <div style={{ marginTop: '1.5rem', display: 'flex', gap: '.75rem', justifyContent: 'center' }}>
-            <div style={{ padding: '.5rem 1.25rem', background: vals.accent, borderRadius: '6px', fontSize: '.75rem', color: '#fff' }}>Get In Touch</div>
-            <div style={{ padding: '.5rem 1.25rem', border: `1px solid ${vals.accent}`, borderRadius: '6px', fontSize: '.75rem', color: vals.accent }}>GitHub ↗</div>
-          </div>
-        </div>
-        <div style={{ textAlign: 'center', color: sc, fontSize: '.8rem', padding: '1rem', borderTop: `1px solid ${bc}`, marginTop: 'auto' }}>
-          ✦ Preview reflects your selected theme: <strong style={{ color: vals.accent }}>{t}</strong>
-        </div>
-      </div>
-    );
+    showToast('Download started! ↓');
   };
 
   return (
     <div className="output-page">
-      <TopNav step={3} onBack={onBack} />
-      <div className="output-toolbar">
-        <div className="output-meta">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '.75rem' }}>
-            <strong>portfolio.html</strong>
-            <span className="success-badge">✓ Ready</span>
+      {/* Action bar */}
+      <div className="output-bar">
+        <div className="output-bar-left">
+          <button className="btn btn-ghost btn-sm" onClick={onBack}>← Edit Details</button>
+          <div className="output-file-info">
+            <span className="output-filename">portfolio.html</span>
+            {hasHtml && (
+              <span className="success-badge">✓ {Math.round(generatedHtml.length / 1024)} KB · Ready</span>
+            )}
           </div>
-          <span>{hasHtml ? Math.round(generatedHtml.length / 1024) + 'KB · Single file · No dependencies' : 'Demo preview mode'}</span>
         </div>
-        <div className="output-actions">
-          <button className="btn btn-ghost btn-sm" onClick={copyCode}>⎘ Copy Code</button>
-          <button className="btn btn-primary btn-sm" onClick={downloadHtml}>↓ Download HTML</button>
-          <button className="btn btn-ghost btn-sm" onClick={onStartOver}>↺ Start Over</button>
+        <div className="output-bar-right">
+          <button className="btn btn-ghost btn-sm" onClick={copyCode} disabled={!hasHtml}>
+            ⎘ Copy HTML
+          </button>
+          <button className="btn btn-primary btn-sm" onClick={downloadHtml} disabled={!hasHtml}>
+            ↓ Download HTML
+          </button>
+          <button className="btn btn-ghost btn-sm" onClick={onStartOver}>
+            ↺ Start Over
+          </button>
         </div>
       </div>
-      <div className="output-preview">
+
+      {/* Preview area */}
+      <div className="output-preview-area">
         {hasHtml ? (
-          <iframe 
-            id="preview-iframe" 
-            srcDoc={generatedHtml} 
-            sandbox="allow-scripts allow-same-origin" 
-            title="Portfolio Preview"
-            style={{ flex: 1, border: 'none', width: '100%', minHeight: '500px' }}
-          ></iframe>
-        ) : renderDemoPreview()}
+          <iframe
+            id="portfolio-preview"
+            srcDoc={generatedHtml}
+            sandbox="allow-scripts allow-same-origin"
+            title="Your Portfolio Preview"
+            className="output-iframe"
+          />
+        ) : (
+          <div className="output-error">
+            <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>⚠️</div>
+            <h3>Generation failed</h3>
+            <p>The backend couldn't generate your portfolio. Make sure the backend server is running and try again.</p>
+            <button className="btn btn-ghost" onClick={onBack} style={{ marginTop: '1.5rem' }}>
+              ← Go Back
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
