@@ -1,254 +1,34 @@
 <style>
-
-
-input,
-      textarea {
-        width: 100%;
-        background: transparent;
-        outline: none;
-        font-family: "DM Sans", sans-serif;
-        transition: all 0.3s;
-      }
-
-      /* L6 3D */
-      .l6-contact {
-        background: var(--bg);
-        min-height: 100vh;
-        padding: 80px 60px;
-        font-family: var(--font-head), sans-serif;
-      }
-      .l6-contact .eyebrow {
-        font-size: 11px;
-        letter-spacing: 4px;
-        color: var(--accent);
-        text-transform: uppercase;
-        margin-bottom: 12px;
-      }
-      .l6-contact .title {
-        font-size: 56px;
-        font-weight: 800;
-        color: var(--text);
-        line-height: 1;
-        letter-spacing: -1px;
-        margin-bottom: 60px;
-      }
-      .l6-contact .title .accent {
-        -webkit-text-stroke: 2px var(--accent);
-        color: transparent;
-      }
-      .l6-contact-inner {
-        display: grid;
-        grid-template-columns: 1fr 1.3fr;
-        gap: 60px;
-        align-items: start;
-      }
-      .l6-form-card {
-        background: var(--surface);
-        border-radius: 12px;
-        padding: 36px;
-        box-shadow:
-          0 2px 0 var(--border),
-          0 4px 0 var(--border-2),
-          0 6px 0 var(--border-2),
-          0 8px 16px rgba(0,0,0,0.1);
-      }
-      .l6-form-card h3 {
-        font-size: 20px;
-        font-weight: 700;
-        color: var(--text);
-        margin-bottom: 24px;
-      }
-      .l6-form .fg {
-        margin-bottom: 16px;
-      }
-      .l6-form label {
-        display: block;
-        font-size: 10px;
-        letter-spacing: 2px;
-        color: var(--accent);
-        text-transform: uppercase;
-        margin-bottom: 8px;
-      }
-      .l6-form input,
-      .l6-form textarea {
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        padding: 12px 14px;
-        color: var(--text);
-        font-size: 14px;
-        background: var(--surface-2);
-      }
-      .l6-form input:focus,
-      .l6-form textarea:focus {
-        border-color: var(--accent);
-        box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 8%, transparent);
-      }
-      .l6-form textarea {
-        height: 100px;
-        resize: none;
-      }
-      .l6-form .row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-      }
-      .l6-form .send-btn {
-        width: 100%;
-        padding: 14px;
-        background: var(--accent);
-        color: var(--surface);
-        border: none;
-        border-radius: 10px;
-        font-size: 13px;
-        font-weight: 700;
-        cursor: pointer;
-        font-family: var(--font-head), sans-serif;
-        letter-spacing: 2px;
-        transition: all 0.3s;
-        margin-top: 8px;
-        box-shadow: 0 4px 0 var(--accent-3);
-      }
-      .l6-form .send-btn:hover {
-        transform: translateY(-3px);
-        box-shadow:
-          0 7px 0 var(--accent-3),
-          0 10px 16px rgba(124,58,237,0.3);
-      }
-      .l6-form .send-btn:active {
-        transform: translateY(2px);
-        box-shadow: 0 2px 0 var(--accent-3);
-      }
-      .l6-info {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-      }
-      .l6-info-card {
-        background: var(--surface);
-        border-radius: 12px;
-        padding: 20px;
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        cursor: pointer;
-        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        box-shadow:
-          0 2px 0 var(--border),
-          0 4px 0 var(--border-2),
-          0 5px 8px rgba(0,0,0,0.08);
-      }
-      .l6-info-card:hover {
-        transform: translateY(-4px) scale(1.01);
-        box-shadow:
-          0 2px 0 var(--border),
-          0 4px 0 var(--border-2),
-          0 6px 0 var(--border-2),
-          0 8px 12px rgba(0,0,0,0.14);
-      }
-      .l6-info-card .ic-icon {
-        width: 44px;
-        height: 44px;
-        border-radius: 12px;
-        background: var(--surface-2);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 18px;
-        flex-shrink: 0;
-      }
-      .l6-info-card .ic-text h4 {
-        font-size: 11px;
-        color: var(--accent);
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        margin-bottom: 2px;
-      }
-      .l6-info-card .ic-text span {
-        font-size: 13px;
-        color: var(--text);
-      }
-      .l6-info-card .arr {
-        margin-left: auto;
-        color: #c4bfe8;
-        font-size: 16px;
-        transition: all 0.25s;
-      }
-      .l6-info-card:hover .arr {
-        color: var(--accent);
-        transform: translate(3px, -3px);
-      }
-
-
+  .c3-contact {
+    padding: 96px 60px; background: var(--bg);
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+  }
+  .c3-eyebrow { font: 11px var(--font-mono, monospace); color: var(--accent); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 14px; }
+  .c3-heading { font: 800 clamp(2.5rem,7vw,5.5rem)/1 var(--font-head, sans-serif); color: var(--text); letter-spacing: -3px; margin-bottom: 24px; }
+  .c3-email {
+    font: 700 clamp(1.1rem,2.5vw,1.8rem) var(--font-mono, monospace);
+    color: var(--accent); text-decoration: none; border-bottom: 2px solid var(--accent);
+    padding-bottom: 4px; margin-bottom: 48px; display: inline-block; transition: opacity 0.2s;
+  }
+  .c3-email:hover { opacity: 0.7; }
+  .c3-links { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+  .c3-link {
+    display: flex; align-items: center; gap: 10px;
+    padding: 16px 28px; background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius-lg, 16px); text-decoration: none;
+    font: 500 14px var(--font-body, sans-serif); color: var(--text-2); transition: all 0.25s;
+  }
+  .c3-link:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); box-shadow: 0 10px 30px color-mix(in srgb, var(--accent) 20%, transparent); }
+  .c3-divider { width: 64px; height: 2px; background: var(--accent); margin: 0 auto 28px; }
 </style>
-
-<section id="contact" class="l6-contact">
-      <div class="eyebrow">Get in touch</div>
-      <div class="title">Let's <span class="accent">Connect</span></div>
-      <div class="l6-contact-inner">
-        <div class="l6-info">
-          <div class="l6-info-card">
-            <div class="ic-icon">✉️</div>
-            <div class="ic-text">
-              <h4>Email</h4>
-              <span>{{EMAIL}}</span>
-            </div>
-            <span class="arr">↗</span>
-          </div>
-          <div class="l6-info-card">
-            <div class="ic-icon">💼</div>
-            <div class="ic-text">
-              <h4>LinkedIn</h4>
-              <span>{{LINKEDIN}}</span>
-            </div>
-            <span class="arr">↗</span>
-          </div>
-          <div class="l6-info-card">
-            <div class="ic-icon">🐙</div>
-            <div class="ic-text">
-              <h4>GitHub</h4>
-              <span>{{GITHUB}}</span>
-            </div>
-            <span class="arr">↗</span>
-          </div>
-          <div class="l6-info-card">
-            <div class="ic-icon">𝕏</div>
-            <div class="ic-text">
-              <h4>Twitter / X</h4>
-              <span>{{GITHUB}}</span>
-            </div>
-            <span class="arr">↗</span>
-          </div>
-          <div class="l6-info-card">
-            <div class="ic-icon">📍</div>
-            <div class="ic-text">
-              <h4>Based in</h4>
-              <span>Bengaluru, India</span>
-            </div>
-            <span class="arr">→</span>
-          </div>
-        </div>
-        <div class="l6-form-card">
-          <h3>Send a message</h3>
-          <div class="l6-form">
-            <div class="fg row">
-              <div>
-                <label>Name</label><input type="text" placeholder="Your name" />
-              </div>
-              <div>
-                <label>Email</label
-                ><input type="email" placeholder="you@email.com" />
-              </div>
-            </div>
-            <div class="fg">
-              <label>Subject</label
-              ><input type="text" placeholder="What's this about?" />
-            </div>
-            <div class="fg">
-              <label>Message</label
-              ><textarea placeholder="Tell me about your project..."></textarea>
-            </div>
-            <button class="send-btn">Send Message</button>
-          </div>
-        </div>
-      </div>
-    </section>
+<section id="contact" class="c3-contact">
+  <div class="c3-eyebrow">Let's Connect</div>
+  <h2 class="c3-heading">Get In Touch</h2>
+  <div class="c3-divider"></div>
+  <a class="c3-email" href="mailto:{{EMAIL}}">{{EMAIL}}</a>
+  <div class="c3-links">
+    <a class="c3-link" href="{{GITHUB}}" target="_blank" rel="noopener"><span>🐙</span>GitHub</a>
+    <a class="c3-link" href="{{LINKEDIN}}" target="_blank" rel="noopener"><span>💼</span>LinkedIn</a>
+    <a class="c3-link" href="mailto:{{EMAIL}}"><span>✉️</span>Email</a>
+  </div>
+</section>

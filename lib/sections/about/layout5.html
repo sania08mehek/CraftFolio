@@ -1,253 +1,43 @@
 <style>
-
-
-/* L5 WARM EDITORIAL */
-      .l5-about {
-        background: var(--surface-2);
-        min-height: 100vh;
-        padding: 80px 60px;
-        font-family: var(--font-head), serif;
-      }
-      .l5-about .kicker {
-        font-size: 12px;
-        letter-spacing: 3px;
-        color: #b45309;
-        text-transform: uppercase;
-        font-family: var(--font-body), sans-serif;
-        margin-bottom: 12px;
-      }
-      .l5-about .title {
-        font-size: 64px;
-        font-weight: 300;
-        color: #1a1208;
-        line-height: 1;
-        margin-bottom: 8px;
-        letter-spacing: -2px;
-      }
-      .l5-about .title em {
-        font-style: italic;
-        color: var(--accent-3);
-      }
-      .l5-about .rule {
-        width: 60px;
-        height: 2px;
-        background: var(--accent-3);
-        margin-top: 20px;
-        margin-bottom: 50px;
-      }
-      .l5-about-inner {
-        display: grid;
-        grid-template-columns: 300px 1fr;
-        gap: 60px;
-      }
-      .l5-about-img {
-        width: 280px;
-        height: 320px;
-        border-radius: 4px;
-        background: #f5f0e8;
-        border: 1px solid #e7e2d8;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 80px;
-        margin-bottom: 24px;
-      }
-      .l5-quick-info {
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-      }
-      .l5-qi {
-        border-bottom: 1px solid var(--border-2);
-        padding-bottom: 14px;
-      }
-      .l5-qi .qi-key {
-        font-size: 10px;
-        color: var(--accent-3);
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        font-family: var(--font-body), sans-serif;
-        margin-bottom: 4px;
-      }
-      .l5-qi .qi-val {
-        font-size: 15px;
-        color: #1a1208;
-      }
-      .l5-right-col .pull-quote {
-        font-size: 28px;
-        font-weight: 300;
-        color: #1a1208;
-        line-height: 1.5;
-        margin-bottom: 28px;
-        font-style: italic;
-        border-left: 3px solid var(--accent-3);
-        padding-left: 24px;
-      }
-      .l5-right-col .bio-text {
-        font-size: 16px;
-        color: #78716c;
-        line-height: 1.9;
-        margin-bottom: 28px;
-        font-family: var(--font-body), sans-serif;
-      }
-      .l5-right-col .bio-text strong {
-        color: #1a1208;
-      }
-      .l5-exp-editorial {
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-        margin-top: 10px;
-      }
-      .l5-exp-editorial h4 {
-        font-size: 11px;
-        letter-spacing: 3px;
-        color: var(--accent-3);
-        text-transform: uppercase;
-        font-family: var(--font-body), sans-serif;
-        margin-bottom: 20px;
-      }
-      .l5-exp-ed {
-        display: grid;
-        grid-template-columns: 160px 1fr;
-        gap: 20px;
-        padding: 20px 0;
-        border-bottom: 1px solid var(--border-2);
-      }
-      .l5-exp-ed .ep {
-        font-size: 12px;
-        color: #b45309;
-        font-family: var(--font-body), sans-serif;
-        padding-top: 2px;
-      }
-      .l5-exp-ed .ec h4 {
-        font-size: 18px;
-        font-weight: 400;
-        color: #1a1208;
-        margin-bottom: 2px;
-      }
-      .l5-exp-ed .ec .eco {
-        font-size: 13px;
-        color: #b45309;
-        font-family: var(--font-body), sans-serif;
-        margin-bottom: 4px;
-      }
-      .l5-exp-ed .ec p {
-        font-size: 14px;
-        color: #78716c;
-        line-height: 1.6;
-        font-family: var(--font-body), sans-serif;
-      }
-      .l5-skills-editorial {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-top: 28px;
-      }
-      .l5-se {
-        font-size: 13px;
-        color: var(--text-2);
-        background: #fef3c7;
-        padding: 6px 16px;
-        border-radius: 2px;
-        font-family: var(--font-body), sans-serif;
-        cursor: default;
-        transition: all 0.2s;
-      }
-      .l5-se:hover {
-        background: #fde68a;
-      }
-
-
+  .a2-about { padding: 96px 60px; background: var(--bg); }
+  .a2-header { text-align: center; margin-bottom: 64px; }
+  .a2-eyebrow { font: 11px var(--font-mono, monospace); color: var(--accent); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 14px; }
+  .a2-heading { font: 800 clamp(2rem,4vw,3rem)/1.1 var(--font-head, sans-serif); color: var(--text); letter-spacing: -1px; }
+  .a2-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 960px; margin: 0 auto; }
+  .a2-card {
+    padding: 28px; background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius-lg, 16px); transition: all 0.3s;
+  }
+  .a2-card:hover { border-color: color-mix(in srgb, var(--accent) 50%, transparent); transform: translateY(-4px); }
+  .a2-card-icon { font-size: 2rem; margin-bottom: 16px; }
+  .a2-card-title { font: 700 1rem var(--font-head, sans-serif); color: var(--text); margin-bottom: 10px; }
+  .a2-card-body { font: 400 13px/1.75 var(--font-body, sans-serif); color: var(--text-2); }
+  .a2-bio-card { grid-column: span 3; padding: 36px; text-align: center; }
+  .a2-bio-text { font: 400 1.05rem/1.85 var(--font-body, sans-serif); color: var(--text-2); max-width: 680px; margin: 0 auto; }
+  .a2-links { display: flex; gap: 14px; justify-content: center; margin-top: 20px; }
+  .a2-link {
+    padding: 10px 22px; border: 1px solid var(--border-2); border-radius: var(--radius-sm, 8px);
+    font: 500 13px var(--font-body, sans-serif); color: var(--text-2); text-decoration: none; transition: all 0.2s;
+  }
+  .a2-link:hover { border-color: var(--accent); color: var(--accent); }
+  @media (max-width: 768px) { .a2-grid { grid-template-columns: 1fr; } .a2-bio-card { grid-column: span 1; } }
 </style>
-
-<section id="about" class="l5-about">
-      <div class="kicker">About</div>
-      <div class="title">The <em>Story</em> So Far</div>
-      <div class="rule"></div>
-      <div class="l5-about-inner">
-        <div class="l5-left-col">
-          <div class="l5-about-img">🧑‍💻</div>
-          <div class="l5-quick-info">
-            <div class="l5-qi">
-              <div class="qi-key">Based In</div>
-              <div class="qi-val">Bengaluru, India</div>
-            </div>
-            <div class="l5-qi">
-              <div class="qi-key">Experience</div>
-              <div class="qi-val">5+ Years</div>
-            </div>
-            <div class="l5-qi">
-              <div class="qi-key">Speciality</div>
-              <div class="qi-val">Full Stack & DevOps</div>
-            </div>
-            <div class="l5-qi" style="border: none">
-              <div class="qi-key">Status</div>
-              <div class="qi-val" style="color: var(--accent-3)">Open to Work</div>
-            </div>
-          </div>
-        </div>
-        <div class="l5-right-col">
-          <div class="pull-quote">
-            "I build systems that engineers love working with — and that users
-            never have to think about."
-          </div>
-          <p class="bio-text">
-            I'm a Full Stack Developer with <strong>5+ years</strong> of
-            experience turning complex engineering problems into elegant,
-            maintainable solutions. My background spans everything from building
-            React frontends to designing distributed microservice architectures
-            on AWS and GCP.
-          </p>
-          <p class="bio-text">
-            I care deeply about <strong>developer experience</strong> — both for
-            the engineers using my tools and for future me maintaining the
-            codebase. That's what drives my obsession with clean architecture
-            and thorough documentation.
-          </p>
-          <div class="l5-exp-editorial">
-            <h4>Work History</h4>
-            <div class="l5-exp-ed">
-              <div class="ep">2022 – Present</div>
-              <div class="ec">
-                <h4>Senior Full Stack Engineer</h4>
-                <div class="eco">TechCorp Solutions</div>
-                <p>
-                  Leading microservice architecture for platform serving 500k+
-                  daily users.
-                </p>
-              </div>
-            </div>
-            <div class="l5-exp-ed">
-              <div class="ep">2020 – 2022</div>
-              <div class="ec">
-                <h4>Full Stack Developer</h4>
-                <div class="eco">StartupXYZ</div>
-                <p>
-                  Built the core product end-to-end. Architected real-time data
-                  pipelines.
-                </p>
-              </div>
-            </div>
-            <div class="l5-exp-ed">
-              <div class="ep">2019 – 2020</div>
-              <div class="ec">
-                <h4>Frontend Developer</h4>
-                <div class="eco">Digital Agency</div>
-                <p>
-                  Delivered 15+ client projects and built a shared component
-                  system.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="l5-skills-editorial">
-            <span class="l5-se">React</span><span class="l5-se">Node.js</span
-            ><span class="l5-se">TypeScript</span
-            ><span class="l5-se">Python</span><span class="l5-se">AWS</span
-            ><span class="l5-se">Docker</span
-            ><span class="l5-se">PostgreSQL</span>
-          </div>
-        </div>
+<section id="about" class="a2-about">
+  <div class="a2-header">
+    <div class="a2-eyebrow">About Me</div>
+    <h2 class="a2-heading">Who I Am</h2>
+  </div>
+  <div class="a2-grid">
+    <div class="a2-card a2-bio-card">
+      <p class="a2-bio-text">{{BIO}}</p>
+      <div class="a2-links">
+        <a class="a2-link" href="{{GITHUB}}" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="a2-link" href="{{LINKEDIN}}" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="a2-link" href="mailto:{{EMAIL}}">Email</a>
       </div>
-    </section>
+    </div>
+    <div class="a2-card"><div class="a2-card-icon">💡</div><div class="a2-card-title">Problem Solver</div><p class="a2-card-body">I enjoy turning complex challenges into elegant, maintainable solutions.</p></div>
+    <div class="a2-card"><div class="a2-card-icon">🚀</div><div class="a2-card-title">Fast Learner</div><p class="a2-card-body">Constantly expanding my skills and staying current with industry trends.</p></div>
+    <div class="a2-card"><div class="a2-card-icon">🤝</div><div class="a2-card-title">Collaborator</div><p class="a2-card-body">Strong communication skills and experience working in agile teams.</p></div>
+  </div>
+</section>

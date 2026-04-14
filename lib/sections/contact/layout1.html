@@ -1,239 +1,58 @@
 <style>
-
-
-input,
-      textarea {
-        width: 100%;
-        background: transparent;
-        outline: none;
-        font-family: var(--font-body), sans-serif;
-        transition: all 0.3s;
-      }
-
-      /* L1 MIDNIGHT */
-      .l1-contact {
-        background: var(--bg);
-        min-height: 100vh;
-        padding: 80px 60px;
-        font-family: var(--font-head), sans-serif;
-      }
-      .l1-contact .eyebrow {
-        font-size: 11px;
-        letter-spacing: 4px;
-        color: var(--success);
-        text-transform: uppercase;
-        margin-bottom: 12px;
-      }
-      .l1-contact .heading {
-        font-size: 52px;
-        font-weight: 800;
-        color: var(--text);
-        line-height: 1.1;
-        margin-bottom: 16px;
-      }
-      .l1-contact .heading span {
-        color: var(--success);
-      }
-      .l1-contact .subtext {
-        font-size: 15px;
-        color: var(--text-2);
-        margin-bottom: 60px;
-        max-width: 460px;
-        line-height: 1.6;
-      }
-      .l1-contact-inner {
-        display: grid;
-        grid-template-columns: 1fr 1.2fr;
-        gap: 80px;
-        align-items: start;
-      }
-      .l1-contact-info .info-label {
-        font-size: 10px;
-        letter-spacing: 3px;
-        color: var(--text-3);
-        text-transform: uppercase;
-        margin-bottom: 20px;
-      }
-      .l1-contact-info .info-item {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        padding: 16px 0;
-        border-bottom: 1px solid var(--border-2);
-        cursor: pointer;
-        transition: all 0.3s;
-      }
-      .l1-contact-info .info-item:hover {
-        padding-left: 8px;
-        border-bottom-color: var(--success);
-      }
-      .l1-contact-info .info-item .icon {
-        width: 36px;
-        height: 36px;
-        border-radius: 10px;
-        background: color-mix(in srgb, var(--success) 10%, transparent);
-        border: 1px solid color-mix(in srgb, var(--success) 15%, transparent);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 14px;
-        flex-shrink: 0;
-      }
-      .l1-contact-info .info-item .txt h4 {
-        font-size: 11px;
-        color: var(--text-3);
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        margin-bottom: 2px;
-      }
-      .l1-contact-info .info-item .txt span {
-        font-size: 14px;
-        color: var(--text);
-      }
-      .l1-contact-info .social-row {
-        display: flex;
-        gap: 10px;
-        margin-top: 28px;
-      }
-      .l1-contact-info .soc-btn {
-        width: 40px;
-        height: 40px;
-        border-radius: 10px;
-        border: 1px solid var(--border-2);
-        background: transparent;
-        color: var(--text-2);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: all 0.2s;
-        font-size: 16px;
-      }
-      .l1-contact-info .soc-btn:hover {
-        border-color: var(--success);
-        color: var(--success);
-        background: color-mix(in srgb, var(--success) 8%, transparent);
-      }
-      .l1-form .form-group {
-        margin-bottom: 20px;
-      }
-      .l1-form label {
-        display: block;
-        font-size: 10px;
-        letter-spacing: 2px;
-        color: var(--text-3);
-        text-transform: uppercase;
-        margin-bottom: 8px;
-      }
-      .l1-form input,
-      .l1-form textarea {
-        border: 1px solid var(--border-2);
-        border-radius: 10px;
-        padding: 14px 16px;
-        color: var(--text);
-        font-size: 14px;
-        background: var(--bg2);
-      }
-      .l1-form input:focus,
-      .l1-form textarea:focus {
-        border-color: var(--success);
-        box-shadow: 0 0 0 3px color-mix(in srgb, var(--success) 8%, transparent);
-      }
-      .l1-form textarea {
-        height: 120px;
-        resize: vertical;
-      }
-      .l1-form .row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
-      }
-      .l1-form .submit-btn {
-        width: 100%;
-        padding: 14px;
-        background: var(--success);
-        color: var(--text);
-        border: none;
-        border-radius: 10px;
-        font-size: 14px;
-        font-weight: 700;
-        cursor: pointer;
-        font-family: var(--font-head), sans-serif;
-        letter-spacing: 1px;
-        transition: all 0.3s;
-        margin-top: 4px;
-      }
-      .l1-form .submit-btn:hover {
-        background: var(--success);
-        transform: translateY(-2px);
-        box-shadow: 0 16px 40px color-mix(in srgb, var(--success) 30%, transparent);
-      }
-
-
+  .c1-contact { padding: 96px 60px; background: var(--bg); display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start; }
+  .c1-eyebrow { font: 11px var(--font-mono, monospace); color: var(--accent); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 14px; }
+  .c1-heading { font: 800 clamp(2rem,4vw,3.2rem)/1.1 var(--font-head, sans-serif); color: var(--text); letter-spacing: -1.5px; margin-bottom: 20px; }
+  .c1-subtext { font: 400 14px/1.8 var(--font-body, sans-serif); color: var(--text-2); margin-bottom: 36px; }
+  .c1-items { display: flex; flex-direction: column; gap: 1px; background: var(--border); border-radius: var(--radius-lg, 16px); overflow: hidden; margin-bottom: 28px; }
+  .c1-item { display: flex; align-items: center; gap: 14px; padding: 16px 20px; background: var(--surface); transition: all 0.2s; text-decoration: none; }
+  .c1-item:hover { background: color-mix(in srgb, var(--accent) 8%, var(--surface)); padding-left: 26px; }
+  .c1-item-icon { font-size: 1.2rem; }
+  .c1-item-label { font: 10px var(--font-mono, monospace); color: var(--accent); letter-spacing: 1px; text-transform: uppercase; }
+  .c1-item-val { font: 500 13px var(--font-body, sans-serif); color: var(--text); }
+  .c1-form { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-xl, 24px); padding: 36px; }
+  .c1-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .c1-form-group { margin-bottom: 16px; }
+  .c1-form label { display: block; font: 10px var(--font-mono, monospace); color: var(--text-3); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+  .c1-form input, .c1-form textarea {
+    width: 100%; border: 1px solid var(--border); border-radius: var(--radius-sm, 8px);
+    padding: 12px 16px; font: 14px var(--font-body, sans-serif);
+  }
+  .c1-form textarea { height: 130px; resize: vertical; }
+  .c1-submit {
+    width: 100%; padding: 15px; background: var(--accent); color: var(--bg);
+    border: none; border-radius: var(--radius-md, 12px); font: 700 14px var(--font-body, sans-serif);
+    cursor: pointer; letter-spacing: 1px; text-transform: uppercase; transition: all 0.25s;
+  }
+  .c1-submit:hover { background: var(--accent-2); transform: translateY(-2px); }
+  @media (max-width: 768px) { .c1-contact { grid-template-columns: 1fr; } .c1-form-row { grid-template-columns: 1fr; } }
 </style>
-
-<section id="contact" class="l1-contact">
-      <div class="eyebrow">Contact</div>
-      <div class="heading">Let's <span>Work Together</span></div>
-      <div class="subtext">
-        Open to freelance projects, full-time opportunities, and interesting
-        collaborations. I typically respond within 24 hours.
-      </div>
-      <div class="l1-contact-inner">
-        <div class="l1-contact-info">
-          <div class="info-label">Reach Out Directly</div>
-          <div class="info-item">
-            <div class="icon">✉️</div>
-            <div class="txt">
-              <h4>Email</h4>
-              <span>{{EMAIL}}</span>
-            </div>
-          </div>
-          <div class="info-item">
-            <div class="icon">📍</div>
-            <div class="txt">
-              <h4>Location</h4>
-              <span>Bengaluru, India</span>
-            </div>
-          </div>
-          <div class="info-item">
-            <div class="icon">⏰</div>
-            <div class="txt">
-              <h4>Availability</h4>
-              <span>Open to Opportunities</span>
-            </div>
-          </div>
-          <div class="social-row">
-            <div class="soc-btn">🐙</div>
-            <div class="soc-btn">💼</div>
-            <div class="soc-btn">𝕏</div>
-            <div class="soc-btn">📸</div>
-          </div>
-        </div>
-        <div class="l1-form">
-          <div class="form-group row">
-            <div>
-              <label>First Name</label><input type="text" placeholder="John" />
-            </div>
-            <div>
-              <label>Last Name</label><input type="text" placeholder="Doe" />
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Email</label
-            ><input type="email" placeholder="john@example.com" />
-          </div>
-          <div class="form-group">
-            <label>Subject</label
-            ><input type="text" placeholder="Project Inquiry" />
-          </div>
-          <div class="form-group">
-            <label>Message</label
-            ><textarea
-              placeholder="Tell me about your project or idea..."
-            ></textarea>
-          </div>
-          <button class="submit-btn">SEND MESSAGE →</button>
-        </div>
-      </div>
-    </section>
+<section id="contact" class="c1-contact">
+  <div>
+    <div class="c1-eyebrow">Get In Touch</div>
+    <h2 class="c1-heading">Let's Work Together</h2>
+    <p class="c1-subtext">Open to new projects, freelance work, and interesting collaborations. I usually respond within 24 hours.</p>
+    <div class="c1-items">
+      <a class="c1-item" href="mailto:{{EMAIL}}">
+        <span class="c1-item-icon">✉️</span>
+        <div><div class="c1-item-label">Email</div><div class="c1-item-val">{{EMAIL}}</div></div>
+      </a>
+      <a class="c1-item" href="{{GITHUB}}" target="_blank" rel="noopener">
+        <span class="c1-item-icon">🐙</span>
+        <div><div class="c1-item-label">GitHub</div><div class="c1-item-val">{{GITHUB}}</div></div>
+      </a>
+      <a class="c1-item" href="{{LINKEDIN}}" target="_blank" rel="noopener">
+        <span class="c1-item-icon">💼</span>
+        <div><div class="c1-item-label">LinkedIn</div><div class="c1-item-val">{{LINKEDIN}}</div></div>
+      </a>
+    </div>
+  </div>
+  <div class="c1-form">
+    <div class="c1-form-row">
+      <div><label>Name</label><input type="text" placeholder="Your name"></div>
+      <div><label>Email</label><input type="email" placeholder="you@email.com"></div>
+    </div>
+    <div class="c1-form-group"><label>Subject</label><input type="text" placeholder="Project inquiry"></div>
+    <div class="c1-form-group"><label>Message</label><textarea placeholder="Tell me about your project..."></textarea></div>
+    <button class="c1-submit">Send Message →</button>
+  </div>
+</section>

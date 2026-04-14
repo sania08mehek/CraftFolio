@@ -1,135 +1,67 @@
-<!-- HERO · Layout 2 · Light Minimal -->
-<!-- Placeholders: {{NAME}} {{TITLE}} {{BIO}} {{PROFILE_IMAGE}} -->
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-
 <style>
-
-
-.hero2 {
-    background: var(--bg); min-height: 92vh;
-    display: grid; grid-template-columns: 1fr 1fr;
-    font-family: var(--font-body), sans-serif;
+  .h2-hero {
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; text-align: center;
+    min-height: 92vh; padding: 80px 40px; background: var(--bg);
   }
-  .hero2-left {
-    padding: 80px 48px 80px 64px;
-    display: flex; flex-direction: column; justify-content: center;
-    border-right: 1px solid var(--border);
-    animation: fadeRight 0.8s ease both;
+  .h2-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 16px; border: 1px solid var(--border);
+    border-radius: 30px; background: color-mix(in srgb, var(--accent) 8%, transparent);
+    font: 11px var(--font-mono, monospace); color: var(--accent);
+    letter-spacing: 3px; text-transform: uppercase; margin-bottom: 36px;
   }
-  @keyframes fadeRight { from{opacity:0;transform:translateX(-20px)} to{opacity:1;transform:translateX(0)} }
-  .hero2-eyebrow {
-    font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em;
-    color: var(--text-3); margin-bottom: 20px;
+  .h2-eyebrow::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--accent); animation:h2p 2s infinite; }
+  @keyframes h2p { 0%,100%{opacity:1} 50%{opacity:.3} }
+  .h2-greeting { font: 400 1.5rem var(--font-body, sans-serif); color: var(--text-2); margin-bottom: 12px; }
+  .h2-name {
+    font: 800 clamp(3.5rem,9vw,7rem)/1 var(--font-head, sans-serif);
+    letter-spacing: -4px; margin-bottom: 24px;
+    background: linear-gradient(135deg, var(--text), var(--accent-2));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
   }
-  .hero2-h1 {
-    font-family: var(--font-head), serif;
-    font-size: clamp(40px, 5vw, 64px); line-height: 1.06;
-    letter-spacing: -0.03em; color: var(--accent);
+  .h2-title { font: 500 1.2rem var(--font-body, sans-serif); color: var(--accent); margin-bottom: 28px; }
+  .h2-bio {
+    font: 400 1.05rem/1.8 var(--font-body, sans-serif);
+    color: var(--text-2); max-width: 600px; margin: 0 auto 44px;
   }
-  .hero2-h1 em { font-style: italic; color: var(--text-2); }
-  .hero2-role {
-    margin-top: 16px; font-size: 15px; color: var(--text-2); font-weight: 400;
-    display: flex; align-items: center; gap: 10px;
+  .h2-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 60px; }
+  .h2-btn-p {
+    padding: 15px 36px; background: var(--accent); color: var(--bg);
+    border-radius: 50px; font: 700 14px var(--font-body, sans-serif);
+    text-decoration: none; letter-spacing: 0.5px;
+    transition: all 0.25s; display: inline-block;
   }
-  .hero2-role::before {
-    content: ''; flex: 1; max-width: 40px;
-    height: 1px; background: #ddd;
+  .h2-btn-p:hover { background: var(--accent-2); transform: translateY(-2px); box-shadow: 0 12px 30px color-mix(in srgb, var(--accent) 30%, transparent); }
+  .h2-btn-s {
+    padding: 15px 36px; background: transparent; color: var(--text);
+    border: 1px solid var(--border-2); border-radius: 50px;
+    font: 500 14px var(--font-body, sans-serif); text-decoration: none;
+    transition: all 0.25s; display: inline-block;
   }
-  .hero2-bio {
-    margin-top: 24px; font-size: 16px; color: var(--accent-2);
-    line-height: 1.8; max-width: 440px;
+  .h2-btn-s:hover { border-color: var(--accent); color: var(--accent); }
+  .h2-stats {
+    display: flex; gap: 48px; justify-content: center;
+    padding: 28px 40px; background: var(--surface);
+    border: 1px solid var(--border); border-radius: var(--radius-xl, 24px); flex-wrap: wrap;
   }
-  .hero2-actions { display: flex; gap: 16px; margin-top: 36px; align-items: center; }
-  .hero2-btn {
-    padding: 13px 30px; background: var(--accent); color: var(--surface);
-    border: none; border-radius: 6px; font-size: 14px; font-weight: 600;
-    font-family: var(--font-body), sans-serif; cursor: pointer;
-    text-decoration: none; transition: background 0.2s; letter-spacing: 0.02em;
-  }
-  .hero2-btn:hover { background: var(--accent-2); }
-  .hero2-link {
-    font-size: 14px; color: var(--text-2); text-decoration: none;
-    letter-spacing: 0.04em; transition: color 0.2s;
-  }
-  .hero2-link:hover { color: var(--accent); }
-  .hero2-right {
-    position: relative; overflow: hidden;
-    animation: fadeLeft 0.8s 0.2s ease both; opacity: 0;
-  }
-  @keyframes fadeLeft { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
-  .hero2-img-wrap {
-    width: 100%; height: 100%; min-height: 400px;
-    background: linear-gradient(160deg, #f0ede6, #e8e3d8);
-    display: flex; align-items: flex-end; overflow: hidden;
-  }
-  .hero2-img-wrap img {
-    width: 100%; height: 100%; object-fit: cover; object-position: top;
-  }
-  /* floating card */
-  .hero2-card {
-    position: absolute; bottom: 40px; right: 32px;
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: 12px; padding: 16px 20px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-    animation: floatCard 5s ease-in-out infinite;
-  }
-  @keyframes floatCard {
-    0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)}
-  }
-  .hero2-card-label { font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.1em; }
-  .hero2-card-val { font-family: var(--font-head),serif; font-size: 22px; color: var(--accent); margin-top: 2px; }
-  /* bottom stats */
-  .hero2-stats {
-    display: flex; gap: 0;
-    border-top: 1px solid var(--border);
-  }
-  .hero2-stat {
-    flex: 1; padding: 20px 24px;
-    border-right: 1px solid var(--border);
-  }
-  .hero2-stat:last-child { border-right: none; }
-  .hero2-stat-num {
-    font-family: var(--font-head), serif; font-size: 28px; color: var(--accent);
-  }
-  .hero2-stat-label { font-size: 12px; color: var(--text-3); margin-top: 2px; }
-
-
+  .h2-stat-num { font: 800 2.5rem/1 var(--font-head, sans-serif); color: var(--accent); display: block; }
+  .h2-stat-label { font: 13px var(--font-body, sans-serif); color: var(--text-3); margin-top: 6px; display: block; }
 </style>
-
-<section id="hero" class="hero2">
-  <div class="hero2-left">
-    <div class="hero2-eyebrow">Portfolio · 2025</div>
-    <h1 class="hero2-h1">
-      Hello,<br>I'm <em>{{NAME}}</em>
-    </h1>
-    <p class="hero2-role">{{TITLE}}</p>
-    <p class="hero2-bio">{{BIO}}</p>
-    <div class="hero2-actions">
-      <a class="hero2-btn" href="#projects">See My Work →</a>
-      <a class="hero2-link" href="#contact">Or say hello ↗</a>
-    </div>
-    <div class="hero2-stats">
-      <div class="hero2-stat">
-        <div class="hero2-stat-num">5+</div>
-        <div class="hero2-stat-label">Years</div>
-      </div>
-      <div class="hero2-stat">
-        <div class="hero2-stat-num">40+</div>
-        <div class="hero2-stat-label">Projects</div>
-      </div>
-      <div class="hero2-stat">
-        <div class="hero2-stat-num">12</div>
-        <div class="hero2-stat-label">Clients</div>
-      </div>
-    </div>
+<section id="hero" class="h2-hero">
+  <div class="h2-eyebrow">Available for work</div>
+  <p class="h2-greeting">Hello, I'm</p>
+  <h1 class="h2-name">{{NAME}}</h1>
+  <div class="h2-title">{{TITLE}}</div>
+  <p class="h2-bio">{{BIO}}</p>
+  <div class="h2-btns">
+    <a class="h2-btn-p" href="#projects">View My Work →</a>
+    <a class="h2-btn-s" href="#contact">Say Hello ↗</a>
   </div>
-  <div class="hero2-right">
-    <div class="hero2-img-wrap">
-      <img src="{{PROFILE_IMAGE}}" alt="{{NAME}}" onerror="this.style.display='none'" />
-    </div>
-    <div class="hero2-card">
-      <div class="hero2-card-label">Open to</div>
-      <div class="hero2-card-val">Full-time roles</div>
-    </div>
+  <div class="h2-stats">
+    <div><span class="h2-stat-num">5+</span><span class="h2-stat-label">Years Experience</span></div>
+    <div><span class="h2-stat-num">40+</span><span class="h2-stat-label">Projects Delivered</span></div>
+    <div><span class="h2-stat-num">100%</span><span class="h2-stat-label">Client Satisfaction</span></div>
   </div>
 </section>

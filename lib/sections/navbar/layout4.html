@@ -1,74 +1,38 @@
-<!-- NAVBAR · Layout 4 · Aurora Dark -->
-<!-- Placeholders: {{NAME}} {{NAV_LINKS}} -->
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;1,300&family=Plus+Jakarta+Sans:wght@400;500&display=swap" rel="stylesheet">
-
 <style>
-
-
-.nav4 {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(4,8,15,0.88); backdrop-filter: blur(24px);
-    font-family: var(--font-body), sans-serif;
-    border-bottom: 1px solid rgba(56,189,248,0.1);
-  }
-  .nav4-aurora-bar {
-    height: 3px;
-    background: linear-gradient(90deg, var(--accent), #a78bfa, var(--accent-2), var(--accent));
-    background-size: 300% 100%;
-    animation: auroraBar 5s ease infinite;
-  }
-  @keyframes auroraBar {
-    0%,100% { background-position: 0% 50%; }
-    50%      { background-position: 100% 50%; }
-  }
-  .nav4-inner {
-    max-width: 1100px; margin: 0 auto;
+  .nav1 {
+    position: sticky; top: 0; z-index: 200;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    padding: 0 40px;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 0 44px; height: 62px;
+    height: 64px; gap: 24px;
   }
-  .nav4-logo {
-    font-family: var(--font-head), serif; font-style: italic;
-    font-size: 21px; font-weight: 300;
-    color: var(--text); text-decoration: none; letter-spacing: 0.02em;
+  .nav1-logo {
+    font-family: var(--font-head, sans-serif); font-size: 20px; font-weight: 800;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+    white-space: nowrap; text-decoration: none; flex-shrink: 0;
   }
-  .nav4-logo span { color: var(--accent); }
-  .nav4-links { display: flex; align-items: center; gap: 2px; }
-  .nav4-link {
-    color: rgba(232,244,255,0.45); text-decoration: none;
-    font-size: 13px; font-weight: 500;
-    padding: 7px 15px; border-radius: 8px;
-    transition: all 0.25s;
+  .nav1-links { display: flex; align-items: center; gap: 2px; flex-wrap: wrap; justify-content: center; }
+  .nav1-link {
+    padding: 7px 14px; border-radius: var(--radius-sm, 8px);
+    font-family: var(--font-body, sans-serif); font-size: 13px; font-weight: 500;
+    color: var(--text-2); text-decoration: none; transition: all 0.2s; white-space: nowrap;
   }
-  .nav4-link:hover {
-    color: var(--accent); background: rgba(56,189,248,0.08);
+  .nav1-link:hover { color: var(--text); background: color-mix(in srgb, var(--accent) 10%, transparent); }
+  .nav1-cta {
+    flex-shrink: 0; padding: 9px 22px;
+    background: var(--accent); color: var(--bg);
+    border-radius: var(--radius-sm, 8px); font-family: var(--font-body, sans-serif);
+    font-size: 13px; font-weight: 700; text-decoration: none; transition: 0.2s;
+    white-space: nowrap; letter-spacing: 0.4px;
   }
-  .nav4-indicator {
-    display: flex; align-items: center; gap: 6px;
-    margin-left: 16px; padding: 6px 14px;
-    border: 1px solid rgba(56,189,248,0.25);
-    border-radius: 20px; font-size: 12px;
-    color: rgba(56,189,248,0.8);
-  }
-  .nav4-indicator::before {
-    content: ''; width: 6px; height: 6px;
-    background: var(--accent); border-radius: 50%;
-    animation: pulse4 2s infinite;
-    box-shadow: 0 0 6px var(--accent);
-  }
-  @keyframes pulse4 {
-    0%,100%{opacity:1} 50%{opacity:0.3}
-  }
-
-
+  .nav1-cta:hover { background: var(--accent-2); transform: translateY(-1px); }
 </style>
-
-<nav class="nav4">
-  <div class="nav4-aurora-bar"></div>
-  <div class="nav4-inner">
-    <a class="nav4-logo" href="#"><span>✦</span> {{NAME}}</a>
-    <div class="nav4-links">
-      {{NAV_LINKS}}
-      <div class="nav4-indicator">Available</div>
-    </div>
-  </div>
+<nav id="navbar" class="nav1">
+  <a class="nav1-logo" href="#hero">{{NAME}}</a>
+  <div class="nav1-links">{{NAV_LINKS}}</div>
+  <a class="nav1-cta" href="#contact">Hire Me</a>
 </nav>

@@ -1,54 +1,23 @@
-<!-- NAVBAR · Layout 5 · Warm Editorial -->
-<!-- Placeholders: {{NAME}} {{NAV_LINKS}} -->
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500&display=swap" rel="stylesheet">
-
 <style>
-
-
-.nav5 {
-    background: var(--bg);
-    border-bottom: 2px solid var(--accent);
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    position: sticky; top: 0; z-index: 100;
+  .nav2 {
+    position: sticky; top: 0; z-index: 200;
+    background: var(--surface); border-bottom: 1px solid var(--border);
+    padding: 0 56px;
+    display: flex; align-items: center; justify-content: space-between; height: 60px;
   }
-  .nav5-inner {
-    max-width: 1100px; margin: 0 auto;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 48px; height: 66px;
+  .nav2-logo {
+    font-family: var(--font-mono, monospace); font-size: 13px; font-weight: 700;
+    letter-spacing: 3px; color: var(--accent); text-decoration: none; text-transform: uppercase;
   }
-  .nav5-left { display: flex; align-items: center; gap: 32px; }
-  .nav5-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic; font-size: 22px; font-weight: 400;
-    color: var(--accent); text-decoration: none; letter-spacing: 0.01em;
+  .nav2-links { display: flex; align-items: center; gap: 32px; }
+  .nav1-link {
+    font-family: var(--font-body, sans-serif); font-size: 11.5px;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--text-3); text-decoration: none; transition: color 0.2s; white-space: nowrap;
   }
-  .nav5-tag {
-    font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em;
-    color: var(--accent-2); border: 1px solid rgba(176,128,96,0.4);
-    padding: 3px 10px; border-radius: 3px;
-  }
-  .nav5-links { display: flex; align-items: center; gap: 0; }
-  .nav5-link {
-    color: var(--text-2); text-decoration: none;
-    font-size: 12px; font-weight: 500; letter-spacing: 0.06em;
-    text-transform: uppercase; padding: 8px 16px;
-    border-left: 1px solid rgba(44,24,16,0.1);
-    transition: all 0.18s;
-  }
-  .nav5-link:last-child { border-right: 1px solid rgba(44,24,16,0.1); }
-  .nav5-link:hover { color: var(--accent); background: rgba(44,24,16,0.04); }
-
-
+  .nav1-link:hover { color: var(--accent); }
 </style>
-
-<nav class="nav5">
-  <div class="nav5-inner">
-    <div class="nav5-left">
-      <a class="nav5-logo" href="#">{{NAME}}</a>
-      <span class="nav5-tag">Portfolio</span>
-    </div>
-    <div class="nav5-links">
-      {{NAV_LINKS}}
-    </div>
-  </div>
+<nav id="navbar" class="nav2">
+  <a class="nav2-logo" href="#hero">{{NAME}}</a>
+  <div class="nav2-links">{{NAV_LINKS}}</div>
 </nav>
