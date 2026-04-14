@@ -1,45 +1,66 @@
 import React, { useState } from 'react';
 
 const StepSkills = ({ skills, onUpdate }) => {
-  const [inputValue, setInputValue] = useState('');
+  const [input, setInput] = useState('');
 
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter' || e.key === ',') {
-      e.preventDefault();
-      const val = inputValue.trim().replace(/,/g, '');
-      if (val && !skills.includes(val)) {
-        onUpdate([...skills, val]);
-        setInputValue('');
-      }
-    } else if (e.key === 'Backspace' && !inputValue && skills.length) {
-      onUpdate(skills.slice(0, -1));
+  const addSkill = (raw) => {
+    const skill = raw.trim().replace(/,$/, '');
+    if (skill && !skills.includes(skill)) {
+      onUpdate([...skills, skill]);
     }
+    setInput('');
   };
 
-  const removeSkill = (skillToRemove) => {
-    onUpdate(skills.filter(s => s !== skillToRemove));
-  };
+  const removeSkill = (s) => onUpdate(skills.filter(x => x !== s));
 
   return (
-    <div className="field field-grid full">
-      <label>Skills <span style={{ fontWeight: 400, textTransform: 'none', color: 'var(--muted)' }}>(type and press Enter)</span></label>
-      <div className="tags-wrap" onClick={() => document.getElementById('skill-input').focus()}>
-        {skills.map(s => (
-          <span key={s} className="tag">
-            {s}
-            <span className="tag-x" onClick={() => removeSkill(s)}>×</span>
+    <>
+      <div className="field" style={{ marginBottom: '1.25rem' }}>
+        <label>
+          Skills{' '}
+          <span style={{ fontWeight: 400, textTransform: 'none', color: 'var(--muted)' }}>
+            (type &amp; press Enter or comma to add)
           </span>
-        ))}
-        <input 
-          type="text" 
-          id="skill-input" 
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          onKeyDown={handleKeyDown}
-          placeholder={skills.length ? 'Add more...' : 'React, Node.js, Python...'}
-        />
+        </label>
+        <div className="tags-wrap" onClick={e => e.currentTarget.querySelector('input').focus()}>
+          {skills.map(s => (
+            <span key={s} className="tag">
+              {s}
+              <span className="tag-x" onClick={() => removeSkill(s)}>×</span>
+            </span>
+          ))}
+          <input
+            type="text"
+            value={input}
+            onChange={e => setInput(e.target.value)}
+            onKeyDown={e => {
+              if (e.key === 'Enter' || e.key === ',') {
+                e.preventDefault();
+                addSkill(e.target.value);
+              } else if (e.key === 'Backspace' && !input && skills.length) {
+                removeSkill(skills[skills.length - 1]);
+              }
+            }}
+            onBlur={() => input.trim() && addSkill(input)}
+            placeholder={skills.length ? '' : 'React, TypeScript, Node.js…'}
+          />
+        </div>
+        <div style={{ fontSize: '.75rem', color: 'var(--muted)', marginTop: '.35rem' }}>
+          {skills.length} skill{skills.length !== 1 ? 's' : ''} added
+        </div>
       </div>
-    </div>
+
+      {skills.length > 0 && (
+        <div className="skill-preview-wrap">
+          <div style={{ fontSize: '.78rem', color: 'var(--muted)', marginBottom: '.5rem' }}>Preview</div>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '.4rem' }}>
+            {skills.map(s => (
+              <span key={s} className="skill-preview-chip">{s}</span>
+            ))}
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
