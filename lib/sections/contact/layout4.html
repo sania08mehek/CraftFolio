@@ -1,0 +1,284 @@
+<style>
+
+
+input,
+      textarea {
+        width: 100%;
+        background: transparent;
+        outline: none;
+        font-family: "DM Sans", sans-serif;
+        transition: all 0.3s;
+      }
+
+      /* L4 AURORA */
+      .l4-contact {
+        background: #060810;
+        min-height: 100vh;
+        padding: 80px 60px;
+        font-family: "Syne", sans-serif;
+        position: relative;
+        overflow: hidden;
+      }
+      .l4-contact .aurora {
+        position: absolute;
+        bottom: -200px;
+        left: -200px;
+        width: 700px;
+        height: 700px;
+        background: radial-gradient(
+          ellipse,
+          rgba(16,185,129,0.12) 0%,
+          transparent 60%
+        );
+        animation: aM 10s ease-in-out infinite alternate;
+        pointer-events: none;
+      }
+      .l4-contact .aurora2 {
+        position: absolute;
+        top: -100px;
+        right: -200px;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+          ellipse,
+          rgba(99,102,241,0.1) 0%,
+          transparent 60%
+        );
+        animation: aM 12s ease-in-out infinite alternate-reverse;
+        pointer-events: none;
+      }
+      @keyframes aM {
+        0% {
+          transform: translate(0, 0);
+        }
+        100% {
+          transform: translate(40px, -40px);
+        }
+      }
+      .l4-contact .eyebrow {
+        font-size: 11px;
+        letter-spacing: 4px;
+        color: var(--success);
+        text-transform: uppercase;
+        margin-bottom: 12px;
+        position: relative;
+      }
+      .l4-contact .heading {
+        font-size: 52px;
+        font-weight: 800;
+        color: #fff;
+        margin-bottom: 16px;
+        position: relative;
+        line-height: 1.1;
+      }
+      .l4-contact .subtext {
+        font-size: 15px;
+        color: #3a4a40;
+        margin-bottom: 60px;
+        max-width: 420px;
+        line-height: 1.6;
+        position: relative;
+      }
+      .l4-contact-inner {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 80px;
+        position: relative;
+      }
+      .l4-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .l4-contact-card {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.06);
+        border-radius: 16px;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+      .l4-contact-card:hover {
+        background: rgba(16,185,129,0.06);
+        border-color: rgba(110,231,183,0.2);
+        transform: translateX(6px);
+      }
+      .l4-contact-card .cc-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: rgba(16,185,129,0.1);
+        border: 1px solid rgba(16,185,129,0.15);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        flex-shrink: 0;
+      }
+      .l4-contact-card .cc-text h4 {
+        font-size: 12px;
+        color: #3a4a40;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 3px;
+      }
+      .l4-contact-card .cc-text span {
+        font-size: 14px;
+        color: #a7f3d0;
+      }
+      .l4-contact-card .arr {
+        margin-left: auto;
+        color: #1a2a20;
+        font-size: 18px;
+        transition: all 0.3s;
+      }
+      .l4-contact-card:hover .arr {
+        color: var(--success);
+        transform: translate(3px, -3px);
+      }
+      .l4-form .f-group {
+        margin-bottom: 18px;
+      }
+      .l4-form label {
+        display: block;
+        font-size: 10px;
+        letter-spacing: 2px;
+        color: #2a4a3a;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+      .l4-form input,
+      .l4-form textarea {
+        border: 1px solid rgba(255,255,255,0.06);
+        border-radius: 12px;
+        padding: 13px 16px;
+        color: #e0e4ff;
+        font-size: 14px;
+        background: rgba(255,255,255,0.03);
+        backdrop-filter: blur(10px);
+      }
+      .l4-form input:focus,
+      .l4-form textarea:focus {
+        border-color: rgba(110,231,183,0.3);
+        box-shadow: 0 0 0 3px rgba(16,185,129,0.06);
+      }
+      .l4-form textarea {
+        height: 110px;
+        resize: none;
+      }
+      .l4-form .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .l4-form .send-btn {
+        width: 100%;
+        padding: 14px;
+        background: rgba(16,185,129,0.12);
+        color: var(--success);
+        border: 1px solid rgba(16,185,129,0.2);
+        border-radius: 12px;
+        font-size: 13px;
+        font-weight: 700;
+        cursor: pointer;
+        font-family: "Syne", sans-serif;
+        letter-spacing: 2px;
+        transition: all 0.3s;
+        margin-top: 4px;
+      }
+      .l4-form .send-btn:hover {
+        background: rgba(16,185,129,0.2);
+        border-color: rgba(110,231,183,0.4);
+        transform: translateY(-2px);
+      }
+
+
+</style>
+
+<section id="contact" class="l4-contact">
+      <div class="aurora"></div>
+      <div class="aurora2"></div>
+      <div class="eyebrow">Contact</div>
+      <div class="heading">Let's Connect</div>
+      <div class="subtext">
+        Open to new opportunities, projects, and conversations. I love working
+        on meaningful problems.
+      </div>
+      <div class="l4-contact-inner">
+        <div class="l4-cards">
+          <div class="l4-contact-card">
+            <div class="cc-icon">✉️</div>
+            <div class="cc-text">
+              <h4>Email</h4>
+              <span>{{EMAIL}}</span>
+            </div>
+            <span class="arr">↗</span>
+          </div>
+          <div class="l4-contact-card">
+            <div class="cc-icon">💼</div>
+            <div class="cc-text">
+              <h4>LinkedIn</h4>
+              <span>{{LINKEDIN}}</span>
+            </div>
+            <span class="arr">↗</span>
+          </div>
+          <div class="l4-contact-card">
+            <div class="cc-icon">🐙</div>
+            <div class="cc-text">
+              <h4>GitHub</h4>
+              <span>{{GITHUB}}</span>
+            </div>
+            <span class="arr">↗</span>
+          </div>
+          <div class="l4-contact-card">
+            <div class="cc-icon">📍</div>
+            <div class="cc-text">
+              <h4>Location</h4>
+              <span>Bengaluru, India</span>
+            </div>
+            <span class="arr">→</span>
+          </div>
+          <div
+            class="l4-contact-card"
+            style="
+              background: rgba(16,185,129,0.06);
+              border-color: rgba(110,231,183,0.2);
+            "
+          >
+            <div class="cc-icon" style="background: rgba(16,185,129,0.15)">
+              🟢
+            </div>
+            <div class="cc-text">
+              <h4>Availability</h4>
+              <span style="color: var(--success)">Open to Opportunities</span>
+            </div>
+            <span class="arr">→</span>
+          </div>
+        </div>
+        <div class="l4-form">
+          <div class="f-group row">
+            <div>
+              <label>Name</label><input type="text" placeholder="Your name" />
+            </div>
+            <div>
+              <label>Email</label
+              ><input type="email" placeholder="your@email.com" />
+            </div>
+          </div>
+          <div class="f-group">
+            <label>Subject</label
+            ><input type="text" placeholder="What's on your mind?" />
+          </div>
+          <div class="f-group">
+            <label>Message</label
+            ><textarea
+              placeholder="Describe your project or idea..."
+            ></textarea>
+          </div>
+          <button class="send-btn">Send Message →</button>
+        </div>
+      </div>
+    </section>

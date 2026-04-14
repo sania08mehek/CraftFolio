@@ -3,11 +3,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-  .hero6 {
+
+
+.hero6 {
     background: #0f0a1e;
     min-height: 92vh; display: flex; align-items: center;
     padding: 80px 48px; position: relative; overflow: hidden;
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-body), sans-serif;
   }
   /* layered depth background */
   .hero6::before {
@@ -46,9 +48,9 @@
   .hero6-tag-text { font-size: 12px; color: #ffc832; letter-spacing: 0.08em; text-transform: uppercase; }
   @keyframes fadeUp6 { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
   .hero6-h1 {
-    font-family: 'Syne', sans-serif;
+    font-family: var(--font-head), sans-serif;
     font-size: clamp(40px, 6.5vw, 80px); font-weight: 800;
-    line-height: 1.0; letter-spacing: -0.03em; color: #fff8e8;
+    line-height: 1.0; letter-spacing: -0.03em; color: var(--surface)8e8;
     animation: fadeUp6 0.5s 0.1s ease both;
   }
   .hero6-h1 .gold {
@@ -73,7 +75,7 @@
     background: linear-gradient(135deg, #ffc832, #ff6b35);
     border: none; color: #0f0a1e; border-radius: 8px;
     font-size: 14px; font-weight: 700; cursor: pointer;
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-body), sans-serif;
     box-shadow: 0 6px 25px rgba(255,200,50,0.4),
                 0 0 0 0 rgba(255,200,50,0);
     transition: all 0.2s; text-decoration: none; display: inline-block;
@@ -87,7 +89,7 @@
     padding: 14px 34px; background: transparent;
     border: 1px solid rgba(255,200,50,0.25); color: rgba(255,248,232,0.7);
     border-radius: 8px; font-size: 14px; cursor: pointer;
-    font-family: 'Outfit', sans-serif; transition: all 0.2s;
+    font-family: var(--font-body), sans-serif; transition: all 0.2s;
     text-decoration: none; display: inline-block;
   }
   .hero6-btn-s:hover { border-color: #ffc832; color: #ffc832; }
@@ -122,7 +124,7 @@
     border-top: 1px solid rgba(255,200,50,0.15);
   }
   .hero6-card-name {
-    font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; color: #fff8e8;
+    font-family: var(--font-head), sans-serif; font-size: 18px; font-weight: 700; color: var(--surface)8e8;
   }
   .hero6-card-title {
     font-size: 13px; color: #ffc832; margin-top: 3px;
@@ -134,9 +136,11 @@
     padding: 6px 14px; border-radius: 20px;
     letter-spacing: 0.04em;
   }
+
+
 </style>
 
-<section class="hero6">
+<section id="hero" class="hero6">
   <div class="hero6-particle hero6-p1"></div>
   <div class="hero6-particle hero6-p2"></div>
   <div class="hero6-particle hero6-p3"></div>

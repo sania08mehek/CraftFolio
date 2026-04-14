@@ -1,0 +1,274 @@
+<style>
+
+
+/* ═══════════════════════════════════════
+   LAYOUT 3 — NEON CYBER
+═══════════════════════════════════════ */
+      .l3-section {
+        background: var(--bg);
+        min-height: 100vh;
+        padding: 80px 60px;
+        font-family: var(--font-mono), monospace;
+        position: relative;
+        overflow: hidden;
+      }
+      .l3-grid-bg {
+        position: absolute;
+        inset: 0;
+        background:
+          repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 39px,
+            rgba(0,255,200,0.03) 40px
+          ),
+          repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 39px,
+            rgba(0,255,200,0.03) 40px
+          );
+        pointer-events: none;
+      }
+      .l3-section .eyebrow {
+        font-size: 10px;
+        letter-spacing: 4px;
+        color: var(--accent);
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        position: relative;
+      }
+      .l3-section .heading {
+        font-size: 48px;
+        color: #fff;
+        margin-bottom: 60px;
+        position: relative;
+        line-height: 1.1;
+        font-weight: 700;
+      }
+      .l3-section .heading .cyber-accent {
+        color: var(--accent);
+        text-shadow: 0 0 20px rgba(0,255,200,0.5);
+      }
+      .l3-projects-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        position: relative;
+      }
+      .l3-card {
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        padding: 28px;
+        background: rgba(0,255,200,0.02);
+        cursor: pointer;
+        transition: all 0.3s;
+        position: relative;
+        overflow: hidden;
+      }
+      .l3-card .corner-tl,
+      .l3-card .corner-br {
+        position: absolute;
+        width: 12px;
+        height: 12px;
+      }
+      .l3-card .corner-tl {
+        top: 0;
+        left: 0;
+        border-top: 2px solid var(--accent);
+        border-left: 2px solid var(--accent);
+      }
+      .l3-card .corner-br {
+        bottom: 0;
+        right: 0;
+        border-bottom: 2px solid var(--accent);
+        border-right: 2px solid var(--accent);
+      }
+      .l3-card:hover {
+        background: rgba(0,255,200,0.05);
+        border-color: rgba(0,255,200,0.4);
+        box-shadow: 0 0 40px color-mix(in srgb, var(--accent) 10%, transparent);
+      }
+      .l3-card .status-line {
+        font-size: 9px;
+        letter-spacing: 3px;
+        color: var(--accent);
+        text-transform: uppercase;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .l3-card .status-line::before {
+        content: "";
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent);
+        animation: blink 1.5s infinite;
+      }
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+          box-shadow: 0 0 6px var(--accent);
+        }
+        50% {
+          opacity: 0.3;
+          box-shadow: none;
+        }
+      }
+      .l3-card h3 {
+        font-size: 16px;
+        color: #fff;
+        margin-bottom: 10px;
+        font-weight: 700;
+      }
+      .l3-card p {
+        font-size: 11px;
+        color: #4a7a6a;
+        line-height: 1.8;
+        margin-bottom: 20px;
+      }
+      .l3-card .tech-stack {
+        font-size: 9px;
+        color: var(--accent);
+        opacity: 0.6;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+      .l3-progress {
+        height: 2px;
+        background: color-mix(in srgb, var(--accent) 10%, transparent);
+        border-radius: 2px;
+        overflow: hidden;
+        margin-bottom: 20px;
+      }
+      .l3-progress-bar {
+        height: 100%;
+        background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 30%, transparent));
+        border-radius: 2px;
+        transition: width 0.6s ease;
+      }
+      .l3-card:hover .l3-progress-bar {
+        width: 100% !important;
+      }
+      .l3-card .links {
+        display: flex;
+        gap: 10px;
+      }
+      .l3-card .links a {
+        font-size: 10px;
+        color: var(--accent);
+        text-decoration: none;
+        border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+        padding: 5px 14px;
+        border-radius: 2px;
+        transition: all 0.2s;
+        letter-spacing: 1px;
+      }
+      .l3-card .links a:hover {
+        background: color-mix(in srgb, var(--accent) 10%, transparent);
+      }
+
+
+</style>
+
+<section id="projects" class="l3-section">
+      <div class="l3-grid-bg"></div>
+      <div class="eyebrow">// project_log.json</div>
+      <div class="heading">BUILD <span class="cyber-accent">LOG_</span></div>
+      <div class="l3-projects-grid">
+              {{PROJECTS_LOOP}}
+    <div class="corner-br"></div>
+          <div class="status-line">DEPLOYED</div>
+          <h3>debt_tracker.exe</h3>
+          <p>
+            Real-time microservice debt dashboard. Tracks complexity, coverage,
+            duplication across distributed systems.
+          </p>
+          <div class="tech-stack">REACT · NODE · POSTGRES · DOCKER</div>
+          <div class="l3-progress">
+            <div class="l3-progress-bar" style="width: 85%"></div>
+          </div>
+          <div class="links"><a href="#">DEMO</a><a href="#">SRC</a></div>
+        </div>
+        <div class="l3-card">
+          <div class="corner-tl"></div>
+          <div class="corner-br"></div>
+          <div class="status-line">DEPLOYED</div>
+          <h3>smell_detector.py</h3>
+          <p>
+            Neural net trained on 50k repos. Flags 40+ anti-patterns. 94%
+            precision. Processes 10k lines/sec.
+          </p>
+          <div class="tech-stack">PYTHON · FASTAPI · TENSORFLOW</div>
+          <div class="l3-progress">
+            <div class="l3-progress-bar" style="width: 72%"></div>
+          </div>
+          <div class="links"><a href="#">DEMO</a><a href="#">SRC</a></div>
+        </div>
+        <div class="l3-card">
+          <div class="corner-tl"></div>
+          <div class="corner-br"></div>
+          <div class="status-line">ACTIVE DEV</div>
+          <h3>refactor_bot.ts</h3>
+          <p>
+            Auto-generates refactor tickets, estimates effort, slots into sprint
+            capacity without disrupting velocity.
+          </p>
+          <div class="tech-stack">VUE · DJANGO · REDIS</div>
+          <div class="l3-progress">
+            <div class="l3-progress-bar" style="width: 55%"></div>
+          </div>
+          <div class="links"><a href="#">DEMO</a><a href="#">SRC</a></div>
+        </div>
+        <div class="l3-card">
+          <div class="corner-tl"></div>
+          <div class="corner-br"></div>
+          <div class="status-line">DEPLOYED</div>
+          <h3>dep_graph.d3</h3>
+          <p>
+            Force-directed service dependency visualization. Maps coupling
+            metrics and architectural weak points.
+          </p>
+          <div class="tech-stack">D3 · GRAPHQL · NEO4J</div>
+          <div class="l3-progress">
+            <div class="l3-progress-bar" style="width: 90%"></div>
+          </div>
+          <div class="links"><a href="#">DEMO</a><a href="#">SRC</a></div>
+        </div>
+        <div class="l3-card">
+          <div class="corner-tl"></div>
+          <div class="corner-br"></div>
+          <div class="status-line">DEPLOYED</div>
+          <h3>audit_cli.rs</h3>
+          <p>
+            Blazing-fast Rust CLI. Sub-second analysis on 200k+ LOC monorepos.
+            CI/CD pipeline native.
+          </p>
+          <div class="tech-stack">RUST · WASM · SHELL</div>
+          <div class="l3-progress">
+            <div class="l3-progress-bar" style="width: 78%"></div>
+          </div>
+          <div class="links"><a href="#">DEMO</a><a href="#">SRC</a></div>
+        </div>
+        <div class="l3-card">
+          <div class="corner-tl"></div>
+          <div class="corner-br"></div>
+          <div class="status-line">BETA</div>
+          <h3>coverage_bot.go</h3>
+          <p>
+            Automated test coverage enforcer. Blocks PRs below threshold.
+            Generates missing test scaffolds.
+          </p>
+          <div class="tech-stack">GO · GRPC · GITHUB API</div>
+          <div class="l3-progress">
+            <div class="l3-progress-bar" style="width: 40%"></div>
+          </div>
+          <div class="links"><a href="#">DEMO</a><a href="#">SRC</a></div>
+        </div>
+      </div>
+    </section>

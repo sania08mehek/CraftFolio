@@ -1,17 +1,21 @@
 <!-- SKILLS · Layout 5 · Warm Editorial -->
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  .skills5{background:#fffbf5;padding:80px 48px;font-family:'Plus Jakarta Sans',sans-serif}
+
+
+.skills5{background:var(--bg);padding:80px 48px;font-family:'Plus Jakarta Sans',sans-serif}
   .skills5-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:300px 1fr;gap:80px;align-items:start}
-  .skills5-left .eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:#b08060;margin-bottom:12px}
-  .skills5-title{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;color:#2c1810;line-height:1.1}
+  .skills5-left .eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--accent-2);margin-bottom:12px}
+  .skills5-title{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;color:var(--accent);line-height:1.1}
   .skills5-title em{font-style:italic;font-weight:400}
-  .skills5-divider{width:48px;height:2px;background:#2c1810;margin:24px 0}
-  .skills5-note{font-size:14px;color:#7a4f3a;line-height:1.8}
+  .skills5-divider{width:48px;height:2px;background:var(--accent);margin:24px 0}
+  .skills5-note{font-size:14px;color:var(--text-2);line-height:1.8}
   .skills5-right{display:flex;flex-direction:column;gap:0}
-  .skills5-category{}
+  .skills5-category{
+    border-top:1px solid rgba(44,24,16,.15);
+  }
   .skills5-cat-title{
-    font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:#b08060;
+    font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--accent-2);
     padding:20px 0 12px;border-bottom:1px solid rgba(44,24,16,.15);margin-bottom:0;
   }
   .skills5-item{
@@ -22,11 +26,13 @@
   .skills5-item:last-child{border-bottom:1px solid rgba(44,24,16,.15)}
   .skills5-item-right{display:flex;align-items:center;gap:16px}
   .skills5-pct-bar{width:80px;height:2px;background:rgba(44,24,16,.1)}
-  .skills5-pct-fill{height:100%;background:#2c1810;animation:bfill5 1s ease both;transform-origin:left}
+  .skills5-pct-fill{height:100%;background:var(--accent);animation:bfill5 1s ease both;transform-origin:left}
   @keyframes bfill5{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-  .skills5-pct-label{font-size:12px;color:#b08060;min-width:28px;text-align:right}
+  .skills5-pct-label{font-size:12px;color:var(--accent-2);min-width:28px;text-align:right}
+
+
 </style>
-<section class="skills5">
+<section id="skills" class="skills5">
   <div class="skills5-inner">
     <div class="skills5-left">
       <div class="eyebrow">Expertise</div>

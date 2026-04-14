@@ -3,8 +3,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-  .hero5 {
-    background: #fffbf5;
+
+
+.hero5 {
+    background: var(--bg);
     min-height: 92vh; display: flex; flex-direction: column;
     font-family: 'Plus Jakarta Sans', sans-serif;
     position: relative; overflow: hidden;
@@ -22,32 +24,32 @@
   .hero5-main {
     flex: 1; display: grid;
     grid-template-columns: 1fr 1fr;
-    border-bottom: 1px solid rgba(44,24,16,0.12);
+    border-bottom: 1px solid var(--border);
   }
   .hero5-left {
-    padding: 80px 48px; border-right: 1px solid rgba(44,24,16,0.12);
+    padding: 80px 48px; border-right: 1px solid var(--border);
     display: flex; flex-direction: column; justify-content: space-between;
     animation: slideIn5 0.7s ease both;
   }
   @keyframes slideIn5 { from{opacity:0;transform:translateX(-16px)} to{opacity:1;transform:translateX(0)} }
   .hero5-eyebrow {
     font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em;
-    color: #b08060; margin-bottom: 32px;
+    color: var(--accent-2); margin-bottom: 32px;
   }
   .hero5-h1 {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(44px, 6vw, 80px);
     font-weight: 700; line-height: 0.96; letter-spacing: -0.02em;
-    color: #2c1810;
+    color: var(--accent);
   }
   .hero5-h1 em { font-style: italic; font-weight: 400; }
   .hero5-divider {
-    width: 56px; height: 2px; background: #2c1810; margin: 28px 0;
+    width: 56px; height: 2px; background: var(--accent); margin: 28px 0;
     animation: expandLine 0.8s 0.3s ease both; transform-origin: left;
   }
   @keyframes expandLine { from{transform:scaleX(0)} to{transform:scaleX(1)} }
   .hero5-bio {
-    font-size: 16px; color: #7a4f3a; line-height: 1.8;
+    font-size: 16px; color: var(--text-2); line-height: 1.8;
     max-width: 420px;
   }
   .hero5-bottom {
@@ -55,7 +57,7 @@
     display: flex; gap: 20px; align-items: center;
   }
   .hero5-btn {
-    padding: 12px 28px; background: #2c1810; color: #fffbf5;
+    padding: 12px 28px; background: var(--accent); color: var(--bg);
     border-radius: 4px; font-size: 13px; font-weight: 500;
     letter-spacing: 0.05em; text-transform: uppercase;
     text-decoration: none; transition: background 0.2s;
@@ -63,7 +65,7 @@
   .hero5-btn:hover { background: #4a2a1c; }
   .hero5-link {
     font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em;
-    color: #b08060; text-decoration: none;
+    color: var(--accent-2); text-decoration: none;
     padding-bottom: 2px; border-bottom: 1px solid rgba(176,128,96,0.4);
   }
   .hero5-right {
@@ -73,37 +75,39 @@
   @keyframes slideIn5R { from{opacity:0;transform:translateX(16px)} to{opacity:1;transform:translateX(0)} }
   .hero5-role-big {
     font-family: 'Cormorant Garamond', serif;
-    font-style: italic; font-size: 22px; color: #b08060;
+    font-style: italic; font-size: 22px; color: var(--accent-2);
     margin-bottom: 32px; font-weight: 400;
   }
   .hero5-quote {
     font-family: 'Cormorant Garamond', serif;
     font-size: 28px; font-style: italic; font-weight: 400;
-    color: #2c1810; line-height: 1.4;
-    border-left: 3px solid #b08060; padding-left: 24px;
+    color: var(--accent); line-height: 1.4;
+    border-left: 3px solid var(--accent-2); padding-left: 24px;
     margin-top: 40px;
   }
   .hero5-meta {
     margin-top: auto; position: absolute; bottom: 80px; left: 48px; right: 48px;
-    display: flex; gap: 0; border: 1px solid rgba(44,24,16,0.12); border-radius: 8px;
+    display: flex; gap: 0; border: 1px solid var(--border); border-radius: 8px;
     overflow: hidden;
   }
   .hero5-meta-item {
-    flex: 1; padding: 16px 20px; border-right: 1px solid rgba(44,24,16,0.12);
+    flex: 1; padding: 16px 20px; border-right: 1px solid var(--border);
     text-align: center;
   }
   .hero5-meta-item:last-child { border-right: none; }
   .hero5-meta-num {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 30px; color: #2c1810; line-height: 1;
+    font-size: 30px; color: var(--accent); line-height: 1;
   }
   .hero5-meta-label {
     font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em;
-    color: #b08060; margin-top: 4px;
+    color: var(--accent-2); margin-top: 4px;
   }
+
+
 </style>
 
-<section class="hero5">
+<section id="hero" class="hero5">
   <div class="hero5-main">
     <div class="hero5-left">
       <div>

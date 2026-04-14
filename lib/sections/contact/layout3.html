@@ -1,0 +1,259 @@
+<style>
+
+
+input,
+      textarea {
+        width: 100%;
+        background: transparent;
+        outline: none;
+        font-family: "DM Sans", sans-serif;
+        transition: all 0.3s;
+      }
+
+      /* L3 NEON */
+      .l3-contact {
+        background: var(--bg);
+        min-height: 100vh;
+        padding: 80px 60px;
+        font-family: var(--font-mono), monospace;
+        position: relative;
+        overflow: hidden;
+      }
+      .l3-contact .grid-bg {
+        position: absolute;
+        inset: 0;
+        background:
+          repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 39px,
+            rgba(16,185,129,0.03) 40px
+          ),
+          repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 39px,
+            rgba(16,185,129,0.03) 40px
+          );
+        pointer-events: none;
+      }
+      .l3-contact .eyebrow {
+        font-size: 10px;
+        letter-spacing: 4px;
+        color: #10b981;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        position: relative;
+      }
+      .l3-contact .heading {
+        font-size: 48px;
+        color: #fff;
+        margin-bottom: 60px;
+        position: relative;
+        font-weight: 700;
+        line-height: 1.1;
+      }
+      .l3-contact .heading .green {
+        color: #10b981;
+        text-shadow: 0 0 20px rgba(16,185,129,0.4);
+      }
+      .l3-contact-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        position: relative;
+      }
+      .l3-form .f-group {
+        margin-bottom: 20px;
+      }
+      .l3-form label {
+        display: block;
+        font-size: 9px;
+        letter-spacing: 3px;
+        color: #10b981;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+      .l3-form input,
+      .l3-form textarea {
+        border: 1px solid rgba(16,185,129,0.2);
+        border-radius: 2px;
+        padding: 12px 14px;
+        color: #a7f3d0;
+        font-size: 12px;
+        background: rgba(16,185,129,0.03);
+        font-family: var(--font-mono), monospace;
+      }
+      .l3-form input:focus,
+      .l3-form textarea:focus {
+        border-color: #10b981;
+        box-shadow: 0 0 20px rgba(16,185,129,0.08);
+      }
+      .l3-form textarea {
+        height: 100px;
+        resize: none;
+      }
+      .l3-form .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .l3-form .send-btn {
+        width: 100%;
+        padding: 13px;
+        background: transparent;
+        color: #10b981;
+        border: 1px solid rgba(16,185,129,0.4);
+        border-radius: 2px;
+        font-size: 11px;
+        font-weight: 700;
+        cursor: pointer;
+        font-family: var(--font-mono), monospace;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        transition: all 0.3s;
+        margin-top: 4px;
+        position: relative;
+        overflow: hidden;
+      }
+      .l3-form .send-btn::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(16,185,129,0.1);
+        transform: scaleX(0);
+        transition: transform 0.3s;
+        transform-origin: left;
+      }
+      .l3-form .send-btn:hover::before {
+        transform: scaleX(1);
+      }
+      .l3-contact-info .terminal-box {
+        border: 1px solid rgba(16,185,129,0.15);
+        border-radius: 4px;
+        padding: 24px;
+        background: rgba(16,185,129,0.02);
+        margin-bottom: 20px;
+        position: relative;
+      }
+      .l3-contact-info .terminal-box .corner-tl,
+      .l3-contact-info .terminal-box .corner-br {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+      }
+      .l3-contact-info .terminal-box .corner-tl {
+        top: 0;
+        left: 0;
+        border-top: 2px solid #10b981;
+        border-left: 2px solid #10b981;
+      }
+      .l3-contact-info .terminal-box .corner-br {
+        bottom: 0;
+        right: 0;
+        border-bottom: 2px solid #10b981;
+        border-right: 2px solid #10b981;
+      }
+      .l3-contact-info .t-header {
+        font-size: 9px;
+        color: #10b981;
+        letter-spacing: 2px;
+        margin-bottom: 14px;
+        opacity: 0.7;
+      }
+      .l3-contact-info .t-line {
+        font-size: 11px;
+        color: #4a9a6a;
+        margin-bottom: 8px;
+        line-height: 1.6;
+      }
+      .l3-contact-info .t-line .key {
+        color: #10b981;
+      }
+      .l3-contact-info .t-line a {
+        color: #a7f3d0;
+        text-decoration: none;
+      }
+      .l3-social {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+      }
+      .l3-soc {
+        width: 40px;
+        height: 40px;
+        border: 1px solid rgba(16,185,129,0.2);
+        border-radius: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.25s;
+      }
+      .l3-soc:hover {
+        border-color: #10b981;
+        background: rgba(16,185,129,0.08);
+      }
+
+
+</style>
+
+<section id="contact" class="l3-contact">
+      <div class="grid-bg"></div>
+      <div class="eyebrow">// contact.init()</div>
+      <div class="heading">INIT <span class="green">CONTACT_</span></div>
+      <div class="l3-contact-inner">
+        <div class="l3-form">
+          <div class="f-group row">
+            <div>
+              <label>Name</label><input type="text" placeholder="_your_name" />
+            </div>
+            <div>
+              <label>Email</label
+              ><input type="email" placeholder="_your@email.io" />
+            </div>
+          </div>
+          <div class="f-group">
+            <label>Subject</label
+            ><input type="text" placeholder="_project_inquiry" />
+          </div>
+          <div class="f-group">
+            <label>Message</label
+            ><textarea placeholder="// type your message here..."></textarea>
+          </div>
+          <button class="send-btn">[ TRANSMIT_MESSAGE ]</button>
+        </div>
+        <div class="l3-contact-info">
+          <div class="terminal-box">
+            <div class="corner-tl"></div>
+            <div class="corner-br"></div>
+            <div class="t-header">CONTACT_DATA.JSON</div>
+            <div class="t-line">
+              <span class="key">email:</span> "{{EMAIL}}"
+            </div>
+            <div class="t-line">
+              <span class="key">location:</span> "Bengaluru, IN"
+            </div>
+            <div class="t-line">
+              <span class="key">status:</span>
+              <span style="color: #10b981">"available"</span>
+            </div>
+            <div class="t-line">
+              <span class="key">response_time:</span> "~24h"
+            </div>
+            <div class="t-line">
+              <span class="key">timezone:</span> "IST UTC+5:30"
+            </div>
+          </div>
+          <div class="terminal-box" style="margin-top: 14px">
+            <div class="corner-tl"></div>
+            <div class="corner-br"></div>
+            <div class="t-header">SOCIALS.LINKS[]</div>
+            <div class="t-line">→ <a href="#">{{GITHUB}}</a></div>
+            <div class="t-line">→ <a href="#">{{LINKEDIN}}</a></div>
+            <div class="t-line">→ <a href="#">twitter.com/yourhandle</a></div>
+          </div>
+        </div>
+      </div>
+    </section>

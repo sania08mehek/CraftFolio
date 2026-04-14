@@ -1,0 +1,206 @@
+<style>
+
+
+/* L1 MIDNIGHT */
+      .l1-certs {
+        background: var(--bg);
+        min-height: 100vh;
+        padding: 80px 60px;
+        font-family: var(--font-head), sans-serif;
+      }
+      .l1-certs .eyebrow {
+        font-size: 11px;
+        letter-spacing: 4px;
+        color: var(--warning);
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+      .l1-certs .heading {
+        font-size: 52px;
+        font-weight: 800;
+        color: var(--text);
+        line-height: 1.1;
+        margin-bottom: 60px;
+      }
+      .l1-certs .heading span {
+        color: var(--warning);
+      }
+      .l1-cert-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .l1-cert {
+        background: var(--bg2);
+        border: 1px solid var(--surface-2);
+        border-radius: 16px;
+        padding: 28px;
+        cursor: pointer;
+        transition: all 0.4s;
+        position: relative;
+        overflow: hidden;
+      }
+      .l1-cert::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--warning), #fbbf24, transparent);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.5s;
+      }
+      .l1-cert:hover::before {
+        transform: scaleX(1);
+      }
+      .l1-cert:hover {
+        border-color: var(--warning);
+        transform: translateY(-6px);
+        box-shadow: 0 24px 48px rgba(245,158,11,0.15);
+      }
+      .l1-cert .issuer-badge {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+      .l1-cert .issuer-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        flex-shrink: 0;
+      }
+      .l1-cert .issuer-icon.aws {
+        background: rgba(255,153,0,0.15);
+      }
+      .l1-cert .issuer-icon.google {
+        background: rgba(66,133,244,0.15);
+      }
+      .l1-cert .issuer-icon.meta {
+        background: rgba(24,119,242,0.15);
+      }
+      .l1-cert .issuer-icon.ms {
+        background: rgba(0,120,215,0.15);
+      }
+      .l1-cert .issuer-name {
+        font-size: 11px;
+        color: var(--text-2);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+      .l1-cert h3 {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 8px;
+        line-height: 1.4;
+      }
+      .l1-cert .cert-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 16px;
+        padding-top: 16px;
+        border-top: 1px solid var(--surface-2);
+      }
+      .l1-cert .cert-date {
+        font-size: 11px;
+        color: var(--text-3);
+        font-family: var(--font-mono), monospace;
+      }
+      .l1-cert .cert-badge {
+        font-size: 9px;
+        padding: 3px 10px;
+        border-radius: 20px;
+        background: rgba(245,158,11,0.1);
+        color: var(--warning);
+        border: 1px solid rgba(245,158,11,0.2);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+      .l1-cert .verify-link {
+        display: block;
+        margin-top: 12px;
+        font-size: 11px;
+        color: var(--warning);
+        text-decoration: none;
+        letter-spacing: 1px;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .l1-cert:hover .verify-link {
+        opacity: 1;
+      }
+
+
+</style>
+
+<section id="certificates" class="l1-certs">
+      <div class="eyebrow">Credentials</div>
+      <div class="heading">My <span>Certifications</span></div>
+            {{CERTS_LOOP}}
+    <span class="issuer-name">Google Cloud</span>
+          </div>
+          <h3>Google Cloud Professional Data Engineer</h3>
+          <div class="cert-meta">
+            <span class="cert-date">2023-11-20</span
+            ><span class="cert-badge">Valid</span>
+          </div>
+          <a href="#" class="verify-link">→ Verify Credential</a>
+        </div>
+        <div class="l1-cert">
+          <div class="issuer-badge">
+            <div class="issuer-icon ms">🪟</div>
+            <span class="issuer-name">Microsoft</span>
+          </div>
+          <h3>Azure Developer Associate AZ-204</h3>
+          <div class="cert-meta">
+            <span class="cert-date">2023-08-10</span
+            ><span class="cert-badge">Valid</span>
+          </div>
+          <a href="#" class="verify-link">→ Verify Credential</a>
+        </div>
+        <div class="l1-cert">
+          <div class="issuer-badge">
+            <div class="issuer-icon meta">🎓</div>
+            <span class="issuer-name">Meta</span>
+          </div>
+          <h3>Meta Frontend Developer Professional Certificate</h3>
+          <div class="cert-meta">
+            <span class="cert-date">2023-05-28</span
+            ><span class="cert-badge">Valid</span>
+          </div>
+          <a href="#" class="verify-link">→ Verify Credential</a>
+        </div>
+        <div class="l1-cert">
+          <div class="issuer-badge">
+            <div class="issuer-icon aws">🔐</div>
+            <span class="issuer-name">CompTIA</span>
+          </div>
+          <h3>CompTIA Security+ SY0-701</h3>
+          <div class="cert-meta">
+            <span class="cert-date">2023-02-14</span
+            ><span class="cert-badge">Valid</span>
+          </div>
+          <a href="#" class="verify-link">→ Verify Credential</a>
+        </div>
+        <div class="l1-cert">
+          <div class="issuer-badge">
+            <div class="issuer-icon google">🐳</div>
+            <span class="issuer-name">Linux Foundation</span>
+          </div>
+          <h3>Certified Kubernetes Application Developer (CKAD)</h3>
+          <div class="cert-meta">
+            <span class="cert-date">2022-10-05</span
+            ><span class="cert-badge">Valid</span>
+          </div>
+          <a href="#" class="verify-link">→ Verify Credential</a>
+        </div>
+      </div>
+    </section>

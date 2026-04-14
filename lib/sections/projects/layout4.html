@@ -1,0 +1,305 @@
+<style>
+
+
+/* ═══════════════════════════════════════
+   LAYOUT 4 — AURORA DARK
+═══════════════════════════════════════ */
+      .l4-section {
+        background: #060810;
+        min-height: 100vh;
+        padding: 80px 60px;
+        font-family: "Syne", sans-serif;
+        position: relative;
+        overflow: hidden;
+      }
+      .l4-aurora {
+        position: absolute;
+        top: -200px;
+        left: -200px;
+        width: 700px;
+        height: 700px;
+        background: radial-gradient(
+          ellipse,
+          rgba(99,102,241,0.2) 0%,
+          transparent 60%
+        );
+        animation: auroraMove 10s ease-in-out infinite alternate;
+        pointer-events: none;
+      }
+      .l4-aurora2 {
+        position: absolute;
+        bottom: -200px;
+        right: -100px;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+          ellipse,
+          rgba(16,185,129,0.12) 0%,
+          transparent 60%
+        );
+        animation: auroraMove 12s ease-in-out infinite alternate-reverse;
+        pointer-events: none;
+      }
+      @keyframes auroraMove {
+        0% {
+          transform: translate(0, 0) scale(1);
+        }
+        100% {
+          transform: translate(60px, 40px) scale(1.1);
+        }
+      }
+      .l4-section .eyebrow {
+        font-size: 11px;
+        letter-spacing: 4px;
+        color: #a5b4fc;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+        position: relative;
+      }
+      .l4-section .heading {
+        font-size: 52px;
+        font-weight: 800;
+        color: #fff;
+        margin-bottom: 16px;
+        position: relative;
+        line-height: 1.1;
+      }
+      .l4-section .subheading {
+        font-size: 15px;
+        color: #4a5070;
+        margin-bottom: 60px;
+        position: relative;
+        max-width: 500px;
+        line-height: 1.6;
+      }
+      .l4-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        position: relative;
+      }
+      .l4-card {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.06);
+        border-radius: 20px;
+        padding: 28px;
+        cursor: pointer;
+        transition: all 0.4s;
+        backdrop-filter: blur(20px);
+      }
+      .l4-card:hover {
+        background: rgba(99,102,241,0.06);
+        border-color: rgba(165,180,252,0.25);
+        transform: translateY(-6px);
+        box-shadow:
+          0 40px 80px rgba(0,0,0,0.4),
+          0 0 60px rgba(99,102,241,0.08);
+      }
+      .l4-card .card-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .l4-card .icon-wrap {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: rgba(99,102,241,0.15);
+        border: 1px solid rgba(99,102,241,0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+      }
+      .l4-card .year-badge {
+        font-size: 10px;
+        color: #4a5070;
+        background: rgba(255,255,255,0.04);
+        padding: 4px 10px;
+        border-radius: 20px;
+        border: 1px solid rgba(255,255,255,0.06);
+      }
+      .l4-card h3 {
+        font-size: 18px;
+        font-weight: 700;
+        color: #e0e4ff;
+        margin-bottom: 8px;
+        line-height: 1.3;
+      }
+      .l4-card p {
+        font-size: 13px;
+        color: #4a5070;
+        line-height: 1.7;
+        margin-bottom: 20px;
+      }
+      .l4-card .tag-row {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+      }
+      .l4-card .tag {
+        font-size: 10px;
+        padding: 3px 10px;
+        border-radius: 20px;
+        background: rgba(165,180,252,0.08);
+        color: #a5b4fc;
+        border: 1px solid rgba(165,180,252,0.15);
+      }
+      .l4-card .divider {
+        height: 1px;
+        background: rgba(255,255,255,0.05);
+        margin-bottom: 16px;
+      }
+      .l4-card .link-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .l4-card .link-row a {
+        font-size: 12px;
+        color: #a5b4fc;
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .l4-card .link-row a:hover {
+        color: #e0e4ff;
+      }
+      .l4-card .arr {
+        font-size: 16px;
+        color: #2a2a4e;
+        transition: all 0.3s;
+      }
+      .l4-card:hover .arr {
+        color: #a5b4fc;
+        transform: translate(4px, -4px);
+      }
+
+
+</style>
+
+<section id="projects" class="l4-section">
+      <div class="l4-aurora"></div>
+      <div class="l4-aurora2"></div>
+      <div class="eyebrow">Portfolio</div>
+      <div class="heading">Selected Work</div>
+      <div class="subheading">
+        Building tools that help engineering teams ship cleaner code and manage
+        complexity at scale.
+      </div>
+      <div class="l4-grid">
+              {{PROJECTS_LOOP}}
+    <span class="year-badge">2024</span>
+          </div>
+          <h3>TechDebt Tracker Dashboard</h3>
+          <p>
+            Real-time monitoring across distributed microservices. GitHub and
+            Jira integration with smart alerting.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Full Stack</span><span class="tag">Featured</span>
+          </div>
+          <div class="divider"></div>
+          <div class="link-row">
+            <a href="#">Live Demo</a><a href="#">Source</a
+            ><span class="arr">↗</span>
+          </div>
+        </div>
+        <div class="l4-card">
+          <div class="card-top">
+            <div class="icon-wrap">🤖</div>
+            <span class="year-badge">2024</span>
+          </div>
+          <h3>Code Smell Detector</h3>
+          <p>
+            ML model trained on 50k repos identifying 40+ anti-patterns with 94%
+            precision at scale.
+          </p>
+          <div class="tag-row">
+            <span class="tag">AI/ML</span><span class="tag">Python</span>
+          </div>
+          <div class="divider"></div>
+          <div class="link-row">
+            <a href="#">Live Demo</a><a href="#">Source</a
+            ><span class="arr">↗</span>
+          </div>
+        </div>
+        <div class="l4-card">
+          <div class="card-top">
+            <div class="icon-wrap">🔄</div>
+            <span class="year-badge">2023</span>
+          </div>
+          <h3>Refactor Planner Bot</h3>
+          <p>
+            Sprint automation that balances debt remediation against feature
+            velocity intelligently.
+          </p>
+          <div class="tag-row">
+            <span class="tag">DevOps</span><span class="tag">Vue</span>
+          </div>
+          <div class="divider"></div>
+          <div class="link-row">
+            <a href="#">Live Demo</a><a href="#">Source</a
+            ><span class="arr">↗</span>
+          </div>
+        </div>
+        <div class="l4-card">
+          <div class="card-top">
+            <div class="icon-wrap">🕸</div>
+            <span class="year-badge">2023</span>
+          </div>
+          <h3>Dependency Graph Viz</h3>
+          <p>
+            Force-directed architecture visualization mapping coupling metrics
+            and bottlenecks.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Analytics</span><span class="tag">D3.js</span>
+          </div>
+          <div class="divider"></div>
+          <div class="link-row">
+            <a href="#">Live Demo</a><a href="#">Source</a
+            ><span class="arr">↗</span>
+          </div>
+        </div>
+        <div class="l4-card">
+          <div class="card-top">
+            <div class="icon-wrap">⚡</div>
+            <span class="year-badge">2023</span>
+          </div>
+          <h3>Debt CLI Auditor</h3>
+          <p>
+            Rust-powered CLI delivering sub-second analysis on 200k+ LOC repos
+            with full CI integration.
+          </p>
+          <div class="tag-row">
+            <span class="tag">CLI</span><span class="tag">Rust</span>
+          </div>
+          <div class="divider"></div>
+          <div class="link-row">
+            <a href="#">Live Demo</a><a href="#">Source</a
+            ><span class="arr">↗</span>
+          </div>
+        </div>
+        <div class="l4-card">
+          <div class="card-top">
+            <div class="icon-wrap">🧪</div>
+            <span class="year-badge">2023</span>
+          </div>
+          <h3>Coverage Enforcer Bot</h3>
+          <p>
+            GitHub bot that blocks PRs below coverage threshold and
+            auto-generates test scaffolds.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Go</span><span class="tag">GitHub API</span>
+          </div>
+          <div class="divider"></div>
+          <div class="link-row">
+            <a href="#">Live Demo</a><a href="#">Source</a
+            ><span class="arr">↗</span>
+          </div>
+        </div>
+      </div>
+    </section>

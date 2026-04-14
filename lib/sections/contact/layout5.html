@@ -1,0 +1,191 @@
+<style>
+
+
+input,
+      textarea {
+        width: 100%;
+        background: transparent;
+        outline: none;
+        font-family: var(--font-body), sans-serif;
+        transition: all 0.3s;
+      }
+
+      /* L5 WARM */
+      .l5-contact {
+        background: var(--surface-2);
+        min-height: 100vh;
+        padding: 80px 60px;
+        font-family: var(--font-head), serif;
+      }
+      .l5-contact .kicker {
+        font-size: 12px;
+        letter-spacing: 3px;
+        color: #b45309;
+        text-transform: uppercase;
+        font-family: var(--font-body), sans-serif;
+        margin-bottom: 12px;
+      }
+      .l5-contact .title {
+        font-size: 64px;
+        font-weight: 300;
+        color: #1a1208;
+        line-height: 1;
+        margin-bottom: 8px;
+        letter-spacing: -2px;
+      }
+      .l5-contact .title em {
+        font-style: italic;
+        color: var(--accent-3);
+      }
+      .l5-contact .rule {
+        width: 60px;
+        height: 2px;
+        background: var(--accent-3);
+        margin-top: 20px;
+        margin-bottom: 50px;
+      }
+      .l5-contact-inner {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 80px;
+        align-items: start;
+      }
+      .l5-left h3 {
+        font-size: 24px;
+        font-weight: 300;
+        color: #1a1208;
+        margin-bottom: 16px;
+        line-height: 1.4;
+      }
+      .l5-left p {
+        font-size: 16px;
+        color: #78716c;
+        line-height: 1.8;
+        margin-bottom: 32px;
+        font-family: var(--font-body), sans-serif;
+      }
+      .l5-contact-items {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .l5-contact-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .l5-contact-item .ci-icon {
+        font-size: 16px;
+      }
+      .l5-contact-item a {
+        font-size: 15px;
+        color: var(--accent-3);
+        text-decoration: none;
+        border-bottom: 1px solid #fde68a;
+        font-family: var(--font-body), sans-serif;
+        transition: all 0.2s;
+      }
+      .l5-contact-item a:hover {
+        border-bottom-color: var(--accent-3);
+      }
+      .l5-form .fg {
+        margin-bottom: 20px;
+      }
+      .l5-form label {
+        display: block;
+        font-size: 12px;
+        letter-spacing: 2px;
+        color: #b45309;
+        text-transform: uppercase;
+        font-family: var(--font-body), sans-serif;
+        margin-bottom: 8px;
+      }
+      .l5-form input,
+      .l5-form textarea {
+        border: 1px solid #e7e2d8;
+        border-radius: 4px;
+        padding: 12px 14px;
+        color: #1a1208;
+        font-size: 15px;
+        background: var(--surface);
+      }
+      .l5-form input:focus,
+      .l5-form textarea:focus {
+        border-color: var(--accent-3);
+        outline: none;
+      }
+      .l5-form textarea {
+        height: 110px;
+        resize: none;
+      }
+      .l5-form .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .l5-form .send-btn {
+        padding: 13px 36px;
+        background: #1a1208;
+        color: #fef3c7;
+        border: none;
+        font-size: 13px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        cursor: pointer;
+        font-family: var(--font-body), sans-serif;
+        border-radius: 4px;
+        transition: all 0.3s;
+      }
+      .l5-form .send-btn:hover {
+        background: var(--accent-3);
+      }
+
+
+</style>
+
+<section id="contact" class="l5-contact">
+      <div class="kicker">Get in touch</div>
+      <div class="title"><em>Say Hello</em></div>
+      <div class="rule"></div>
+      <div class="l5-contact-inner">
+        <div class="l5-left">
+          <h3>I'd love to hear about your next project or idea.</h3>
+          <p>
+            Whether you're looking for a developer to join your team, need a
+            freelancer for a specific project, or just want to chat about tech —
+            my inbox is always open.
+          </p>
+          <div class="l5-contact-items">
+            <div class="l5-contact-item">
+              <span class="ci-icon">✉️</span><a href="#">{{EMAIL}}</a>
+            </div>
+            <div class="l5-contact-item">
+              <span class="ci-icon">💼</span
+              ><a href="#">{{LINKEDIN}}</a>
+            </div>
+            <div class="l5-contact-item">
+              <span class="ci-icon">🐙</span><a href="#">{{GITHUB}}</a>
+            </div>
+            <div class="l5-contact-item">
+              <span class="ci-icon">📍</span><a href="#">Bengaluru, India</a>
+            </div>
+          </div>
+        </div>
+        <div class="l5-form">
+          <div class="fg row">
+            <div>
+              <label>Name</label><input type="text" placeholder="Your name" />
+            </div>
+            <div>
+              <label>Email</label
+              ><input type="email" placeholder="you@email.com" />
+            </div>
+          </div>
+          <div class="fg">
+            <label>Message</label
+            ><textarea placeholder="What would you like to discuss?"></textarea>
+          </div>
+          <button class="send-btn">Send Message</button>
+        </div>
+      </div>
+    </section>

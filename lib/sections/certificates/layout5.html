@@ -1,0 +1,218 @@
+<style>
+
+
+/* L5 WARM EDITORIAL */
+      .l5-certs {
+        background: var(--surface-2);
+        min-height: 100vh;
+        padding: 80px 60px;
+        font-family: var(--font-head), serif;
+      }
+      .l5-certs .kicker {
+        font-size: 12px;
+        letter-spacing: 3px;
+        color: #b45309;
+        text-transform: uppercase;
+        font-family: var(--font-body), sans-serif;
+        margin-bottom: 12px;
+      }
+      .l5-certs .title {
+        font-size: 64px;
+        font-weight: 300;
+        color: #1a1208;
+        line-height: 1;
+        margin-bottom: 8px;
+        letter-spacing: -2px;
+      }
+      .l5-certs .title em {
+        font-style: italic;
+        color: var(--accent-3);
+      }
+      .l5-certs .rule {
+        width: 60px;
+        height: 2px;
+        background: var(--accent-3);
+        margin-top: 20px;
+        margin-bottom: 50px;
+      }
+      .l5-cert-layout {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 60px;
+        align-items: start;
+      }
+      .l5-sidebar-info h4 {
+        font-size: 13px;
+        color: #78716c;
+        line-height: 1.8;
+        font-family: var(--font-body), sans-serif;
+        margin-bottom: 20px;
+      }
+      .l5-count {
+        font-size: 80px;
+        font-weight: 300;
+        color: #fde68a;
+        line-height: 1;
+        margin-bottom: 8px;
+      }
+      .l5-count-label {
+        font-size: 12px;
+        color: var(--accent-3);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-family: var(--font-body), sans-serif;
+      }
+      .l5-cert-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+      .l5-cert-row {
+        padding: 24px 0;
+        border-bottom: 1px solid var(--border-2);
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        gap: 24px;
+        align-items: start;
+        cursor: pointer;
+        transition: all 0.25s;
+      }
+      .l5-cert-row:hover {
+        padding-left: 10px;
+      }
+      .l5-cert-row .c-icon {
+        font-size: 24px;
+      }
+      .l5-cert-row .c-content h3 {
+        font-size: 20px;
+        font-weight: 400;
+        color: #1a1208;
+        margin-bottom: 4px;
+        line-height: 1.3;
+      }
+      .l5-cert-row .c-content .org {
+        font-size: 12px;
+        color: #b45309;
+        font-family: var(--font-body), sans-serif;
+        letter-spacing: 1px;
+        margin-bottom: 4px;
+      }
+      .l5-cert-row .c-content .desc {
+        font-size: 14px;
+        color: #78716c;
+        line-height: 1.5;
+        font-family: var(--font-body), sans-serif;
+      }
+      .l5-cert-row .c-right {
+        text-align: right;
+      }
+      .l5-cert-row .c-right .yr {
+        font-size: 11px;
+        color: #bbb;
+        font-family: var(--font-body), sans-serif;
+        letter-spacing: 1px;
+        display: block;
+        margin-bottom: 6px;
+      }
+      .l5-cert-row .c-right .verify-a {
+        font-size: 11px;
+        color: var(--accent-3);
+        text-decoration: none;
+        font-family: var(--font-body), sans-serif;
+        border-bottom: 1px solid #fde68a;
+      }
+
+
+</style>
+
+<section id="certificates" class="l5-certs">
+      <div class="kicker">Credentials</div>
+      <div class="title">My <em>Certifications</em></div>
+      <div class="rule"></div>
+            {{CERTS_LOOP}}
+    <div class="desc">
+                Advanced cloud architecture design and deployment strategies at
+                enterprise scale.
+              </div>
+            </div>
+            <div class="c-right">
+              <span class="yr">2024</span
+              ><a href="#" class="verify-a">Verify</a>
+            </div>
+          </div>
+          <div class="l5-cert-row">
+            <span class="c-icon">🔵</span>
+            <div class="c-content">
+              <h3>GCP Professional Data Engineer</h3>
+              <div class="org">Google Cloud Platform</div>
+              <div class="desc">
+                Designing data pipelines and big data solutions on Google Cloud.
+              </div>
+            </div>
+            <div class="c-right">
+              <span class="yr">2023</span
+              ><a href="#" class="verify-a">Verify</a>
+            </div>
+          </div>
+          <div class="l5-cert-row">
+            <span class="c-icon">🪟</span>
+            <div class="c-content">
+              <h3>Azure Developer Associate AZ-204</h3>
+              <div class="org">Microsoft</div>
+              <div class="desc">
+                Building and deploying cloud solutions on Microsoft Azure
+                platform.
+              </div>
+            </div>
+            <div class="c-right">
+              <span class="yr">2023</span
+              ><a href="#" class="verify-a">Verify</a>
+            </div>
+          </div>
+          <div class="l5-cert-row">
+            <span class="c-icon">🎓</span>
+            <div class="c-content">
+              <h3>Meta Frontend Developer Certificate</h3>
+              <div class="org">Meta / Coursera</div>
+              <div class="desc">
+                Modern React development, UI/UX design and advanced JavaScript
+                patterns.
+              </div>
+            </div>
+            <div class="c-right">
+              <span class="yr">2023</span
+              ><a href="#" class="verify-a">Verify</a>
+            </div>
+          </div>
+          <div class="l5-cert-row">
+            <span class="c-icon">🔐</span>
+            <div class="c-content">
+              <h3>CompTIA Security+ SY0-701</h3>
+              <div class="org">CompTIA</div>
+              <div class="desc">
+                Core cybersecurity skills and threat management fundamentals.
+              </div>
+            </div>
+            <div class="c-right">
+              <span class="yr">2023</span
+              ><a href="#" class="verify-a">Verify</a>
+            </div>
+          </div>
+          <div class="l5-cert-row">
+            <span class="c-icon">🐳</span>
+            <div class="c-content">
+              <h3>Certified Kubernetes Developer (CKAD)</h3>
+              <div class="org">Linux Foundation</div>
+              <div class="desc">
+                Containerization, orchestration and cloud-native application
+                development.
+              </div>
+            </div>
+            <div class="c-right">
+              <span class="yr">2022</span
+              ><a href="#" class="verify-a">Verify</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
