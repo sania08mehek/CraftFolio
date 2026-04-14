@@ -1,190 +1,100 @@
-<!-- HERO · Layout 1 · Midnight Dark -->
-<!-- Placeholders: {{NAME}} {{TITLE}} {{BIO}} {{PROFILE_IMAGE}} -->
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
-
 <style>
-
-
-.hero1 {
-    background: var(--bg);
-    min-height: 92vh; display: flex; align-items: center;
-    padding: 80px 48px; position: relative; overflow: hidden;
-    font-family: var(--font-body), sans-serif;
+  .h1-hero {
+    display: grid; grid-template-columns: 1fr 1fr;
+    min-height: 92vh; align-items: center;
+    padding: 80px 60px; background: var(--bg); gap: 60px;
   }
-  /* Animated background grid */
-  .hero1::before {
-    content: ''; position: absolute; inset: 0;
-    background-image:
-      linear-gradient(rgba(99,102,241,0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(99,102,241,0.06) 1px, transparent 1px);
-    background-size: 60px 60px;
-    animation: gridDrift 20s linear infinite;
+  .h1-eyebrow {
+    font: 11px/1 var(--font-mono, monospace); color: var(--accent);
+    letter-spacing: 4px; text-transform: uppercase; margin-bottom: 20px;
+    display: flex; align-items: center; gap: 10px;
   }
-  @keyframes gridDrift {
-    from { background-position: 0 0; }
-    to   { background-position: 60px 60px; }
+  .h1-eyebrow::before {
+    content:''; display:block; width:28px; height:1px; background:var(--accent);
   }
-  /* Gradient orbs */
-  .hero1-orb1, .hero1-orb2 {
-    position: absolute; border-radius: 50%; pointer-events: none;
-    filter: blur(80px);
+  .h1-name {
+    font: 800 clamp(3rem,6vw,5.5rem)/1 var(--font-head, sans-serif);
+    color: var(--text); letter-spacing: -2px; margin-bottom: 14px;
   }
-  .hero1-orb1 {
-    width: 500px; height: 500px;
-    background: radial-gradient(circle, color-mix(in srgb, var(--accent) 20%, transparent), transparent 70%);
-    top: -150px; right: -100px;
-    animation: float1 8s ease-in-out infinite;
+  .h1-title {
+    font: 500 1.15rem var(--font-body, sans-serif);
+    color: var(--accent-2); margin-bottom: 22px; letter-spacing: 0.3px;
   }
-  .hero1-orb2 {
-    width: 350px; height: 350px;
-    background: radial-gradient(circle, color-mix(in srgb, var(--accent-2) 12%, transparent), transparent 70%);
-    bottom: -100px; left: 10%;
-    animation: float1 10s ease-in-out infinite reverse;
+  .h1-bio {
+    font: 400 1rem/1.8 var(--font-body, sans-serif);
+    color: var(--text-2); max-width: 480px; margin-bottom: 40px;
   }
-  @keyframes float1 {
-    0%,100%{ transform: translateY(0) scale(1); }
-    50%    { transform: translateY(-30px) scale(1.05); }
+  .h1-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .h1-btn-p {
+    padding: 14px 32px; background: var(--accent); color: var(--bg);
+    border-radius: var(--radius-md, 12px); font: 700 14px var(--font-body, sans-serif);
+    text-decoration: none; letter-spacing: 0.5px;
+    transition: all 0.25s; display: inline-block;
   }
-  .hero1-inner {
-    max-width: 1100px; margin: 0 auto; width: 100%;
-    display: grid; grid-template-columns: 1fr auto;
-    gap: 60px; align-items: center; position: relative; z-index: 1;
+  .h1-btn-p:hover { background: var(--accent-2); transform: translateY(-2px); box-shadow: 0 12px 30px color-mix(in srgb, var(--accent) 30%, transparent); }
+  .h1-btn-s {
+    padding: 14px 32px; background: transparent; color: var(--text);
+    border: 1px solid var(--border-2); border-radius: var(--radius-md, 12px);
+    font: 500 14px var(--font-body, sans-serif); text-decoration: none;
+    transition: all 0.25s; display: inline-block;
   }
-  .hero1-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: color-mix(in srgb, var(--accent) 12%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
-    padding: 6px 16px; border-radius: 20px; font-size: 12px; color: var(--accent-2);
-    margin-bottom: 24px; font-weight: 500; letter-spacing: 0.03em;
-    animation: fadeUp 0.6s ease both;
+  .h1-btn-s:hover { border-color: var(--accent); color: var(--accent); }
+  .h1-right { display: flex; flex-direction: column; gap: 16px; }
+  .h1-card {
+    padding: 20px 24px; background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius-lg, 16px); transition: transform 0.3s;
   }
-  .hero1-badge-dot {
-    width: 6px; height: 6px; background: var(--accent);
-    border-radius: 50%; animation: pulse1 2s infinite;
+  .h1-card:hover { transform: translateX(6px); }
+  .h1-card-label {
+    font: 10px/1 var(--font-mono, monospace); color: var(--accent);
+    letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px;
   }
-  @keyframes pulse1 { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.3;transform:scale(1.4)} }
-  @keyframes fadeUp  { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
-  .hero1-h1 {
-    font-family: var(--font-head), sans-serif;
-    font-size: clamp(38px, 6vw, 72px); font-weight: 800;
-    line-height: 1.02; letter-spacing: -0.04em; color: var(--text);
-    animation: fadeUp 0.6s 0.1s ease both;
+  .h1-card-value { font: 700 1rem/1 var(--font-head, sans-serif); color: var(--text); }
+  .h1-card-sub { font: 400 12px var(--font-body, sans-serif); color: var(--text-2); margin-top: 4px; }
+  .h1-avail {
+    display: flex; align-items: center; gap: 8px;
+    padding: 14px 20px; background: color-mix(in srgb, var(--success) 10%, transparent);
+    border: 1px solid color-mix(in srgb, var(--success) 30%, transparent);
+    border-radius: var(--radius-md, 12px); margin-top: 8px;
   }
-  .hero1-h1 .grad {
-    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 50%, var(--accent-2) 100%);
-    background-size: 200% auto;
-    animation: shimmerText 5s linear infinite;
+  .h1-avail-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--success); animation: h1p 2s infinite; }
+  @keyframes h1p { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.2)} }
+  .h1-avail-text { font: 500 13px var(--font-body, sans-serif); color: var(--text-2); }
+  @media (max-width: 768px) {
+    .h1-hero { grid-template-columns: 1fr; }
+    .h1-right { display: none; }
   }
-  @keyframes shimmerText {
-    0%   { background-position: 0% center; }
-    100% { background-position: 200% center; }
-  }
-  .hero1-role {
-    font-size: 18px; color: var(--text-2); margin-top: 12px;
-    font-weight: 400; letter-spacing: 0.02em;
-    animation: fadeUp 0.6s 0.2s ease both;
-  }
-  .hero1-bio {
-    font-size: 16px; color: var(--text-2); line-height: 1.8;
-    max-width: 540px; margin-top: 20px;
-    animation: fadeUp 0.6s 0.3s ease both;
-  }
-  .hero1-actions {
-    display: flex; gap: 14px; margin-top: 36px;
-    animation: fadeUp 0.6s 0.4s ease both;
-  }
-  .hero1-btn-p {
-    padding: 14px 32px;
-    background: linear-gradient(135deg, var(--accent), var(--accent-3));
-    border: none; color: var(--text); border-radius: 10px;
-    font-size: 15px; font-weight: 600; cursor: pointer;
-    font-family: var(--font-body), sans-serif;
-    box-shadow: 0 6px 25px color-mix(in srgb, var(--accent) 40%, transparent);
-    transition: transform 0.2s, box-shadow 0.2s;
-    text-decoration: none; display: inline-block;
-  }
-  .hero1-btn-p:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 40px color-mix(in srgb, var(--accent) 55%, transparent);
-  }
-  .hero1-btn-s {
-    padding: 14px 32px; background: transparent;
-    border: 1px solid var(--border); color: var(--text-2);
-    border-radius: 10px; font-size: 15px; cursor: pointer;
-    font-family: var(--font-body), sans-serif; transition: all 0.2s;
-    text-decoration: none; display: inline-block;
-  }
-  .hero1-btn-s:hover { border-color: var(--text-2); color: var(--text); }
-  /* avatar */
-  .hero1-avatar {
-    width: 200px; height: 200px; border-radius: 20px;
-    position: relative; animation: float1 6s ease-in-out infinite;
-    animation-delay: 1s;
-    flex-shrink: 0;
-  }
-  .hero1-avatar img {
-    width: 100%; height: 100%; object-fit: cover;
-    border-radius: 20px; border: 2px solid color-mix(in srgb, var(--accent) 35%, transparent);
-  }
-  .hero1-avatar-glow {
-    position: absolute; inset: -2px; border-radius: 22px;
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    z-index: -1; opacity: 0.4; filter: blur(12px);
-  }
-  /* stats row */
-  .hero1-stats {
-    display: flex; gap: 36px; margin-top: 40px; padding-top: 32px;
-    border-top: 1px solid var(--border);
-    animation: fadeUp 0.6s 0.5s ease both;
-  }
-  .hero1-stat-num {
-    font-family: var(--font-head), sans-serif; font-size: 28px; font-weight: 800;
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  }
-  .hero1-stat-label {
-    font-size: 12px; color: var(--text-3); text-transform: uppercase;
-    letter-spacing: 0.08em; margin-top: 2px;
-  }
-
-
 </style>
-
-<section id="hero" class="hero1">
-  <div class="hero1-orb1"></div>
-  <div class="hero1-orb2"></div>
-  <div class="hero1-inner">
-    <div>
-      <div class="hero1-badge">
-        <span class="hero1-badge-dot"></span>
-        Available for work
-      </div>
-      <h1 class="hero1-h1">
-        Hi, I'm<br>
-        <span class="grad">{{NAME}}</span>
-      </h1>
-      <p class="hero1-role">{{TITLE}}</p>
-      <p class="hero1-bio">{{BIO}}</p>
-      <div class="hero1-actions">
-        <a class="hero1-btn-p" href="#projects">View My Work</a>
-        <a class="hero1-btn-s" href="#contact">Let's Talk</a>
-      </div>
-      <div class="hero1-stats">
-        <div>
-          <div class="hero1-stat-num">5+</div>
-          <div class="hero1-stat-label">Years Exp.</div>
-        </div>
-        <div>
-          <div class="hero1-stat-num">40+</div>
-          <div class="hero1-stat-label">Projects</div>
-        </div>
-        <div>
-          <div class="hero1-stat-num">12</div>
-          <div class="hero1-stat-label">Clients</div>
-        </div>
-      </div>
+<section id="hero" class="h1-hero" data-animate>
+  <div>
+    <div class="h1-eyebrow">Portfolio · 2025</div>
+    <h1 class="h1-name">{{NAME}}</h1>
+    <div class="h1-title">{{TITLE}}</div>
+    <p class="h1-bio">{{BIO}}</p>
+    <div class="h1-btns">
+      <a class="h1-btn-p" href="#projects">See My Work →</a>
+      <a class="h1-btn-s" href="#contact">Get In Touch</a>
     </div>
-    <div class="hero1-avatar">
-      <div class="hero1-avatar-glow"></div>
-      <img src="{{PROFILE_IMAGE}}" alt="{{NAME}}" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1a1a2e,#16213e)'" />
+  </div>
+  <div class="h1-right">
+    <div class="h1-card">
+      <div class="h1-card-label">Current Role</div>
+      <div class="h1-card-value">{{TITLE}}</div>
+      <div class="h1-card-sub">Open to new opportunities</div>
+    </div>
+    <div class="h1-card">
+      <div class="h1-card-label">Expertise</div>
+      <div class="h1-card-value">Full Stack Development</div>
+      <div class="h1-card-sub">Frontend · Backend · DevOps</div>
+    </div>
+    <div class="h1-card">
+      <div class="h1-card-label">Location</div>
+      <div class="h1-card-value">Remote Worldwide</div>
+      <div class="h1-card-sub">Available for freelance & full-time</div>
+    </div>
+    <div class="h1-avail">
+      <div class="h1-avail-dot"></div>
+      <span class="h1-avail-text">Open to new projects &amp; roles</span>
     </div>
   </div>
 </section>

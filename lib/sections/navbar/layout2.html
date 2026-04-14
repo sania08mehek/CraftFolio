@@ -1,57 +1,23 @@
-<!-- NAVBAR · Layout 2 · Light Minimal -->
-<!-- Placeholders: {{NAME}} {{NAV_LINKS}} -->
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-
 <style>
-
-
-.nav2 {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(250,250,248,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    font-family: var(--font-body), sans-serif;
-  }
-  .nav2-inner {
-    max-width: 1100px; margin: 0 auto;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 48px; height: 68px;
+  .nav2 {
+    position: sticky; top: 0; z-index: 200;
+    background: var(--surface); border-bottom: 1px solid var(--border);
+    padding: 0 56px;
+    display: flex; align-items: center; justify-content: space-between; height: 60px;
   }
   .nav2-logo {
-    font-family: var(--font-head), serif;
-    font-size: 22px; font-style: italic;
-    color: var(--accent); text-decoration: none;
-    letter-spacing: -0.01em;
+    font-family: var(--font-mono, monospace); font-size: 13px; font-weight: 700;
+    letter-spacing: 3px; color: var(--accent); text-decoration: none; text-transform: uppercase;
   }
-  .nav2-links { display: flex; align-items: center; gap: 0; }
-  .nav2-link {
-    color: var(--text-2); text-decoration: none;
-    font-size: 13px; font-weight: 500;
-    padding: 8px 16px; border-radius: 6px;
-    transition: color 0.2s, background 0.2s;
-    letter-spacing: 0.01em;
+  .nav2-links { display: flex; align-items: center; gap: 32px; }
+  .nav1-link {
+    font-family: var(--font-body, sans-serif); font-size: 11.5px;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--text-3); text-decoration: none; transition: color 0.2s; white-space: nowrap;
   }
-  .nav2-link:hover { color: var(--accent); background: var(--bg2); }
-  .nav2-sep { width: 1px; height: 16px; background: var(--border); margin: 0 4px; }
-  .nav2-resume {
-    margin-left: 12px; padding: 8px 20px;
-    border: 1.5px solid var(--accent); border-radius: 6px;
-    color: var(--accent); text-decoration: none;
-    font-size: 13px; font-weight: 600;
-    transition: all 0.18s;
-  }
-  .nav2-resume:hover { background: var(--accent); color: var(--bg); }
-
-
+  .nav1-link:hover { color: var(--accent); }
 </style>
-
-<nav class="nav2">
-  <div class="nav2-inner">
-    <a class="nav2-logo" href="#">{{NAME}}</a>
-    <div class="nav2-links">
-      {{NAV_LINKS}}
-      <div class="nav2-sep"></div>
-      <a class="nav2-resume" href="#">Resume ↗</a>
-    </div>
-  </div>
+<nav id="navbar" class="nav2">
+  <a class="nav2-logo" href="#hero">{{NAME}}</a>
+  <div class="nav2-links">{{NAV_LINKS}}</div>
 </nav>

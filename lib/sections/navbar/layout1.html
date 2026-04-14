@@ -1,68 +1,38 @@
-<!-- NAVBAR · Layout 1 · Midnight Dark -->
-<!-- Placeholders: {{NAME}} {{NAV_LINKS}} -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
-
 <style>
-
-
-.nav1 {
-    position: sticky; top: 0; z-index: 100;
-    background: color-mix(in srgb, var(--bg) 85%, transparent);
-    backdrop-filter: blur(20px);
+  .nav1 {
+    position: sticky; top: 0; z-index: 200;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
     border-bottom: 1px solid var(--border);
-    font-family: var(--font-head), sans-serif;
-  }
-  .nav1-inner {
-    max-width: 1100px; margin: 0 auto;
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    padding: 0 40px;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 0 40px; height: 64px;
+    height: 64px; gap: 24px;
   }
   .nav1-logo {
-    font-size: 20px; font-weight: 800; letter-spacing: -0.02em;
+    font-family: var(--font-head, sans-serif); font-size: 20px; font-weight: 800;
     background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    text-decoration: none;
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+    white-space: nowrap; text-decoration: none; flex-shrink: 0;
   }
-  .nav1-links { display: flex; align-items: center; gap: 8px; }
+  .nav1-links { display: flex; align-items: center; gap: 2px; flex-wrap: wrap; justify-content: center; }
   .nav1-link {
-    color: var(--text-2); text-decoration: none;
-    font-size: 13px; font-weight: 500; letter-spacing: 0.06em;
-    text-transform: uppercase; padding: 8px 14px; border-radius: 8px;
-    transition: all 0.2s; position: relative;
+    padding: 7px 14px; border-radius: var(--radius-sm, 8px);
+    font-family: var(--font-body, sans-serif); font-size: 13px; font-weight: 500;
+    color: var(--text-2); text-decoration: none; transition: all 0.2s; white-space: nowrap;
   }
-  .nav1-link:hover { color: var(--text); background: color-mix(in srgb, var(--accent) 12%, transparent); }
-  .nav1-link.active { color: var(--accent-2); }
-  .nav1-dot {
-    width: 6px; height: 6px; background: var(--accent); border-radius: 50%;
-    animation: pulse1 2s infinite;
-  }
-  @keyframes pulse1 {
-    0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(1.4)}
-  }
+  .nav1-link:hover { color: var(--text); background: color-mix(in srgb, var(--accent) 10%, transparent); }
   .nav1-cta {
-    padding: 8px 20px; background: linear-gradient(135deg,var(--accent),var(--accent-3));
-    border-radius: 8px; color: var(--text); font-size: 13px; font-weight: 600;
-    text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 4px 15px color-mix(in srgb, var(--accent) 30%, transparent);
+    flex-shrink: 0; padding: 9px 22px;
+    background: var(--accent); color: var(--bg);
+    border-radius: var(--radius-sm, 8px); font-family: var(--font-body, sans-serif);
+    font-size: 13px; font-weight: 700; text-decoration: none; transition: 0.2s;
+    white-space: nowrap; letter-spacing: 0.4px;
   }
-  .nav1-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 25px color-mix(in srgb, var(--accent) 45%, transparent); }
-
-
+  .nav1-cta:hover { background: var(--accent-2); transform: translateY(-1px); }
 </style>
-
-<nav class="nav1">
-  <div class="nav1-inner">
-    <a class="nav1-logo" href="#">{{NAME}}</a>
-    <div class="nav1-links">
-      <div class="nav1-dot"></div>
-      {{NAV_LINKS}}
-      <a class="nav1-cta" href="#contact">Hire Me</a>
-    </div>
-  </div>
+<nav id="navbar" class="nav1">
+  <a class="nav1-logo" href="#hero">{{NAME}}</a>
+  <div class="nav1-links">{{NAV_LINKS}}</div>
+  <a class="nav1-cta" href="#contact">Hire Me</a>
 </nav>
-
-<!-- NAV_LINKS example:
-<a class="nav1-link" href="#about">About</a>
-<a class="nav1-link" href="#skills">Skills</a>
-<a class="nav1-link" href="#projects">Projects</a>
--->
