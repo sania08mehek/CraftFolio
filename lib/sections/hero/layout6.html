@@ -1,179 +1,62 @@
-<!-- HERO · Layout 6 · 3D Depth (Bold Gold Dark) -->
-<!-- Placeholders: {{NAME}} {{TITLE}} {{BIO}} {{PROFILE_IMAGE}} -->
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-
 <style>
-
-
-.hero6 {
-    background: #0f0a1e;
-    min-height: 92vh; display: flex; align-items: center;
-    padding: 80px 48px; position: relative; overflow: hidden;
-    font-family: var(--font-body), sans-serif;
+  .h3-hero {
+    min-height: 92vh; display: flex; flex-direction: column;
+    justify-content: center; padding: 80px 64px; background: var(--bg);
+    position: relative; overflow: hidden;
   }
-  /* layered depth background */
-  .hero6::before {
-    content: ''; position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 60% 50% at 70% 50%, rgba(255,200,50,0.06), transparent),
-      radial-gradient(ellipse 40% 60% at 80% 30%, rgba(255,107,53,0.05), transparent),
-      radial-gradient(ellipse 50% 40% at 20% 70%, rgba(255,200,50,0.04), transparent);
-    pointer-events: none;
+  .h3-hero::before {
+    content: attr(data-name);
+    position: absolute; right: -2%; top: 50%; transform: translateY(-50%);
+    font: 900 22vw/1 var(--font-head, sans-serif); color: var(--surface);
+    pointer-events: none; user-select: none; white-space: nowrap; letter-spacing: -8px;
   }
-  /* animated gold particles */
-  .hero6-particle {
-    position: absolute; pointer-events: none; border-radius: 50%;
+  .h3-index {
+    font: 11px var(--font-mono, monospace); color: var(--text-3);
+    letter-spacing: 4px; text-transform: uppercase; margin-bottom: 48px;
   }
-  .hero6-p1{width:2px;height:2px;background:#ffc832;top:15%;left:20%;animation:twinkle6 3s infinite;}
-  .hero6-p2{width:3px;height:3px;background:#ff6b35;top:40%;right:25%;animation:twinkle6 4s 1s infinite;}
-  .hero6-p3{width:2px;height:2px;background:#ffc832;bottom:25%;left:35%;animation:twinkle6 2.5s 0.5s infinite;}
-  .hero6-p4{width:3px;height:3px;background:#ff6b35;bottom:35%;right:15%;animation:twinkle6 3.5s 2s infinite;}
-  @keyframes twinkle6 {
-    0%,100%{opacity:0.15;transform:scale(1)} 50%{opacity:1;transform:scale(2)}
+  .h3-role {
+    font: 500 1rem var(--font-mono, monospace); color: var(--accent);
+    letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px;
   }
-  .hero6-inner {
-    max-width: 1100px; margin: 0 auto; width: 100%;
-    position: relative; z-index: 1;
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 60px; align-items: center;
+  .h3-name {
+    font: 800 clamp(3rem,7vw,6.5rem)/1 var(--font-head, sans-serif);
+    color: var(--text); letter-spacing: -3px; margin-bottom: 32px; max-width: 700px;
   }
-  .hero6-tag {
-    display: inline-flex; align-items: center; gap: 10px;
-    background: rgba(255,200,50,0.08); border: 1px solid rgba(255,200,50,0.2);
-    padding: 6px 16px; border-radius: 4px; margin-bottom: 24px;
-    animation: fadeUp6 0.5s ease both;
+  .h3-line { width: 60px; height: 2px; background: var(--accent); margin-bottom: 28px; }
+  .h3-bio {
+    font: 400 1rem/1.85 var(--font-body, sans-serif);
+    color: var(--text-2); max-width: 520px; margin-bottom: 44px;
   }
-  .hero6-tag-dot { width: 6px; height: 6px; background: #ffc832; border-radius: 50%; animation: pulse6 2s infinite; box-shadow: 0 0 6px #ffc832; }
-  @keyframes pulse6 { 0%,100%{opacity:1} 50%{opacity:0.3} }
-  .hero6-tag-text { font-size: 12px; color: #ffc832; letter-spacing: 0.08em; text-transform: uppercase; }
-  @keyframes fadeUp6 { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
-  .hero6-h1 {
-    font-family: var(--font-head), sans-serif;
-    font-size: clamp(40px, 6.5vw, 80px); font-weight: 800;
-    line-height: 1.0; letter-spacing: -0.03em; color: var(--surface)8e8;
-    animation: fadeUp6 0.5s 0.1s ease both;
+  .h3-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .h3-btn-p {
+    padding: 13px 30px; background: var(--accent); color: var(--bg);
+    border-radius: var(--radius-sm, 8px); font: 700 13px var(--font-body, sans-serif);
+    text-decoration: none; letter-spacing: 0.5px; transition: all 0.25s;
   }
-  .hero6-h1 .gold {
-    background: linear-gradient(135deg, #ffc832, #ff6b35);
+  .h3-btn-p:hover { background: var(--accent-2); transform: translateY(-2px); }
+  .h3-btn-s {
+    padding: 13px 30px; background: transparent; color: var(--text-2);
+    font: 500 13px var(--font-body, sans-serif); text-decoration: none;
+    transition: color 0.2s; display: flex; align-items: center; gap: 8px;
   }
-  .hero6-role {
-    font-size: 17px; color: rgba(255,248,232,0.45);
-    margin-top: 14px; font-weight: 300;
-    animation: fadeUp6 0.5s 0.2s ease both;
+  .h3-btn-s:hover { color: var(--accent); }
+  .h3-scroll {
+    position: absolute; bottom: 32px; left: 64px;
+    display: flex; align-items: center; gap: 12px;
+    font: 11px var(--font-mono, monospace); color: var(--text-3);
+    letter-spacing: 2px; text-transform: uppercase;
   }
-  .hero6-bio {
-    font-size: 16px; color: rgba(255,248,232,0.4); line-height: 1.8;
-    max-width: 500px; margin-top: 20px;
-    animation: fadeUp6 0.5s 0.3s ease both;
-  }
-  .hero6-actions {
-    display: flex; gap: 14px; margin-top: 36px;
-    animation: fadeUp6 0.5s 0.4s ease both;
-  }
-  .hero6-btn-p {
-    padding: 14px 34px;
-    background: linear-gradient(135deg, #ffc832, #ff6b35);
-    border: none; color: #0f0a1e; border-radius: 8px;
-    font-size: 14px; font-weight: 700; cursor: pointer;
-    font-family: var(--font-body), sans-serif;
-    box-shadow: 0 6px 25px rgba(255,200,50,0.4),
-                0 0 0 0 rgba(255,200,50,0);
-    transition: all 0.2s; text-decoration: none; display: inline-block;
-    letter-spacing: 0.03em;
-  }
-  .hero6-btn-p:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 40px rgba(255,200,50,0.55), 0 0 60px rgba(255,107,53,0.2);
-  }
-  .hero6-btn-s {
-    padding: 14px 34px; background: transparent;
-    border: 1px solid rgba(255,200,50,0.25); color: rgba(255,248,232,0.7);
-    border-radius: 8px; font-size: 14px; cursor: pointer;
-    font-family: var(--font-body), sans-serif; transition: all 0.2s;
-    text-decoration: none; display: inline-block;
-  }
-  .hero6-btn-s:hover { border-color: #ffc832; color: #ffc832; }
-  /* right side - stacked 3D cards */
-  .hero6-right {
-    position: relative; height: 420px;
-    animation: fadeUp6 0.5s 0.3s ease both;
-  }
-  .hero6-card-back {
-    position: absolute; inset: 0; top: 20px; left: 20px;
-    background: rgba(255,200,50,0.06); border: 1px solid rgba(255,200,50,0.15);
-    border-radius: 20px; transform: rotate(3deg);
-  }
-  .hero6-card-mid {
-    position: absolute; inset: 0; top: 10px; left: 10px;
-    background: rgba(255,200,50,0.08); border: 1px solid rgba(255,200,50,0.2);
-    border-radius: 20px; transform: rotate(1.5deg);
-  }
-  .hero6-card-front {
-    position: absolute; inset: 0;
-    background: rgba(35,22,64,0.9); border: 1px solid rgba(255,200,50,0.25);
-    border-radius: 20px; overflow: hidden;
-    box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,200,50,0.1);
-  }
-  .hero6-card-img {
-    width: 100%; height: 70%; object-fit: cover; object-position: top;
-    background: linear-gradient(135deg, #1a1030, #231640);
-    display: block;
-  }
-  .hero6-card-info {
-    padding: 20px 24px;
-    border-top: 1px solid rgba(255,200,50,0.15);
-  }
-  .hero6-card-name {
-    font-family: var(--font-head), sans-serif; font-size: 18px; font-weight: 700; color: var(--surface)8e8;
-  }
-  .hero6-card-title {
-    font-size: 13px; color: #ffc832; margin-top: 3px;
-  }
-  .hero6-badge-float {
-    position: absolute; top: -12px; right: 24px;
-    background: linear-gradient(135deg, #ffc832, #ff6b35);
-    color: #0f0a1e; font-size: 12px; font-weight: 700;
-    padding: 6px 14px; border-radius: 20px;
-    letter-spacing: 0.04em;
-  }
-
-
+  .h3-scroll-line { width: 48px; height: 1px; background: var(--text-3); }
 </style>
-
-<section id="hero" class="hero6">
-  <div class="hero6-particle hero6-p1"></div>
-  <div class="hero6-particle hero6-p2"></div>
-  <div class="hero6-particle hero6-p3"></div>
-  <div class="hero6-particle hero6-p4"></div>
-
-  <div class="hero6-inner">
-    <div>
-      <div class="hero6-tag">
-        <span class="hero6-tag-dot"></span>
-        <span class="hero6-tag-text">Open to Work</span>
-      </div>
-      <h1 class="hero6-h1">
-        Hello, I'm<br>
-        <span class="gold">{{NAME}}</span>
-      </h1>
-      <p class="hero6-role">{{TITLE}}</p>
-      <p class="hero6-bio">{{BIO}}</p>
-      <div class="hero6-actions">
-        <a class="hero6-btn-p" href="#projects">View Projects</a>
-        <a class="hero6-btn-s" href="#contact">Let's Talk</a>
-      </div>
-    </div>
-    <div class="hero6-right">
-      <div class="hero6-card-back"></div>
-      <div class="hero6-card-mid"></div>
-      <div class="hero6-card-front">
-        <img class="hero6-card-img" src="{{PROFILE_IMAGE}}" alt="{{NAME}}" onerror="this.style.display='none'" />
-        <div class="hero6-card-info">
-          <div class="hero6-card-name">{{NAME}}</div>
-          <div class="hero6-card-title">{{TITLE}}</div>
-        </div>
-        <div class="hero6-badge-float">Available ✦</div>
-      </div>
-    </div>
+<section id="hero" class="h3-hero" data-name="{{NAME}}">
+  <div class="h3-index">Portfolio — 2025</div>
+  <div class="h3-role">{{TITLE}}</div>
+  <h1 class="h3-name">{{NAME}}</h1>
+  <div class="h3-line"></div>
+  <p class="h3-bio">{{BIO}}</p>
+  <div class="h3-btns">
+    <a class="h3-btn-p" href="#projects">See My Work →</a>
+    <a class="h3-btn-s" href="#contact">Let's Talk ↗</a>
   </div>
+  <div class="h3-scroll"><div class="h3-scroll-line"></div>Scroll to explore</div>
 </section>

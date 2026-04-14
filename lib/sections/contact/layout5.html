@@ -1,191 +1,42 @@
 <style>
-
-
-input,
-      textarea {
-        width: 100%;
-        background: transparent;
-        outline: none;
-        font-family: var(--font-body), sans-serif;
-        transition: all 0.3s;
-      }
-
-      /* L5 WARM */
-      .l5-contact {
-        background: var(--surface-2);
-        min-height: 100vh;
-        padding: 80px 60px;
-        font-family: var(--font-head), serif;
-      }
-      .l5-contact .kicker {
-        font-size: 12px;
-        letter-spacing: 3px;
-        color: #b45309;
-        text-transform: uppercase;
-        font-family: var(--font-body), sans-serif;
-        margin-bottom: 12px;
-      }
-      .l5-contact .title {
-        font-size: 64px;
-        font-weight: 300;
-        color: #1a1208;
-        line-height: 1;
-        margin-bottom: 8px;
-        letter-spacing: -2px;
-      }
-      .l5-contact .title em {
-        font-style: italic;
-        color: var(--accent-3);
-      }
-      .l5-contact .rule {
-        width: 60px;
-        height: 2px;
-        background: var(--accent-3);
-        margin-top: 20px;
-        margin-bottom: 50px;
-      }
-      .l5-contact-inner {
-        display: grid;
-        grid-template-columns: 1fr 1.5fr;
-        gap: 80px;
-        align-items: start;
-      }
-      .l5-left h3 {
-        font-size: 24px;
-        font-weight: 300;
-        color: #1a1208;
-        margin-bottom: 16px;
-        line-height: 1.4;
-      }
-      .l5-left p {
-        font-size: 16px;
-        color: #78716c;
-        line-height: 1.8;
-        margin-bottom: 32px;
-        font-family: var(--font-body), sans-serif;
-      }
-      .l5-contact-items {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-      }
-      .l5-contact-item {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-      .l5-contact-item .ci-icon {
-        font-size: 16px;
-      }
-      .l5-contact-item a {
-        font-size: 15px;
-        color: var(--accent-3);
-        text-decoration: none;
-        border-bottom: 1px solid #fde68a;
-        font-family: var(--font-body), sans-serif;
-        transition: all 0.2s;
-      }
-      .l5-contact-item a:hover {
-        border-bottom-color: var(--accent-3);
-      }
-      .l5-form .fg {
-        margin-bottom: 20px;
-      }
-      .l5-form label {
-        display: block;
-        font-size: 12px;
-        letter-spacing: 2px;
-        color: #b45309;
-        text-transform: uppercase;
-        font-family: var(--font-body), sans-serif;
-        margin-bottom: 8px;
-      }
-      .l5-form input,
-      .l5-form textarea {
-        border: 1px solid #e7e2d8;
-        border-radius: 4px;
-        padding: 12px 14px;
-        color: #1a1208;
-        font-size: 15px;
-        background: var(--surface);
-      }
-      .l5-form input:focus,
-      .l5-form textarea:focus {
-        border-color: var(--accent-3);
-        outline: none;
-      }
-      .l5-form textarea {
-        height: 110px;
-        resize: none;
-      }
-      .l5-form .row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 14px;
-      }
-      .l5-form .send-btn {
-        padding: 13px 36px;
-        background: #1a1208;
-        color: #fef3c7;
-        border: none;
-        font-size: 13px;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        cursor: pointer;
-        font-family: var(--font-body), sans-serif;
-        border-radius: 4px;
-        transition: all 0.3s;
-      }
-      .l5-form .send-btn:hover {
-        background: var(--accent-3);
-      }
-
-
+  .c2-contact { padding: 96px 60px; background: var(--bg); text-align: center; }
+  .c2-eyebrow { font: 11px var(--font-mono, monospace); color: var(--accent); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 14px; }
+  .c2-heading { font: 800 clamp(2.5rem,6vw,5rem)/1 var(--font-head, sans-serif); color: var(--text); letter-spacing: -2px; margin-bottom: 20px; }
+  .c2-sub { font: 400 1rem/1.75 var(--font-body, sans-serif); color: var(--text-2); max-width: 520px; margin: 0 auto 48px; }
+  .c2-form-wrap { max-width: 560px; margin: 0 auto; }
+  .c2-form-group { margin-bottom: 16px; text-align: left; }
+  .c2-form label { display: block; font: 10px var(--font-mono, monospace); color: var(--text-3); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+  .c2-form input, .c2-form textarea { width: 100%; border: 1px solid var(--border); border-radius: var(--radius-sm, 8px); padding: 13px 18px; font: 14px var(--font-body, sans-serif); }
+  .c2-form textarea { height: 120px; resize: vertical; }
+  .c2-submit {
+    width: 100%; padding: 16px; background: var(--accent); color: var(--bg);
+    border: none; border-radius: var(--radius-md, 12px); font: 700 14px var(--font-body, sans-serif);
+    cursor: pointer; letter-spacing: 1px; text-transform: uppercase; transition: all 0.25s; margin-top: 8px;
+  }
+  .c2-submit:hover { background: var(--accent-2); transform: translateY(-2px); }
+  .c2-divider { display: flex; align-items: center; gap: 14px; margin: 36px 0; }
+  .c2-divider-line { flex: 1; height: 1px; background: var(--border); }
+  .c2-divider-text { font: 11px var(--font-mono, monospace); color: var(--text-3); letter-spacing: 2px; text-transform: uppercase; }
+  .c2-links { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+  .c2-link { padding: 12px 24px; border: 1px solid var(--border-2); border-radius: var(--radius-sm, 8px); font: 500 13px var(--font-body, sans-serif); color: var(--text-2); text-decoration: none; transition: all 0.2s; }
+  .c2-link:hover { border-color: var(--accent); color: var(--accent); }
 </style>
-
-<section id="contact" class="l5-contact">
-      <div class="kicker">Get in touch</div>
-      <div class="title"><em>Say Hello</em></div>
-      <div class="rule"></div>
-      <div class="l5-contact-inner">
-        <div class="l5-left">
-          <h3>I'd love to hear about your next project or idea.</h3>
-          <p>
-            Whether you're looking for a developer to join your team, need a
-            freelancer for a specific project, or just want to chat about tech —
-            my inbox is always open.
-          </p>
-          <div class="l5-contact-items">
-            <div class="l5-contact-item">
-              <span class="ci-icon">✉️</span><a href="#">{{EMAIL}}</a>
-            </div>
-            <div class="l5-contact-item">
-              <span class="ci-icon">💼</span
-              ><a href="#">{{LINKEDIN}}</a>
-            </div>
-            <div class="l5-contact-item">
-              <span class="ci-icon">🐙</span><a href="#">{{GITHUB}}</a>
-            </div>
-            <div class="l5-contact-item">
-              <span class="ci-icon">📍</span><a href="#">Bengaluru, India</a>
-            </div>
-          </div>
-        </div>
-        <div class="l5-form">
-          <div class="fg row">
-            <div>
-              <label>Name</label><input type="text" placeholder="Your name" />
-            </div>
-            <div>
-              <label>Email</label
-              ><input type="email" placeholder="you@email.com" />
-            </div>
-          </div>
-          <div class="fg">
-            <label>Message</label
-            ><textarea placeholder="What would you like to discuss?"></textarea>
-          </div>
-          <button class="send-btn">Send Message</button>
-        </div>
-      </div>
-    </section>
+<section id="contact" class="c2-contact">
+  <div class="c2-eyebrow">Contact</div>
+  <h2 class="c2-heading">Say Hello</h2>
+  <p class="c2-sub">Have a project in mind or just want to talk? I'd love to hear from you.</p>
+  <div class="c2-form-wrap">
+    <div class="c2-form">
+      <div class="c2-form-group"><label>Name</label><input type="text" placeholder="Your name"></div>
+      <div class="c2-form-group"><label>Email</label><input type="email" placeholder="you@email.com"></div>
+      <div class="c2-form-group"><label>Message</label><textarea placeholder="What would you like to discuss?"></textarea></div>
+      <button class="c2-submit">Send Message</button>
+    </div>
+    <div class="c2-divider"><div class="c2-divider-line"></div><span class="c2-divider-text">or find me at</span><div class="c2-divider-line"></div></div>
+    <div class="c2-links">
+      <a class="c2-link" href="mailto:{{EMAIL}}">✉️ {{EMAIL}}</a>
+      <a class="c2-link" href="{{GITHUB}}" target="_blank" rel="noopener">🐙 GitHub</a>
+      <a class="c2-link" href="{{LINKEDIN}}" target="_blank" rel="noopener">💼 LinkedIn</a>
+    </div>
+  </div>
+</section>
