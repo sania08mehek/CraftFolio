@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import TopNav from './TopNav';
 import { LOADING_STEPS } from '../constants';
 
 const Loading = ({ onComplete }) => {
@@ -18,7 +17,6 @@ const Loading = ({ onComplete }) => {
 
   return (
     <div>
-      <TopNav step={2} onBack={() => {}} />
       <div className="loading-page">
         <div className="forge-container">
           <div className="forge-ring"></div>
